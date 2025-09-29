@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div {
+  @apply bg-red-50 text-center text-blue-800 font-sans text-6xl;
+}
