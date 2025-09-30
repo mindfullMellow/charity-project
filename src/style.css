@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-div {
-  @apply bg-red-50 text-center text-blue-800 font-sans text-6xl;
+.section-hero {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(17, 22, 24, 0.4),
+      rgb(17, 22, 24, 0.6)
+    ),
+    url("/Assets/img/homePage/man-smiling.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  background-position: auto;
 }

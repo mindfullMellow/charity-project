@@ -6,6 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+
+        'footer-texture': "url('/img/footer-texture.png')",
+      },
+      colors: {
+        'header-color': '#111618',
+        'brand-color': '#13a4ec',
+        'btn-hover': ' #067fc3',
+      },
       fontFamily: {
         'heading': ['Montserrat', 'Arial', 'Verdana', 'sans-serif'],
         'body': ['Lato', 'Arial', 'Verdana', 'sans-serif'],
@@ -18,8 +27,8 @@ module.exports = {
         h4: ['1.75rem', { lineHeight: '1.35' }],   // 28px
         h5: ['1.375rem', { lineHeight: '1.4' }],   // 22px
         h6: ['1.125rem', { lineHeight: '1.5' }],   // 18px
-        lead: ['1.25rem', { lineHeight: '1.75' }], // 20px - Intro paragraphs
-        body: ['1rem', { lineHeight: '1.6' }],     // 16px
+        lead: ['1.25rem', { lineHeight: '1.5' }], // 20px - Intro paragraphs
+        body: ['1rem', { lineHeight: '1.5' }],     // 16px
         small: ['0.875rem', { lineHeight: '1.6' }], // 14px
         xs: ['0.75rem', { lineHeight: '1.5' }],    // 12px - Legal/fine print
       },
