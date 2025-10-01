@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  @apply bg-brand-color text-header-color;
+}
+
+.section {
+  margin: 80px 24px 80px 24px;
+}
 .section-hero {
   background-image: linear-gradient(
       to bottom,
@@ -11,5 +18,58 @@
     url("/Assets/img/homePage/man-smiling.jpg");
   min-height: 100vh;
   background-size: cover;
-  background-position: auto;
+}
+
+.camp-img1 {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(17, 22, 24, 0.2),
+      rgb(17, 22, 24, 1)
+    ),
+    url("/Assets/img/homePage/warTornGaza.webp");
+  min-height: 500px;
+  min-width: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
+  @apply rounded-lg overflow-hidden;
+}
+
+.camp-img2 {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(17, 22, 24, 0.4),
+      rgb(17, 22, 24, 0.6)
+    ),
+    url("/Assets/img/homePage/EnviromentalProtect.webp");
+  min-height: 500px;
+  min-width: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
+  @apply rounded-lg overflow-hidden;
+}
+
+.camp-img3 {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(17, 22, 24, 0.4),
+      rgb(17, 22, 24, 0.6)
+    ),
+    url("/Assets/img/homePage/ukraineFlag.webp");
+  min-height: 500px;
+  min-width: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
+  @apply rounded-lg overflow-hidden;
+}
+
+.camp-img1:hover,
+.camp-img2:hover,
+.camp-img3:hover {
+  transform: scale(1.01);
 }
