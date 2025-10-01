@@ -14,6 +14,8 @@ module.exports = {
         'header-color': '#111618',
         'brand-color': '#13a4ec',
         'btn-hover': ' #067fc3',
+        'brand-dark-accent': '#092e48',
+        'white-accent': '#f0f3f4'
       },
       fontFamily: {
         'heading': ['Montserrat', 'Arial', 'Verdana', 'sans-serif'],
@@ -40,6 +42,7 @@ module.exports = {
         lg: '2rem',      // 32px
         xl: '3rem',      // 48px
         xxl: '4rem',     // 64px
+        section: '5rem'   // 80px
       },
       borderRadius: {
         none: '0',        // Square corners

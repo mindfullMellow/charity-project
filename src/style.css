@@ -2,13 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+/////////////////////////////////////////////////
+HELPER CLASS
+////////////////////////////////////////////////
+*/
 ::selection {
-  @apply bg-brand-color text-header-color;
+  @apply bg-brand-color text-white;
 }
 
-.section {
-  margin: 80px 24px 80px 24px;
+.cta-btn {
+  @apply bg-brand-color text-white transition-all duration-300 rounded-lg;
 }
+
+.cta-btn:hover {
+  @apply bg-btn-hover;
+}
+
+/* 
+/////////////////////////////////////////////////
+SECTION-HERO STYLES
+////////////////////////////////////////////////
+*/
 .section-hero {
   background-image: linear-gradient(
       to bottom,
@@ -19,6 +34,12 @@
   min-height: 100vh;
   background-size: cover;
 }
+
+/* 
+/////////////////////////////////////////////////
+SECTION-CAMPAIGN STLYES
+////////////////////////////////////////////////
+*/
 
 .camp-img1 {
   background-image: linear-gradient(
@@ -39,8 +60,8 @@
 .camp-img2 {
   background-image: linear-gradient(
       to bottom,
-      rgb(17, 22, 24, 0.4),
-      rgb(17, 22, 24, 0.6)
+      rgb(17, 22, 24, 0.2),
+      rgb(17, 22, 24, 1)
     ),
     url("/Assets/img/homePage/EnviromentalProtect.webp");
   min-height: 500px;
@@ -55,8 +76,8 @@
 .camp-img3 {
   background-image: linear-gradient(
       to bottom,
-      rgb(17, 22, 24, 0.4),
-      rgb(17, 22, 24, 0.6)
+      rgb(17, 22, 24, 0.2),
+      rgb(17, 22, 24, 1)
     ),
     url("/Assets/img/homePage/ukraineFlag.webp");
   min-height: 500px;
@@ -70,6 +91,117 @@
 
 .camp-img1:hover,
 .camp-img2:hover,
-.camp-img3:hover {
+.camp-img3:hover,
+.vol-img1:hover,
+.vol-img2:hover,
+.vol-img3:hover {
   transform: scale(1.01);
+  box-shadow: 0 8px 6px 2px rgba(19, 164, 236, 0.3);
+}
+
+/* 
+/////////////////////////////////////////////////
+SECTION-VOLUNTEERS STLYES
+////////////////////////////////////////////////
+*/
+.vol-img1 {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(17, 22, 24, 0.2),
+      rgb(17, 22, 24, 0.9)
+    ),
+    url("/Assets/img/homePage/AhmetKurt.webp");
+  min-height: 500px;
+  min-width: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
+  @apply rounded-lg overflow-hidden;
+}
+
+.vol-img2 {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(17, 22, 24, 0.2),
+      rgb(17, 22, 24, 0.9)
+    ),
+    url("/Assets/img/homePage/donation.webp");
+  min-height: 500px;
+  min-width: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
+  @apply rounded-lg overflow-hidden;
+}
+
+.vol-img3 {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(17, 22, 24, 0.2),
+      rgb(17, 22, 24, 0.9)
+    ),
+    url("/Assets/img/homePage/support.webp");
+  min-height: 500px;
+  min-width: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
+  @apply rounded-lg overflow-hidden;
+}
+
+/* 
+/////////////////////////////////////////////////
+SECTION-NEWSLETTER STLYES
+////////////////////////////////////////////////
+*/
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  overflow: hidden;
+  background-image: linear-gradient(to right bottom, #13a4ec, #067fc3);
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  @apply rounded-lg;
+}
+
+.news-content {
+  @apply pt-xl px-xxl pb-xxl;
+}
+
+.news-img {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(9, 46, 72, 0.35),
+      rgb(9, 46, 72, 0.35)
+    ),
+    url("/Assets/img/homePage/news-img.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.news-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  row-gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-form label {
+  @apply font-medium block text-body mb-xs;
+}
+
+.news-form input,
+.news-form select {
+  width: 100%;
+  @apply text-h6 p-3;
+  border: none;
+  color: inherit;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
