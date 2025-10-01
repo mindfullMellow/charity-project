@@ -30,7 +30,7 @@ SECTION-HERO STYLES
       rgb(17, 22, 24, 0.4),
       rgb(17, 22, 24, 0.6)
     ),
-    url("/Assets/img/homePage/man-smiling.jpg");
+    url("/Assets/img/homePage/man-smilingw.webp");
   min-height: 100vh;
   background-size: cover;
 }
@@ -198,10 +198,9 @@ SECTION-NEWSLETTER STLYES
 .news-form input,
 .news-form select {
   width: 100%;
-  @apply text-h6 p-3;
+  @apply text-h6 p-3 bg-white-accent;
   border: none;
   color: inherit;
-  background-color: #fdf2e9;
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
