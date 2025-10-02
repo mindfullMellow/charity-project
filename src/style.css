@@ -67,6 +67,10 @@ SECTION-HERO STYLES
   background-position: center;
 }
 
+.nav-hover {
+  @apply pb-1 border-transparent border-b-[3px] hover:border-brand-color transition-all duration-300 ease-linear;
+}
+
 /* 
 /////////////////////////////////////////////////
 SECTION-CAMPAIGN STLYES
