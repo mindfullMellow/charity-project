@@ -1,4 +1,62 @@
 'use strict'
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css'; // base styles
 
+///////////////////////////////////////////
+//GLOBAL VARIABLES
+///////////////////////////////////////////
+const dataArr = []
+const peopleReached = document.querySelector('.people-reached')
+const countries = document.querySelectorAll('.country')
+console.log(countries);
+
+/////////////////////////////////////////////////////
+//PEOPLE REACHED SECTION LOGIC
+////////////////////////////////////////////////////
+countries.forEach(cur => {
+  if (cur.dataset.content.includes('million')) {
+    const millionvar = parseFloat(cur.dataset.content) * 1000000
+    dataArr.push(millionvar)
+  } else {
+    dataArr.push(parseFloat(cur.dataset.content.replace(/,/g, ""), 10))
+  }
+
+})
+const totalPeopleReached = dataArr.reduce((acc, cur) => acc + cur, 0).toString()
+
+if (totalPeopleReached.length === 7) {
+  peopleReached.textContent = `${totalPeopleReached[0]}.${totalPeopleReached[1]}${totalPeopleReached[2]}  Million`
+}
+
+
+countries.forEach(country => {
+  const countryName = country.getAttribute('name')
+  const people = country.dataset.content
+  console.log(countryName, people);
+
+  tippy(country, {
+    content:
+      `<div class="flex flex-col gap-xxs items-start ">
+    <span class=" font-bold text-body font-heading">${countryName}</span>
+    <span class="text-body">People Reached: ${people}</span>
+    </div>`,
+    placement: 'top',
+    theme: 'custom',
+    arrow: true,
+    animation: 'scale',
+    allowHTML: true,
+    maxWidth: 400,
+    delay: [0, 0],
+    duration: 0,
+  })
+})
+
+
+
+
+
+
+
+//code to get full year
 const currentYear = new Date().getFullYear()
 document.getElementById('year').textContent = currentYear

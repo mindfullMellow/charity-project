@@ -11,6 +11,11 @@ HELPER CLASS
   @apply bg-brand-color text-white;
 }
 
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 8px rgba(19, 164, 236, 0.5);
+}
+
 .cta-btn {
   @apply bg-brand-color text-white transition-all duration-300 rounded-lg;
 }
@@ -19,6 +24,27 @@ HELPER CLASS
   @apply bg-btn-hover;
 }
 
+.Vol-hover {
+  @apply opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2 absolute  px-6 py-3 text-sm font-medium visible pointer-events-auto;
+}
+
+/* 
+/////////////////////////////////////////////////
+TIPPY STLYES
+////////////////////////////////////////////////
+*/
+
+.tippy-box[data-theme~="custom"] {
+  @apply bg-brand-color text-white rounded-lg px-sm py-sm text-sm;
+}
+
+.tippy-box[data-theme~="custom"] > .tippy-arrow {
+  @apply text-brand-color;
+}
+
+.country:hover {
+  @apply fill-brand-color;
+}
 /* 
 /////////////////////////////////////////////////
 SECTION-HERO STYLES
@@ -203,4 +229,11 @@ SECTION-NEWSLETTER STLYES
   color: inherit;
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.news-btn:focus,
+.email-addy:focus,
+.full-name:focus {
+  outline: none;
+  box-shadow: 0 0 0 8px rgba(9, 46, 72, 0.35);
 }
