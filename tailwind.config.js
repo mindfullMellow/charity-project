@@ -16,6 +16,7 @@ module.exports = {
         'btn-hover': ' #067fc3',
         'brand-dark-accent': '#092e48',
         'white-accent': '#f0f3f4'
+
       },
       fontFamily: {
         'heading': ['Montserrat', 'Arial', 'Verdana', 'sans-serif'],
