@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
 
 <head>
   <meta charset="UTF-8">
@@ -17,9 +17,12 @@
   <title>One-Life org | Charity Website</title>
 </head>
 
-<body class="w-full bg-white font-body text-header-color">
+<body class="w-full overflow-x-hidden bg-white font-body text-header-color">
 
-  <header class="flex items-center justify-between px-xl py-md font-heading text-header-color">
+  <header
+    class="flex items-center justify-between px-xl py-md font-heading text-header-color max-[1000px]:px-sm nav-open relative">
+
+    <!-- LOGO -->
     <a href="#" class="flex items-center gap-sm">
       <!-- SVG LOGO -->
       <div class="size-4 text-inherit ">
@@ -33,9 +36,9 @@
       <h2 class="font-bold text-h5">One-Life Org</h2>
     </a>
 
-
-    <nav class="nav">
-      <ul class="flex items-center font-semibold list-none gap-lg textbody">
+    <!-- NAV -->
+    <nav class="nav ">
+      <ul class="flex items-center font-semibold list-none gap-lg text-body nav-list">
         <li><a href="#" class="nav-hover">About</a>
         </li>
         <li><a href="#" class="nav-hover">Campaigns</a></li>
@@ -47,6 +50,11 @@
         </li>
       </ul>
     </nav>
+
+    <button class="btn-mobile-nav">
+      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+    </button>
   </header>
 
   <!-- HERO SECTION -->
