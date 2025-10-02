@@ -30,7 +30,7 @@ module.exports = {
         h5: ['1.375rem', { lineHeight: '1.4' }],   // 22px
         h6: ['1.125rem', { lineHeight: '1.5' }],   // 18px
         lead: ['1.25rem', { lineHeight: '1.5' }], // 20px - Intro paragraphs
-        body: ['1rem', { lineHeight: '1.5' }],     // 16px
+        body: ['1rem', { lineHeight: '1.7' }],     // 16px
         small: ['0.875rem', { lineHeight: '1.6' }], // 14px
         xs: ['0.75rem', { lineHeight: '1.5' }],    // 12px - Legal/fine print
       },

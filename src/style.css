@@ -16,6 +16,11 @@ HELPER CLASS
   box-shadow: 0 0 0 8px rgba(19, 164, 236, 0.5);
 }
 
+*:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
 .cta-btn {
   @apply bg-brand-color text-white transition-all duration-300 rounded-lg;
 }
@@ -59,6 +64,7 @@ SECTION-HERO STYLES
     url("/Assets/img/homePage/man-smilingw.webp");
   min-height: 100vh;
   background-size: cover;
+  background-position: center;
 }
 
 /* 
@@ -236,4 +242,38 @@ SECTION-NEWSLETTER STLYES
 .full-name:focus {
   outline: none;
   box-shadow: 0 0 0 8px rgba(9, 46, 72, 0.35);
+}
+
+@media (max-width: 59em) {
+  .grid {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .news-form {
+    grid-template-columns: 1fr;
+  }
+
+  .news-btn {
+    margin-top: 12px;
+  }
+
+  .news-img {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (max-width: 51.7em) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-img {
+    grid-row: 1;
+    height: 320px;
+  }
+
+  .news-content {
+    @apply p-md;
+  }
 }
