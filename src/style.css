@@ -271,15 +271,17 @@ SECTION-NEWSLETTER STLYES
   }
 
   .nav {
-    @apply bg-white-accent/95;
+    @apply bg-white-accent/95 px-sm;
+    @apply flex flex-col justify-between gap-md;
     position: absolute;
+
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 80vh;
 
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     transition: all 0.5s ease-in;
     transform: translateX(-100%);
@@ -290,7 +292,7 @@ SECTION-NEWSLETTER STLYES
   }
 
   .nav-list {
-    @apply flex-col gap-xl;
+    @apply flex-col gap-0 text-lead items-start w-full;
   }
 
   .nav-open .nav {
@@ -298,6 +300,10 @@ SECTION-NEWSLETTER STLYES
     visibility: visible;
     pointer-events: auto;
     transform: translateX(0);
+  }
+
+  ul li {
+    @apply py-sm;
   }
 
   .nav-open .icon-mobile-nav[name="close-outline"] {

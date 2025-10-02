@@ -20,41 +20,97 @@
 <body class="w-full overflow-x-hidden bg-white font-body text-header-color">
 
   <header
-    class="flex items-center justify-between px-xl py-md font-heading text-header-color max-[1000px]:px-sm nav-open relative">
-
+    class="relative flex items-center justify-between px-xl py-md font-heading text-header-color  max-[1000px]:px-sm  header">
     <!-- LOGO -->
-    <a href="#" class="flex items-center gap-sm">
-      <!-- SVG LOGO -->
-      <div class="size-4 text-inherit ">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
-            fill="currentColor"></path>
+    <div class="flex items-center gap-lg">
+      <a href="#" class="flex items-center md:gap-sm gap-xs">
+        <!-- SVG LOGO -->
+        <div class="size-4 text-inherit ">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+              fill="currentColor"></path>
+          </svg>
+        </div>
+        <h2 class="font-bold md:text-h5 text-h6">One-Life Org</h2>
+      </a>
+
+
+      <!-- NAV -->
+      <nav class="nav">
+        <ul class="flex items-center font-medium list-none gap-lg text-body nav-list">
+          <li><a href="#" class="nav-hover">About</a>
+          </li>
+          <li><a href="#" class="nav-hover">Campaigns</a></li>
+          <li><a href="#" class="nav-hover">Impact</a></li>
+          <li><a href="#" class="nav-hover">News</a></li>
+          <li><a href="#" class="nav-hover">Contact</a></li>
+        </ul>
+
+        <a href="#"
+          class="flex items-center justify-center w-full p-2 transition-all duration-300 border rounded-lg gap-xs hover:bg-brand-color hover:text-white border-brand-color min-[948.8px]:hidden ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" class="">
+            <defs>
+              <clipPath id="clip0_1731_1489">
+                <path
+                  d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                  fill="white"></path>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#clip0_1731_1489)">
+              <path
+                d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                fill="#f0f3f4"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M5.24473 10.1481C6.11827 9.78623 7.05453 9.6 8.00005 9.6C8.94557 9.6 9.88182 9.78623 10.7554 10.1481C11.6289 10.5099 12.4226 11.0402 13.0912 11.7088C13.7598 12.3774 14.2901 13.1711 14.652 14.0447C15.0138 14.9182 15.2 15.8545 15.2 16.8H14.8C14.8 15.907 14.6242 15.0228 14.2824 14.1978C13.9407 13.3727 13.4398 12.6231 12.8084 11.9917C12.1769 11.3602 11.4273 10.8593 10.6023 10.5176C9.77728 10.1759 8.89304 10 8.00005 10C7.10706 10 6.22281 10.1759 5.3978 10.5176C4.57279 10.8593 3.82316 11.3602 3.19172 11.9917C2.56028 12.6231 2.0594 13.3727 1.71767 14.1978C1.37594 15.0228 1.20005 15.907 1.20005 16.8H0.800049C0.800049 15.8545 0.986282 14.9182 1.34812 14.0447C1.70995 13.1711 2.2403 12.3774 2.90888 11.7088C3.57746 11.0402 4.37118 10.5099 5.24473 10.1481Z"
+                fill="#13a4ec"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M8.05713 9.59268C9.63114 9.59268 10.9071 8.31669 10.9071 6.74268C10.9071 5.16866 9.63114 3.89268 8.05713 3.89268C6.48312 3.89268 5.20713 5.16866 5.20713 6.74268C5.20713 8.31669 6.48312 9.59268 8.05713 9.59268ZM8.05713 9.99268C9.85205 9.99268 11.3071 8.5376 11.3071 6.74268C11.3071 4.94775 9.85205 3.49268 8.05713 3.49268C6.2622 3.49268 4.80713 4.94775 4.80713 6.74268C4.80713 8.5376 6.2622 9.99268 8.05713 9.99268Z"
+                fill="#13a4ec"></path>
+            </g>
+          </svg>
+
+          <p class="font-medium text-body">Sign In</p>
+        </a>
+      </nav>
+    </div>
+
+
+    <div class="flex items-center justify-center md:gap-sm gap-xs">
+      <a href="#"
+        class="flex items-center justify-center transition-all duration-300 gap-xs hover:opacity-70 max-[948.8px]:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="">
+          <defs>
+            <clipPath id="clip0_1731_1489">
+              <path
+                d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+                fill="white"></path>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#clip0_1731_1489)">
+            <path
+              d="M0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8Z"
+              fill="#f0f3f4"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.24473 10.1481C6.11827 9.78623 7.05453 9.6 8.00005 9.6C8.94557 9.6 9.88182 9.78623 10.7554 10.1481C11.6289 10.5099 12.4226 11.0402 13.0912 11.7088C13.7598 12.3774 14.2901 13.1711 14.652 14.0447C15.0138 14.9182 15.2 15.8545 15.2 16.8H14.8C14.8 15.907 14.6242 15.0228 14.2824 14.1978C13.9407 13.3727 13.4398 12.6231 12.8084 11.9917C12.1769 11.3602 11.4273 10.8593 10.6023 10.5176C9.77728 10.1759 8.89304 10 8.00005 10C7.10706 10 6.22281 10.1759 5.3978 10.5176C4.57279 10.8593 3.82316 11.3602 3.19172 11.9917C2.56028 12.6231 2.0594 13.3727 1.71767 14.1978C1.37594 15.0228 1.20005 15.907 1.20005 16.8H0.800049C0.800049 15.8545 0.986282 14.9182 1.34812 14.0447C1.70995 13.1711 2.2403 12.3774 2.90888 11.7088C3.57746 11.0402 4.37118 10.5099 5.24473 10.1481Z"
+              fill="#13a4ec"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8.05713 9.59268C9.63114 9.59268 10.9071 8.31669 10.9071 6.74268C10.9071 5.16866 9.63114 3.89268 8.05713 3.89268C6.48312 3.89268 5.20713 5.16866 5.20713 6.74268C5.20713 8.31669 6.48312 9.59268 8.05713 9.59268ZM8.05713 9.99268C9.85205 9.99268 11.3071 8.5376 11.3071 6.74268C11.3071 4.94775 9.85205 3.49268 8.05713 3.49268C6.2622 3.49268 4.80713 4.94775 4.80713 6.74268C4.80713 8.5376 6.2622 9.99268 8.05713 9.99268Z"
+              fill="#13a4ec"></path>
+          </g>
         </svg>
-      </div>
 
-      <h2 class="font-bold text-h5">One-Life Org</h2>
-    </a>
+        <p class="font-medium text-body">Sign In</p>
+      </a>
+      <button
+        class="font-semibold text-white transition-all duration-300 rounded-lg md:px-md md:py-xs py-xs px-sm bg-brand-color hover:bg-btn-hover text-body">Donate</button>
+      <button class="btn-mobile-nav">
+        <ion-icon name="menu-outline" class="icon-mobile-nav"></ion-icon>
+        <ion-icon name="close-outline" class="icon-mobile-nav"></ion-icon>
+      </button>
+    </div>
 
-    <!-- NAV -->
-    <nav class="nav ">
-      <ul class="flex items-center font-semibold list-none gap-lg text-body nav-list">
-        <li><a href="#" class="nav-hover">About</a>
-        </li>
-        <li><a href="#" class="nav-hover">Campaigns</a></li>
-        <li><a href="#" class="nav-hover">Impact</a></li>
-        <li><a href="#" class="nav-hover">News</a></li>
-        <li><a href="#" class="nav-hover">Contact</a></li>
-        <li><a href="#"
-            class="text-white transition-all duration-300 rounded-lg px-md py-sm bg-brand-color hover:bg-btn-hover ">Donate</a>
-        </li>
-      </ul>
-    </nav>
 
-    <button class="btn-mobile-nav">
-      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
-      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
-    </button>
   </header>
 
   <!-- HERO SECTION -->
@@ -107,17 +163,17 @@
       <div class="flex flex-wrap gap-sm">
 
 
-        <div class="px-sm py-lg bg-[#f0f3f4] flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
+        <div class="px-sm py-lg bg-white-accent flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
           <p class="font-normal text-body">Lives Improved</p>
           <span class="font-bold text-h4 ">50,000+</span>
         </div>
 
-        <div class="px-sm py-lg bg-[#f0f3f4] flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
+        <div class="px-sm py-lg bg-white-accent flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
           <p class="font-normal text-body">Trees Planted</p>
           <span class="font-bold text-h4 ">100,000+</span>
         </div>
 
-        <div class="px-sm py-lg bg-[#f0f3f4] flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
+        <div class="px-sm py-lg bg-white-accent flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
           <p class="font-normal text-body">Communities Empowered </p>
           <span class="font-bold text-h4 ">120+</span>
         </div>

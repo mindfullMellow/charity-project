@@ -8,7 +8,12 @@ import 'tippy.js/dist/tippy.css'; // base styles
 const dataArr = []
 const peopleReached = document.querySelector('.people-reached')
 const countries = document.querySelectorAll('.country')
-console.log(countries);
+const MenuBtn = document.querySelector('.btn-mobile-nav')
+const header = document.querySelector('.header')
+
+MenuBtn.addEventListener('click', () => {
+  header.classList.toggle('nav-open')
+})
 
 /////////////////////////////////////////////////////
 //PEOPLE REACHED SECTION LOGIC
