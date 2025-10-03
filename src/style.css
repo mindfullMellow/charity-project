@@ -21,6 +21,10 @@ HELPER CLASS
   box-shadow: none;
 }
 
+body {
+  @apply w-full overflow-x-hidden bg-white font-body text-header-color;
+}
+
 .cta-btn {
   @apply bg-brand-color text-white transition-all duration-300 rounded-lg;
 }
@@ -360,4 +364,16 @@ SECTION-NEWSLETTER STLYES
   .section-hero {
     height: 40vh;
   }
+}
+
+.quote {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(17, 22, 24, 0.4),
+      rgb(17, 22, 24, 0.6)
+    ),
+    url("/Assets/img/about/helping-hands.webp");
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
 }

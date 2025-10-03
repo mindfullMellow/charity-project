@@ -10,7 +10,7 @@ const peopleReached = document.querySelector('.people-reached')
 const countries = document.querySelectorAll('.country')
 const MenuBtn = document.querySelector('.btn-mobile-nav')
 const sectionHero = document.querySelector('.section-hero')
-const headerEl = document.querySelector('.header')
+export const headerEl = document.querySelector('.header')
 const headerHeight = headerEl.getBoundingClientRect().height
 const AllSections = Array.from(document.querySelectorAll('section'))
 const selectedSection = AllSections.filter(cur => !cur.classList.contains('section-hero'))
