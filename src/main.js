@@ -9,10 +9,68 @@ const dataArr = []
 const peopleReached = document.querySelector('.people-reached')
 const countries = document.querySelectorAll('.country')
 const MenuBtn = document.querySelector('.btn-mobile-nav')
-const header = document.querySelector('.header')
+const sectionHero = document.querySelector('.section-hero')
+const headerEl = document.querySelector('.header')
+const headerHeight = headerEl.getBoundingClientRect().height
+const AllSections = Array.from(document.querySelectorAll('section'))
+const selectedSection = AllSections.filter(cur => !cur.classList.contains('section-hero'))
 
+
+///////////////////////////////////////////
+//ADDING THE STICKY NAV
+///////////////////////////////////////////
+
+const options = {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${headerHeight}px`
+}
+
+
+//create the observer 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) { headerEl.classList.add('sticky') } else {
+      headerEl.classList.remove('sticky')
+    }
+  })
+}, options)
+
+observer.observe(sectionHero)
+
+/////////////////////////////////////////////////////
+//DOM MANIPULATION LOGIC
+////////////////////////////////////////////////////
+
+//MOBILE NAV LOGIC
 MenuBtn.addEventListener('click', () => {
-  header.classList.toggle('nav-open')
+  headerEl.classList.toggle('nav-open')
+})
+
+///////////////////////////////////////////
+//REVEALING ELEMNTS ON SCROLL
+///////////////////////////////////////////
+
+const reavealSection = function (entries, observer) {
+  const [entry] = entries
+  console.log(entry);
+
+  if (!entry.isIntersecting) return
+
+  entry.target.classList.remove('section--hidden')
+  observer.unobserve(entry.target)
+}
+
+const sectionObserver = new IntersectionObserver(reavealSection, {
+  root: null,
+  threshold: 0.15,
+})
+
+
+selectedSection.forEach(cur => {
+  sectionObserver.observe(cur)
+  cur.classList.add('transition-transform', 'transition-opacity', 'duration-1000', 'section--hidden')
+
 })
 
 /////////////////////////////////////////////////////
@@ -37,7 +95,7 @@ if (totalPeopleReached.length === 7) {
 countries.forEach(country => {
   const countryName = country.getAttribute('name')
   const people = country.dataset.content
-  console.log(countryName, people);
+  // console.log(countryName, people);
 
   tippy(country, {
     content:

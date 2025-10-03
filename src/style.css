@@ -33,6 +33,16 @@ HELPER CLASS
   @apply opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2 absolute  px-6 py-3 text-sm font-medium visible pointer-events-auto;
 }
 
+.header.sticky {
+  @apply fixed bg-white/90 z-10;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
 /* 
 /////////////////////////////////////////////////
 TIPPY STLYES
