@@ -34,7 +34,7 @@ body {
 }
 
 .Vol-hover {
-  @apply opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2 absolute  px-6 py-3 text-sm font-medium visible pointer-events-auto;
+  @apply opacity-0 group-hover:opacity-100 transition-opacity  -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2 absolute  px-6 py-3 text-sm font-medium visible pointer-events-auto;
 }
 
 .header.sticky {
