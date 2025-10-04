@@ -1,5 +1,8 @@
 'use strict'
+import * as utils from "./utilis"
 
+
+const quoteHero = document.querySelector('.quote-section')
 
 fetch('../../index.html').then(res => res.text())
   .then(data => {
@@ -12,19 +15,22 @@ fetch('../../index.html').then(res => res.text())
     const footer = doc.querySelector('footer')
     // add it to the current page
     if (header) document.body.prepend(header); // or appendChild
+    if (footer) document.body.append(footer)
   }).then(() => {
-    //  EVERY ELEMENT THAT DEPENDS THIS HTML BEING FECTHED SHOULD BE HERE 
-    const headerEl = document.querySelector('.header')
-    const MenuBtn = document.querySelector('.btn-mobile-nav')
-    console.log(MenuBtn);
+    //  EVERY ELEMENT THAT DEPENDS ON THIS HTML BEING FECTHED SHOULD BE HERE 
+
     //MOBILE NAV LOGIC
-    MenuBtn.addEventListener('click', () => {
-      headerEl.classList.toggle('nav-open')
-    })
+    utils.mobileNav()
+
+    // get full year from utils
+    document.getElementById('year').textContent = utils.getFullYear()
+
+    //Adding the sticky navigation
+    utils.addStickyNav(quoteHero)
+
+    //Reaveal Elemnts on Scroll
+    utils.revealElementsOnScroll()
   })
-
-
-
 
 
 
