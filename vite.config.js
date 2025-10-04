@@ -10,7 +10,8 @@ export default defineConfig({
       input: {
         main: 'index.html',
         404: './html/404.html',
-        About: './html/about.html'
+        About: './html/about.html',
+        queriesCss: './src/styles/queries.css',
       }
     }
   }
