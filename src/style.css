@@ -95,7 +95,8 @@ SECTION-HERO STYLES
     url("/Assets/img/homePage/man-smilingw.webp");
   min-height: 100vh;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .nav-hover {
@@ -282,11 +283,12 @@ SECTION-NEWSLETTER STLYES
 @media (max-width: 59.3em) {
   .btn-mobile-nav {
     display: block;
+    z-index: 9999;
   }
 
   .nav {
     @apply bg-white-accent/95 px-sm;
-    @apply flex flex-col justify-between gap-md;
+    @apply flex flex-col justify-between gap-md z-10;
     position: absolute;
 
     top: 0;
@@ -364,16 +366,41 @@ SECTION-NEWSLETTER STLYES
   .section-hero {
     height: 40vh;
   }
+
+  .quote::before {
+    display: none;
+  }
+
+  .quote-section {
+    max-height: 50vh;
+  }
 }
 
-.quote {
+/* 
+/////////////////////////////////////////////////
+ABOUT PAGE STLYES
+////////////////////////////////////////////////
+*/
+
+.quote-section {
   background-image: linear-gradient(
       to bottom,
       rgb(17, 22, 24, 0.4),
-      rgb(17, 22, 24, 0.6)
+      rgb(17, 22, 24, 0.95)
     ),
     url("/Assets/img/about/helping-hands.webp");
+  position: relative;
   min-height: 100vh;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.quote::before {
+  content: "\201c";
+  position: absolute;
+  font-size: 200px;
+  top: 80px;
+  left: -80px;
+  @apply text-white;
 }
