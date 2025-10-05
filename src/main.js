@@ -12,6 +12,32 @@ const countries = document.querySelectorAll('.country')
 const sectionHero = document.querySelector('.section-hero')
 
 
+// const header = document.querySelector('header')
+// console.log(header);
+// function HideNavOnHover(e, change = false) {
+//   if (!e.target.classList.contains('nav-hover')) return;
+
+//   const link = e.target
+//   const siblings = link.closest('header').querySelectorAll('.nav-hover')
+
+
+//   siblings.forEach(cur => {
+//     if (cur !== link && !change) {
+//       cur.classList.add('opacity-50')
+//     } else {
+//       cur.classList.remove('opacity-50')
+//     }
+//   })
+// }
+
+// header.addEventListener('mouseover', (e) => {
+//   HideNavOnHover(e)
+// })
+
+// header.addEventListener('mouseout', (e) => {
+
+//   HideNavOnHover(e, true)
+// })
 
 ///////////////////////////////////////////
 //ADDING THE STICKY NAV
@@ -30,7 +56,6 @@ utils.mobileNav()
 //REVEALING ELEMNTS ON SCROLL
 ///////////////////////////////////////////
 utils.revealElementsOnScroll()
-
 
 /////////////////////////////////////////////////////
 //PEOPLE REACHED SECTION LOGIC
@@ -72,8 +97,6 @@ countries.forEach(country => {
     duration: 0,
   })
 })
-
-
 
 
 

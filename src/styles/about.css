@@ -33,8 +33,8 @@ ABOUT PAGE STLYES
 .testimonials {
   background-image: linear-gradient(
       to bottom,
-      rgb(17, 22, 24, 0.4),
-      rgb(17, 22, 24, 0.95)
+      rgb(17, 22, 24, 0.75),
+      rgb(17, 22, 24, 0.75)
     ),
     url("/Assets/img/about/threepple.webp");
   min-height: 100vh;
@@ -44,47 +44,19 @@ ABOUT PAGE STLYES
   background-attachment: fixed;
 }
 
-/* .slider {
-  max-width: 1000px;
-  height: 500px;
-  margin: 0 auto;
-
-  position: relative;
-  overflow: hidden;
+.testi-btn {
+  @apply text-h3 absolute rounded-full;
 }
 
-.slide {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 500px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: transform 1s;
-}
-
-.slide > img {
-  Only for images that have different size than slide 
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.slider__btn {
-  position: absolute;
+.right-testi-btn {
+  right: -100px;
   top: 50%;
-  z-index: 10;
-}
 
-.slider__btn--left {
-  left: 6%;
-  transform: translate(-50%, -50%);
-}
-
-.slider__btn--right {
-  right: 6%;
   transform: translate(50%, -50%);
-} */
+}
+.left-testi-btn {
+  top: 50%;
+  left: -130px;
+
+  transform: translate(50%, -50%);
+}

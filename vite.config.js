@@ -11,6 +11,7 @@ export default defineConfig({
         main: 'index.html',
         404: './html/404.html',
         About: './html/about.html',
+        Campaigns: './html/campaigns.html',
         queriesCss: './src/styles/queries.css',
       }
     }
