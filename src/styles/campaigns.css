@@ -1,2 +1,22 @@
 @import url("../style.css");
 @import url("./queries.css");
+
+.header {
+  @apply border-b border-[#eee];
+}
+
+.active-tab {
+  @apply opacity-100 border-b-2 border-brand-color;
+}
+
+.inactive-tab-content {
+  @apply opacity-0 invisible pointer-events-none;
+}
+
+.active-tab-content {
+  @apply opacity-100 visible pointer-events-auto;
+}
+
+.li-grid {
+  @apply flex flex-wrap md:gap-md md:flex-row flex-col gap-md;
+}

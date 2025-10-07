@@ -16,7 +16,8 @@ module.exports = {
         'brand-color': '#13a4ec',
         'btn-hover': ' #067fc3',
         'brand-dark-accent': '#092e48',
-        'white-accent': '#f0f3f4'
+        'white-accent': '#f0f3f4',
+        'border-b-color': '#eee'
 
       },
       fontFamily: {

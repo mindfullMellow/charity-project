@@ -28,7 +28,7 @@
   }
 
   .nav-list {
-    @apply flex-col gap-0 text-lead items-start w-full;
+    @apply flex-col gap-md text-lead items-start w-full;
   }
 
   .nav-open .nav {
@@ -38,9 +38,10 @@
     transform: translateX(0);
   }
 
-  ul li {
-    @apply py-sm;
-  }
+  /* ul li a.nav-hover {
+    display: inline-block;
+    padding-block: ;
+  } */
 
   .nav-open .icon-mobile-nav[name="close-outline"] {
     display: block;
