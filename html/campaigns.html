@@ -13,19 +13,19 @@
 <body>
 
   <main>
-    <section class="campaign-section py-lg px-md">
+    <section class="campaign-section md:py-lg py-sm px-md">
       <div class="container mx-auto max-w-[1200px] ">
-        <h2 class="font-semibold lg:text-h2 md:text-h3 text-h4 font-heading mb-sm">Our Campaigns</h2>
-        <p class="text-h6">Explore our current and past initiatives, and see how your support makes a
+        <h2 class="font-semibold lg:text-h2 md:text-h3 text-h4 font-heading md:mb-sm mb-xxs">Our Campaigns</h2>
+        <p class="md:text-h6 text-body">Explore our current and past initiatives, and see how your support makes a
           difference.</p>
       </div>
     </section>
 
-    <section class="view-campaign-section pt-lg pb-section px-md">
+    <section class="view-campaign-section md:pt-lg pt-md pb-section px-md">
       <div class="container mx-auto max-w-[1200px] parent-container">
         <!-- TABS -->
         <div class="py-2 border-b border-border-b-color">
-          <ul class="flex items-center justify-start font-bold gap-xl text-h6" id="tab-container">
+          <ul class="flex items-center justify-start font-bold gap-xl text-body md:text-h6" id="tab-container">
             <li><button class="p-1 active-tab tab-btn" data-tab="current-campaigns">Current campaigns</button></li>
             <li><button class="p-1 tab-btn " data-tab="past-campaigns">View Past Campaigns</button></li>
           </ul>
@@ -47,9 +47,8 @@
               <div class="li-grid">
                 <!-- IMG DIV -->
                 <div class="flex-1 ">
-                  <img src="../public/Assets/img/campaign/education.avif"
-                    alt="A tired and furstrated kid on a queue to get water"
-                    class="h-[300px] w-full bg-contain rounded-lg">
+                  <img src="../public/Assets/img/campaign/education.webp" alt="kids in a classroom learning"
+                    class="campaign-img">
                 </div>
 
                 <!-- CAMPIGN CONTENT -->
@@ -58,26 +57,27 @@
                   <p class="text-body">Supporting educational programs and providing learning resources for children in
                     underserved areas to help them gain
                     better access to quality education and opportunities for growth.</p>
-                  <div class="flex items-center justify-between text-body">
+
+                  <div class="donate-flex space-y-xxs">
                     <p class="font-semibold">Goal: $75,000</p>
-                    <button
-                      class="font-semibold text-white transition-all duration-300 rounded-lg md:px-md md:py-xs py-xs px-sm bg-brand-color hover:bg-btn-hover text-body">Donate</button>
+                    <button class="current-campaign-btn">Donate</button>
                   </div>
+
                 </div>
               </div>
 
               <!-- PROGRESS STATUS -->
-              <div class="space-y-3 md:space-y-4">
+              <div class="progress-status">
 
                 <!-- PROGRESS CONTENT -->
-                <div class="flex items-center justify-between font-semibold text-body">
+                <div class="progress-content">
                   <p>Progress</p>
                   <p>45%</p>
                 </div>
 
                 <!-- PROGRESS BAR -->
-                <div class="w-full h-2 rounded-lg bg-white-accent ">
-                  <div class="w-[45%] h-full rounded-lg bg-header-color"></div>
+                <div class="progress-bar">
+                  <div class="w-[45%] progress-uncompleted"></div>
                 </div>
               </div>
 
@@ -90,9 +90,8 @@
               <div class="li-grid">
                 <!-- IMG DIV -->
                 <div class="flex-1 ">
-                  <img src="../public/Assets/img/campaign/health-care.avif"
-                    alt="A tired and furstrated kid on a queue to get water"
-                    class="h-[300px] w-full bg-contain rounded-lg">
+                  <img src="../public/Assets/img/campaign/health-care.webp" alt="A Nurse attending to a child"
+                    class="campaign-img">
                 </div>
 
                 <!-- CAMPIGN CONTENT -->
@@ -100,26 +99,25 @@
                   <h6 class="font-bold text-h6 font-heading">Healthcare Access</h6>
                   <p class="text-body">Improving access to essential healthcare services and medical supplies for
                     vulnerable populations.</p>
-                  <div class="flex items-center justify-between text-body">
+                  <div class="donate-flex space-y-xxs">
                     <p class="font-semibold">Goal: $80,000</p>
-                    <button
-                      class="font-semibold text-white transition-all duration-300 rounded-lg md:px-md md:py-xs py-xs px-sm bg-brand-color hover:bg-btn-hover text-body">Donate</button>
+                    <button class="current-campaign-btn">Donate</button>
                   </div>
                 </div>
               </div>
 
               <!-- PROGRESS STATUS -->
-              <div class="space-y-3 md:space-y-4">
+              <div class="progress-status">
 
                 <!-- PROGRESS CONTENT -->
-                <div class="flex items-center justify-between font-semibold text-body">
+                <div class="progress-content">
                   <p>Progress</p>
                   <p>82%</p>
                 </div>
 
                 <!-- PROGRESS BAR -->
-                <div class="w-full h-2 rounded-lg bg-white-accent ">
-                  <div class="w-[82%] h-full rounded-lg bg-header-color"></div>
+                <div class="progress-bar">
+                  <div class="w-[82%] progress-uncompleted"></div>
                 </div>
               </div>
 
@@ -127,7 +125,45 @@
 
             <!-- CAMPAIGN 4 -->
 
+            <li class="space-y-6">
 
+              <!-- IMG ND CONTENT -->
+              <div class="li-grid">
+                <!-- IMG DIV -->
+                <div class="flex-1 ">
+                  <img src="../public/Assets/img/campaign/enviromental-conservation.webp"
+                    alt="A Group of volunters planting Trees" class="campaign-img">
+                </div>
+
+                <!-- CAMPIGN CONTENT -->
+                <div class="flex flex-col flex-1 gap-xs">
+                  <h6 class="font-bold text-h6 font-heading">Environmental Conservation</h6>
+                  <p class="text-body">Protecting forests, rivers, and wildlife through community clean-ups, tree
+                    planting, and awareness programs that keep
+                    our planet healthy and alive for generations to come.</p>
+                  <div class="donate-flex space-y-xxs">
+                    <p class="font-semibold">Goal: $132,000</p>
+                    <button class="current-campaign-btn">Donate</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROGRESS STATUS -->
+              <div class="progress-status">
+
+                <!-- PROGRESS CONTENT -->
+                <div class="progress-content">
+                  <p>Progress</p>
+                  <p>91%</p>
+                </div>
+
+                <!-- PROGRESS BAR -->
+                <div class="progress-bar">
+                  <div class="w-[91%] progress-uncompleted"></div>
+                </div>
+              </div>
+
+            </li>
 
 
 
@@ -145,9 +181,9 @@
               <div class="li-grid">
                 <!-- IMG DIV -->
                 <div class="flex-1 ">
-                  <img src="../public/Assets/img/campaign/clean-water.avif"
-                    alt="A tired and furstrated kid on a queue to get water"
-                    class="h-[300px] w-full bg-contain rounded-lg">
+                  <img src="../public/Assets/img/campaign/clean-water.webp"
+                    alt="Kids posing for the camera infront of the new water establishment made for them by the organization "
+                    class="campaign-img">
                 </div>
 
                 <!-- CAMPIGN CONTENT -->
@@ -156,13 +192,12 @@
                   <p class="text-body">Providing access to clean and safe drinking water for communities in need (mostly
                     West African
                     countries).</p>
-                  <div class="flex items-center justify-between text-body">
+                  <div class="donate-flex">
                     <p class="font-semibold">Goal: $50,000</p>
-                    <button
-                      class="font-semibold text-white transition-all duration-300 rounded-lg cursor-not-allowed md:px-md md:py-xs py-xs px-sm bg-brand-color hover:bg-btn-hover text-body opacity-40">Donate</button>
+                    <button class="past-campaign-btn">Donate</button>
                   </div>
 
-                  <div class="flex items-center text-green-500 gap-xs">
+                  <div class="completed-barge-flex">
                     <p class="font-accent">Campaign Sucessfully completed</p>
                     <ion-icon name="checkmark-done-circle-outline"></ion-icon>
                   </div>
@@ -170,23 +205,21 @@
               </div>
 
               <!-- PROGRESS STATUS -->
-              <div class="space-y-3 md:space-y-4">
+              <div class="progress-status">
 
                 <!-- PROGRESS CONTENT -->
-                <div class="flex items-center justify-between font-semibold text-body">
+                <div class="progress-content">
                   <p>Progress</p>
                   <p>100%</p>
                 </div>
 
                 <!-- PROGRESS BAR -->
-                <div class="w-full h-2 rounded-lg bg-white-accent ">
-                  <div class="w-[100%] h-full rounded-lg bg-green-500"></div>
+                <div class="progress-bar">
+                  <div class="progress-completed"></div>
                 </div>
               </div>
 
             </li>
-
-
 
             <!-- CAMPAIGN 2 -->
             <li class="space-y-6">
@@ -195,9 +228,8 @@
               <div class="li-grid">
                 <!-- IMG DIV -->
                 <div class="flex-1 ">
-                  <img src="../public/Assets/img/campaign/conserva.avif"
-                    alt="A tired and furstrated kid on a queue to get water"
-                    class="h-[300px] w-full bg-contain rounded-lg">
+                  <img src="../public/Assets/img/campaign/conserva.webp"
+                    alt="A tired and furstrated kid on a queue to get water" class="campaign-img">
                 </div>
 
                 <!-- CAMPIGN CONTENT -->
@@ -207,13 +239,12 @@
                     that support wildlife, reduce
                     environmental harm, and ensure a healthier planet for future generations.
                   </p>
-                  <div class="flex items-center justify-between text-body">
+                  <div class="donate-flex">
                     <p class="font-semibold">Goal: $25,000</p>
-                    <button
-                      class="font-semibold text-white transition-all duration-300 rounded-lg cursor-not-allowed opacity-40 md:px-md md:py-xs py-xs px-sm bg-brand-color hover:bg-btn-hover text-body">Donate</button>
+                    <button class="past-campaign-btn">Donate</button>
                   </div>
 
-                  <div class="flex items-center text-green-500 gap-xs">
+                  <div class="completed-barge-flex">
                     <p class="font-accent">Campaign Sucessfully completed</p>
                     <ion-icon name="checkmark-done-circle-outline"></ion-icon>
                   </div>
@@ -221,17 +252,17 @@
               </div>
 
               <!-- PROGRESS STATUS -->
-              <div class="space-y-3 md:space-y-4">
+              <div class="progress-status">
 
                 <!-- PROGRESS CONTENT -->
-                <div class="flex items-center justify-between font-semibold text-body">
+                <div class="progress-content">
                   <p>Progress</p>
                   <p>100%</p>
                 </div>
 
                 <!-- PROGRESS BAR -->
-                <div class="w-full h-2 rounded-lg bg-white-accent ">
-                  <div class="w-[100%] h-full rounded-lg bg-green-500"></div>
+                <div class="progress-bar">
+                  <div class="progress-completed"></div>
                 </div>
               </div>
 

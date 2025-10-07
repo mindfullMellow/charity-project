@@ -20,3 +20,43 @@
 .li-grid {
   @apply flex flex-wrap md:gap-md md:flex-row flex-col gap-md;
 }
+
+.campaign-img {
+  @apply h-[300px] w-full bg-cover rounded-lg;
+}
+
+.current-campaign-btn {
+  @apply font-semibold text-white transition-all duration-300 rounded-lg px-md py-xs bg-brand-color hover:bg-btn-hover;
+}
+
+.past-campaign-btn {
+  @apply font-semibold text-white transition-all duration-300 rounded-lg cursor-not-allowed px-md py-xs bg-brand-color hover:bg-btn-hover text-body opacity-40;
+}
+
+.completed-barge-flex {
+  @apply flex items-center text-green-500 gap-xs;
+}
+
+.donate-flex {
+  @apply flex items-center justify-between text-body;
+}
+
+.progress-content {
+  @apply flex items-center justify-between font-semibold text-body;
+}
+
+.progress-status {
+  @apply space-y-3 md:space-y-4;
+}
+
+.progress-bar {
+  @apply w-full h-2 rounded-lg bg-white-accent;
+}
+
+.progress-uncompleted {
+  @apply h-full rounded-lg bg-header-color;
+}
+
+.progress-completed {
+  @apply w-[100%] h-full rounded-lg bg-green-500;
+}

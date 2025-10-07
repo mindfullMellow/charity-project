@@ -97,7 +97,6 @@ SECTION-HERO STYLES
     url("/Assets/img/homePage/man-smilingw.webp");
   min-height: 100vh;
   background-size: cover;
-  background-position: center center;
   background-attachment: fixed;
 }
 
