@@ -1,0 +1,14 @@
+@import url("../style.css");
+@import url("./queries.css");
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.container-div input {
+  @apply rounded-lg p-sm bg-white-accent h-full lg:w-[50%] md:w-[70%] w-full placeholder:text-body;
+}
+.follow a {
+  @apply h-10 w-10 p-2 rounded-full bg-white-accent flex items-center justify-center hover:bg-brand-color transition-all duration-300;
+}

@@ -27,6 +27,10 @@ HELPER CLASS
   @apply border-b border-[#eee];
 }
 
+.h2-el {
+  @apply font-semibold lg:text-h2 md:text-h3 text-h4 font-heading md:mb-sm mb-xxs;
+}
+
 .container-div {
   @apply container mx-auto max-w-[1200px];
 }

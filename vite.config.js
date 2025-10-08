@@ -13,6 +13,7 @@ export default defineConfig({
         About: './html/about.html',
         Campaigns: './html/campaigns.html',
         News: './html/news.html',
+        Contact: './html/contact.html',
         queriesCss: './src/styles/queries.css',
       }
     }

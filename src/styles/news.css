@@ -1,9 +1,9 @@
 @import url("../style.css");
 @import url("./queries.css");
 
-.h2-el {
+/* .h2-el {
   @apply font-semibold lg:text-h2 md:text-h3 text-h4 font-heading md:mb-sm mb-xxs;
-}
+} */
 
 .news-h6 {
   @apply font-bold text-h6 font-heading;
