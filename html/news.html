@@ -12,8 +12,148 @@
 <body>
   <!-- THE HEADER IS BEEN FECTHED (FROM  INDEX.HTML) AND INSERTED DYNAMICALLY WITH JS (ABOUT.JS) -->
 
+  <main>
+    <!-- NEWS AND UPDATES SECTIONS -->
+    <section class="news-hero-section md:py-lg py-md px-md">
+      <div class="container-div">
+        <h1 class=" h2-el">News and Updates</h1>
+
+        <div class="mt-sm">
+          <label for="search"
+            class="flex items-center justify-between w-full h-12 max-w-full rounded-lg bg-white-accent search-input t ">
+            <div class="flex items-center gap-xs">
+              <!-- SEARCH ICON -->
+              <div class="flex items-center justify-center border-r-0 border-none rounded-l-lg py-xs pl-sm"
+                data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="#617c89" viewBox="0 0 256 256">
+                  <path
+                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                  </path>
+                </svg>
+              </div>
+
+              <input type="text" id="search" placeholder="Search for news and updates" autocomplete="off"
+                class="flex items-center w-full h-full rounded-lg bg-inherit py-xs pr-sm placeholder:text-small placeholder:text-[#617c89] focus:outline-none">
+            </div>
+
+
+            <button class="flex items-center py-xs pr-sm gap-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="#617c89" viewBox="0 0 256 256">
+                <path
+                  d="M200.49,55.51a12,12,0,0,0-17,0L128,111l-55.51-55.52a12,12,0,0,0-17,17L111,128l-55.52,55.51a12,12,0,1,0,17,17L128,145l55.51,55.52a12,12,0,0,0,17-17L145,128l55.52-55.51A12,12,0,0,0,200.49,55.51Z" />
+              </svg>
+
+            </button>
+          </label>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS CONTENTS -->
+    <section class="news-section md:pt-lg pb-section py-sm px-md">
+      <div class="container-div">
+        <h3 class="font-semibold text-lead font-heading mb-md">Latest News</h3>
+
+
+        <!-- NEWS LIST -->
+        <ul class="flex flex-col gap-lg">
+
+          <li class="news-list-grid">
+            <div class="flex flex-col justify-between">
+              <div>
+                <a href="#" class="news-h6 md:mb-xxs mb-xs hover:text-brand-color">Empowering communities through
+                  education</a>
+                <p class="text-body">One-Life Org's latest initiative focuses on providing educational resources to
+                  underserved communities,
+                  fostering growth
+                  and opportunity.</p>
+              </div>
+
+              <p class="text-small opacity-80 published">Published on <span>12/06/2025</span></p>
+            </div>
+
+            <img src="/public/Assets/img/News_img/edu-news.png" alt="An illustration of kids learning"
+              class="place-self-end">
+          </li>
+
+
+          <li class="news-list-grid">
+            <div class="flex flex-col justify-between">
+              <div>
+                <a href="#" class="news-h6 md:mb-xxs mb-xs hover:text-brand-color">Clean Water Project Reaches
+                  Milestone</a>
+                <p class="text-body">Our clean water project has successfully provided access to safe drinking water for
+                  over 10,000 people in rural areas,
+                  significantly improving health and quality of life.</p>
+              </div>
+
+              <p class="text-small opacity-80 published">Published on <span>17/04/2025</span></p>
+            </div>
+
+            <img src="/public/Assets/img/News_img/water-news.png" alt="A pool of clean water" class="place-self-end">
+          </li>
+
+
+          <li class="news-list-grid">
+            <div class="flex flex-col justify-between">
+              <div>
+                <a href="#" class="news-h6 md:mb-xxs mb-xs hover:text-brand-color">From Struggle to Success: Sarah's
+                  Story</a>
+                <p class="text-body">Sarah, a beneficiary of our vocational training program, has launched her own
+                  successful business, becoming a beacon of
+                  hope in her community.</p>
+              </div>
+
+              <p class="text-small opacity-80 published">Published on <span class="text-inherit">02/09/2025</span></p>
+            </div>
+
+            <img src="/public/Assets/img/News_img/sarah-news.png" alt="Sarah smiling" class="place-self-end">
+          </li>
+
+
+          <li class="news-list-grid">
+            <div class="flex flex-col justify-between">
+              <div>
+                <a href="#" class="news-h6 md:mb-xxs mb-xs hover:text-brand-color">Community Garden Flourishes</a>
+                <p class="text-body">Our community garden project has not only provided fresh produce but also fostered
+                  a sense of unity and collaboration
+                  among residents</p>
+              </div>
+
+              <p class="text-small opacity-80 published">Published on <span class="text-inherit">07/09/2025</span></p>
+            </div>
+
+            <img src="/public/Assets/img/News_img/community-news.png" alt="an image showing farmers in a farm"
+              class="place-self-end">
+          </li>
+
+
+        </ul>
+
+        <div class=" mt-lg">
+          <div class="flex items-center justify-center span-pagination gap-sm text-small">
+            <button class="btn-pagin-left"><ion-icon name="chevron-back-outline"></ion-icon></button>
+            <span class="pagin-no active-no">1</span>
+            <span class="pagin-no">2</span>
+            <span class="pagin-no">3</span>
+            <button class="btn-pagin-right"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
 
   <script type="module" src="../src/js/news.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
+<!-- <div><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="#617c89"
+                viewBox="0 0 256 256">
+                <path
+                  d="M200.49,55.51a12,12,0,0,0-17,0L128,111l-55.51-55.52a12,12,0,0,0-17,17L111,128l-55.52,55.51a12,12,0,1,0,17,17L128,145l55.51,55.52a12,12,0,0,0,17-17L145,128l55.52-55.51A12,12,0,0,0,200.49,55.51Z" />
+              </svg>
+            </div> -->

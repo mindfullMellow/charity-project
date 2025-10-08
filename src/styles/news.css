@@ -1,2 +1,57 @@
 @import url("../style.css");
 @import url("./queries.css");
+
+.h2-el {
+  @apply font-semibold lg:text-h2 md:text-h3 text-h4 font-heading md:mb-sm mb-xxs;
+}
+
+.news-h6 {
+  @apply font-bold text-h6 font-heading;
+}
+
+.news-list-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  @apply gap-sm bg-white-accent md:p-md p-sm rounded-lg transition-all duration-300 cursor-pointer;
+}
+
+ul .news-list-grid:hover {
+  transform: translateY(-5px);
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.span-pagination span.pagin-no {
+  padding: 16px;
+  border-radius: 50%;
+
+  @apply flex justify-center items-center h-5 w-5;
+}
+
+.span-pagination span.active-no {
+  @apply bg-brand-color;
+}
+
+.span-pagination button {
+  @apply text-h5 flex justify-center items-center mx-xs;
+}
+
+@media (max-width: 52.1875em) {
+  .news-list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+    gap: 24px;
+  }
+
+  .news-list-grid img {
+    place-self: stretch;
+  }
+
+  .published {
+    display: none;
+  }
+}

@@ -1,10 +1,6 @@
 @import url("../style.css");
 @import url("./queries.css");
 
-.header {
-  @apply border-b border-[#eee];
-}
-
 .active-tab {
   @apply opacity-100 border-b-2 border-brand-color;
 }

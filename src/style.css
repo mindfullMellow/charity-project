@@ -23,6 +23,14 @@ HELPER CLASS
   box-shadow: none;
 }
 
+.header {
+  @apply border-b border-[#eee];
+}
+
+.container-div {
+  @apply container mx-auto max-w-[1200px];
+}
+
 body {
   @apply w-full overflow-x-hidden bg-white font-body text-header-color/90;
 }

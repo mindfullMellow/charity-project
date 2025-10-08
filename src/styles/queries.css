@@ -68,6 +68,14 @@
   }
 }
 
+/* @media (max-width: 52.1875em) {
+  .news-list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    @apply bg-red-600;
+  }
+} */
+
 @media (max-width: 51.7em) {
   .grid {
     grid-template-columns: 1fr;
