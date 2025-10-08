@@ -19,6 +19,9 @@ fetch('../../index.html').then(res => res.text())
     //MOBILE NAV LOGIC
     utils.mobileNav()
 
+    //Adding sticky nav
+    utils.addStickyNav(document.querySelector('.campaign-hero-section'))
+
     // get full year from utils
     document.getElementById('year').textContent = utils.getFullYear()
 
