@@ -1,0 +1,50 @@
+@import url("../style.css");
+@import url("./queries.css");
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 32px;
+  width: 100%;
+  height: 500px;
+
+  grid-template-areas:
+    "div1 div1 div2 div2"
+    "div1 div1 div3 div3";
+  /* "div4 div5 div6"; */
+}
+
+.grid-el {
+  @apply rounded-lg bg-white shadow-2xl border border-border-b-color py-md md:px-lg px-sm;
+}
+
+/* MAPING THE GRID TO THE DESIGNATED AREA */
+.grid-1 {
+  grid-area: div1;
+}
+
+.grid-2 {
+  grid-area: div2;
+}
+
+.grid-3 {
+  grid-area: div3;
+}
+
+/* #funds-received {
+  width: 100%;
+  height: 300px;
+} */
+
+@media (max-width: 72.6875em) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 39.8em) {
+}

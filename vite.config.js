@@ -14,6 +14,7 @@ export default defineConfig({
         Campaigns: './html/campaigns.html',
         News: './html/news.html',
         Contact: './html/contact.html',
+        Impact: './html/impact.html',
         queriesCss: './src/styles/queries.css',
       }
     }

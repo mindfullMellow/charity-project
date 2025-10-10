@@ -1,6 +1,4 @@
 'use strict';
-
-'use strict'
 import * as utils from './utilis'
 
 fetch('../../index.html').then(res => res.text())

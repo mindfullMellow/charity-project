@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS STYLESHEETS -->
+  <link rel="stylesheet" href="../src/styles/impact.css">
+  <title>Our Impact | One-Life Org </title>
+</head>
+
+<body>
+
+  <!-- THE HEADER IS BEEN FECTHED (FROM  INDEX.HTML) AND INSERTED DYNAMICALLY WITH JS (ABOUT.JS) -->
+
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="relative md:py-lg py-md px-md hero-section">
+      <div class="container-div">
+        <h1 class=" h2-el">Our Impact</h1>
+        <p class="md:text-h6 text-body md:mt-sm mt-xs">At <a href="../index.html" class="text-brand-color">One-Life
+            Org</a>, we are a global non-profit built on the
+          <em class="opacity-90"> principle of anonymity in service</em>, believing that true kindness
+          needs no recognition. We are committed to creating lasting change in communities around the world by
+          empowering lives
+          through education, healthcare, environmental sustainability, and social support. With over a million lives
+          touched,
+          thousands of trees planted, and countless communities uplifted, we continue to prove that one act of kindness
+          can
+          inspire global transformation.
+        </p>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- STATISTICS SECTION -->
+    <section class=" py-section px-md statistic-section bg-white-accent">
+
+      <div class="container-div statistic-div">
+
+
+        <!-- GRID CONTAINER -->
+        <div class="z-10 grid-container">
+          <!-- LIVES IMPACTED -->
+          <div class="flex flex-col justify-between grid-1 grid-el">
+
+            <div class="flex justify-between flex-none mb-md max-[550px]:flex-col max-[550px]:mb-0 max-[550px]:gap-sm">
+
+              <div class="flex flex-col justify-between">
+                <h6 class="font-normal text-lead max-[550px]:text-body">Lives impacted, last 12 mons</h6>
+                <p class="font-bold text-h4 font-heading max-[550px]:text-h5 max-[550px]:pt-xs">2.4 Million</p>
+              </div>
+
+              <div class="flex flex-col items-end max-[550px]:items-start">
+                <p class="font-bold text-h6 max-[550px]:text-small">
+                  23,001 lives impacted in
+                  sep</p>
+                <p class="text-small opacity-80 max-[550px]:hidden">updated <span>1 week ago</span>
+                </p>
+              </div>
+
+            </div>
+
+            <div class=" justify-self-center  w-full max-[637px]:hidden">
+              <canvas id="lives-impacted"></canvas>
+            </div>
+          </div>
+
+          <!-- TOTAL FUND RAISED -->
+          <div class="flex flex-col grid-2 grid-el">
+            <h6 class="font-normal text-h6 max-[550px]:text-body">Total funds received, last 12 mons</h6>
+
+            <div class="flex  max-[637px]:flex-col justify-between">
+              <div
+                class="flex flex-col flex-1 mt-md max-[637px]:mt-xs gap-sm max-[637px]:flex-row max-[550px]:flex-col max-[637px]:justify-between">
+                <p class="font-bold text-h4 font-heading max-[550px]:text-h5"><span class="">$</span>110,481,952</p>
+
+                <div class="space-y-1 max-[550px]:flex max-[550px]:justify-between">
+                  <p class="font-bold text-body max-[550px]:text-small"><span class="text-brand-color">$11,419,028
+                    </span>received, in september</p>
+                  <p class="text-small opacity-80 max-[550px]:hidden">updated <span>1 week ago</span></p>
+                </div>
+              </div>
+              <div class="flex-1 w-full max-[637px]:hidden">
+                <canvas id="funds-received" class="w-full"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOTAL DONATIONS RECIVED -->
+          <div class="flex flex-col grid-3 grid-el">
+            <h6 class="font-normal text-h6 max-[550px]:text-body">Total Donations received, last 12 mons</h6>
+
+            <div class="flex flex-wrap max-[637px]:flex-col justify-between">
+              <div
+                class="flex flex-col flex-1 mt-md max-[637px]:mt-xs gap-sm max-[637px]:flex-row max-[550px]:flex-col max-[637px]:justify-between">
+                <p class="font-bold text-h4 font-heading max-[550px]:text-h5">230,615</p>
+
+                <div class="space-y-1 max-[550px]:flex max-[550px]:justify-between">
+                  <p class="font-bold text-body max-[550px]:text-small"><span class="text-brand-color">11,689</span>
+                    donations recieved in
+                    september</p>
+                  <p class="text-small opacity-80 max-[550px]:hidden">updated <span>1 week ago</span></p>
+                </div>
+              </div>
+
+              <div class="flex-1 w-full max-[637px]:hidden">
+                <canvas id="donations-received" class="w-full"></canvas>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- FLEX CONTAINER -->
+    </section>
+
+  </main>
+
+
+  <script type="module" src="../src/js/impact.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
