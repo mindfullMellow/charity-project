@@ -60,20 +60,37 @@ utils.revealElementsOnScroll()
 /////////////////////////////////////////////////////
 //PEOPLE REACHED SECTION LOGIC
 ////////////////////////////////////////////////////
-countries.forEach(cur => {
-  if (cur.dataset.content.includes('million')) {
-    const millionvar = parseFloat(cur.dataset.content) * 1000000
-    dataArr.push(millionvar)
-  } else {
-    dataArr.push(parseFloat(cur.dataset.content.replace(/,/g, ""), 10))
-  }
+let peopleReachedData;
 
-})
-const totalPeopleReached = dataArr.reduce((acc, cur) => acc + cur, 0).toString()
+async function peopleReachedCalc() {
+  countries.forEach(cur => {
+    if (cur.dataset.content.includes('million')) {
+      const millionvar = parseFloat(cur.dataset.content) * 1000000
+      dataArr.push(millionvar)
+    } else {
+      dataArr.push(parseFloat(cur.dataset.content.replace(/,/g, ""), 10))
+    }
 
-if (totalPeopleReached.length === 7) {
-  peopleReached.textContent = `${totalPeopleReached[0]}.${totalPeopleReached[1]}${totalPeopleReached[2]}  Million`
+  })
+
+  const totalPeopleReached = dataArr.reduce((acc, cur) => acc + cur, 0).toString();
+
+  peopleReachedData = `${totalPeopleReached[0]}.${totalPeopleReached[1]}${totalPeopleReached[2]}  Million`
+
+
+
+  return peopleReachedData
+
 }
+export const DataReady = peopleReachedCalc()
+
+
+//Displaying this on the scetion that as the map
+peopleReached.textContent = peopleReachedData
+
+
+
+
 
 
 countries.forEach(country => {
@@ -97,9 +114,6 @@ countries.forEach(country => {
     duration: 0,
   })
 })
-
-
-
 
 // get full year from utils
 document.getElementById('year').textContent = utils.getFullYear()

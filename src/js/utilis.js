@@ -1,6 +1,5 @@
 "use strict"
 
-
 /////////////////////////////////////////////////////
 //DOM MANIPULATION LOGIC
 ////////////////////////////////////////////////////
@@ -16,12 +15,13 @@ export function mobileNav() {
 }
 
 
+
 ///////////////////////////////////////////
 //REVEALING ELEMNTS ON SCROLL
 ///////////////////////////////////////////
 export function revealElementsOnScroll() {
   const AllSections = Array.from(document.querySelectorAll('section'))
-  const selectedSection = AllSections.filter(cur => !cur.classList.contains('section-hero') && !cur.classList.contains('quote-section'))
+  const selectedSection = AllSections.filter(cur => !cur.classList.contains('section-hero') && !cur.classList.contains('quote-section') && !cur.classList.contains('statistic-section'))
 
   const reavealSection = function (entries, observer) {
     const [entry] = entries
@@ -77,3 +77,4 @@ export function getFullYear() {
   const currentYear = new Date().getFullYear()
   return currentYear
 }
+

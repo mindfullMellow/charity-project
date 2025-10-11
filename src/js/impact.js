@@ -13,14 +13,14 @@ fetch('../../index.html').then(res => res.text())
     console.log(header);
     //get the <footer></footer> element 
     const footer = doc.querySelector('footer')
-    // add it to the current page
-    if (header) document.body.prepend(header); // or appendChild
-    // if (footer) document.body.append(footer)
-
-
+    //get the impactCards elements   
     const impactCards = doc.querySelector('.impact-cards')
-    console.log(impactCards);
 
+
+
+    // add it to the current page
+    if (header) document.body.prepend(header);
+    if (footer) document.body.append(footer)
     if (impactCards) document.querySelector('.statistic-div').append(impactCards)
   }).then(() => {
     //  EVERY ELEMENT THAT DEPENDS ON THIS HTML BEING FECTHED SHOULD BE HERE 
@@ -29,18 +29,27 @@ fetch('../../index.html').then(res => res.text())
     utils.mobileNav()
 
     //Adding sticky nav
+    utils.addStickyNav(document.querySelector('.section-hero-impact'))
 
+    //Reveal elements on scroll
+    utils.revealElementsOnScroll()
 
     // get full year from utils
-    // document.getElementById('year').textContent = utils.getFullYear()
+    document.getElementById('year').textContent = utils.getFullYear()
 
-    const cardsContainer = document.querySelector('.impact-cards').classList.add('mt-lg')
+    //get the impact cards and add the stye callss to fit the about page
+    document.querySelector('.impact-cards').classList.add('mt-sm', 'shadow-xl', 'bg-transparent')
     const cardschildren = document.querySelector('.impact-cards').children
-
     Array.from(cardschildren).forEach(cur => {
       cur.classList.add('grid-el')
     });
+
+
   })
+
+
+
+
 
 ////////////////////////////////////////////////////
 //FUNDS RECIEVED

@@ -5,14 +5,13 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 32px;
+  @apply gap-sm;
   width: 100%;
   height: 500px;
 
   grid-template-areas:
     "div1 div1 div2 div2"
     "div1 div1 div3 div3";
-  /* "div4 div5 div6"; */
 }
 
 .grid-el {
@@ -32,10 +31,66 @@
   grid-area: div3;
 }
 
-/* #funds-received {
-  width: 100%;
-  height: 300px;
-} */
+.grid-2-col {
+  @apply flex flex-wrap  justify-between;
+}
+
+.grid-2-col h6 {
+  @apply tracking-wide;
+}
+
+.grid-2-col img {
+  @apply h-[80%] w-[80%] rounded-lg;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  @apply md:p-md p-sm rounded-lg bg-white-accent shadow-lg;
+}
+
+.stories-grid a {
+  @apply font-bold text-body pb-[2px] border-b-2 border-brand-color text-brand-color hover:border-transparent hover:text-brand-dark-accent duration-300 transition-all;
+}
+
+.story-h6 {
+  @apply font-bold text-h6 font-heading;
+}
+
+.stars i {
+  color: gold;
+}
+
+.feature-img {
+  @apply justify-self-end h-[80%] w-[80%];
+}
+
+.feature-img img {
+  @apply w-full rounded-lg;
+}
+
+.reactions span {
+  @apply text-small opacity-80;
+}
+
+.reactions i {
+  @apply text-body;
+}
+
+.testimonies-list p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.group span {
+  width: 220px;
+  text-align: center;
+}
+
+/* //////////////////////////////////////////////////// */
+/* MEDIA QUERIES */
+/* /////////////////////////////////////////////////// */
 
 @media (max-width: 72.6875em) {
   .grid-container {
@@ -46,5 +101,63 @@
   }
 }
 
-@media (max-width: 39.8em) {
+@media (max-width: 57.1875em) {
+  .grid-2-col h6 {
+    @apply text-h3;
+  }
+
+  .grid-2-col p {
+    text-align: justify;
+    text-justify: inter-word;
+    @apply text-body;
+  }
+
+  .grid-2-col > div:first-child {
+    @apply gap-md;
+  }
+}
+
+@media (max-width: 52.5em) {
+  .stories-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    @apply gap-xl;
+  }
+
+  .feature-img {
+    @apply w-full h-full;
+  }
+
+  .stories-grid a {
+    @apply text-small  mt-sm inline-block;
+  }
+
+  .stories-grid p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
+@media (max-width: 50em) {
+  .grid-2-col {
+    @apply flex-col gap-sm;
+  }
+
+  .grid-2-col > div:first-child {
+    @apply gap-sm;
+  }
+
+  .grid-2-col img {
+    @apply w-full h-[300px];
+  }
+}
+
+@media (max-width: 31.25em) {
+  .grid-2-col h6 {
+    @apply text-h4;
+  }
+
+  .grid-2-col img {
+    @apply w-full h-[200px];
+  }
 }
