@@ -172,6 +172,10 @@ ABOUT PAGE STLYES
   .testimonials {
     background-attachment: scroll;
   }
+
+  .quote-section {
+    max-height: 80vh;
+  }
 }
 
 @media (max-width: 31.3em) {
