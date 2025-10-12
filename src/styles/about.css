@@ -142,3 +142,6 @@ ABOUT PAGE STLYES
   text-justify: inter-word;
   @apply text-h6 mb-lg;
 }
+
+@media (max-width: 47.94em) {
+}
