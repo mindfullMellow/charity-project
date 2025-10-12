@@ -29,7 +29,7 @@ fetch('../../index.html').then(res => res.text())
     utils.addStickyNav(quoteHero)
 
     //Reaveal Elemnts on Scroll
-    // utils.revealElementsOnScroll()
+    utils.revealElementsOnScroll()
   })
 
 
