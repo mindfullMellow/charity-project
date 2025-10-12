@@ -169,7 +169,7 @@ content.forEach(cur => {
     if (diff > 50)
       moveLeft()
 
-    if (diff < 50)
+    if (diff < -50)
       moveRight()
   })
 
