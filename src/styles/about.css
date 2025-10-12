@@ -144,7 +144,19 @@ ABOUT PAGE STLYES
   @apply relative flex items-center justify-center  h-xxl w-xxl;
 }
 
+.img-container span {
+  @apply max-[500px]:left-2;
+}
+
 @media (max-width: 47.94em) {
+  .quote::before {
+    display: none;
+  }
+
+  .testimonials {
+    background-attachment: scroll;
+  }
+
   .slider__btn {
     display: none;
   }
@@ -152,10 +164,6 @@ ABOUT PAGE STLYES
   address {
     @apply gap-xxs;
   }
-
-  /* .dots {
-    @apply hidden;
-  } */
 
   .testimonials-content {
     @apply w-[90%];
@@ -167,14 +175,6 @@ ABOUT PAGE STLYES
 
   address .img {
     @apply h-xl w-xl;
-  }
-
-  .testimonials {
-    background-attachment: scroll;
-  }
-
-  .quote-section {
-    max-height: 80vh;
   }
 }
 

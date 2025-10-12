@@ -37,7 +37,6 @@ const slides = document.querySelectorAll('.slide')
 const btnLeft = document.querySelector('.slider__btn--left')
 const btnRight = document.querySelector('.slider__btn--right')
 let curSlide = 0
-let interval;
 const maxslides = slides.length
 const dotContainer = document.querySelector('.dots')
 
@@ -52,7 +51,6 @@ slides.forEach((cur, i) => {
 })
 
 function moveRight() {
-  clearInterval(interval)
   if (curSlide === maxslides - 1) {
     //currentslide back to zero if we reach the end of the nodes list 
     curSlide = 0
@@ -69,10 +67,10 @@ function moveRight() {
   // -100%, 0%, 100%, 200%, 300%
 
   activateDots(curSlide)
+  console.log('moving...');
 }
 
 function moveLeft() {
-  clearInterval(interval)
   if (curSlide === 0) {
     curSlide = maxslides - 1
   } else {
@@ -133,21 +131,30 @@ document.addEventListener('keydown', (e) => {
   e.key === 'ArrowLeft' && moveLeft()
 })
 
+let interval;
+
 // start the animation once the element is in view
-let observer = new IntersectionObserver(entries => {
-  const [entry] = entries
+const observer = new IntersectionObserver(entries => {
+  const [entry] = entries;
+
   if (entry.isIntersecting) {
-    interval = setInterval(moveRight, 15000)
+    if (!interval) interval = setInterval(() => moveRight(), 15000);
   } else {
-    clearInterval(interval)
+    clearInterval(interval);
+    interval = null;
   }
-})
-observer.observe(slider)
+}, { threshold: 0.5 }); // fires when any part is visible
+
+observer.observe(document.querySelector('.testimonials'));
+
+
+
 
 
 //swipe action for small screens 
 let startX = 0
-const content = document.querySelectorAll('.testimonials-content')
+const content = document.querySelectorAll('blockquote')
+
 
 content.forEach(cur => {
   cur.addEventListener('touchstart', e => {
