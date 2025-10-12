@@ -31,6 +31,8 @@ ABOUT PAGE STLYES
 }
 
 .testimonials {
+  /* @apply bg-red-500; */
+
   background-image: linear-gradient(
       to bottom,
       rgb(17, 22, 24, 0.75),
@@ -44,29 +46,15 @@ ABOUT PAGE STLYES
   background-attachment: fixed;
 }
 
-.testi-btn {
-  @apply text-h3 absolute rounded-full;
-}
-
-.right-testi-btn {
-  right: -100px;
-  top: 50%;
-
-  transform: translate(50%, -50%);
-}
-.left-testi-btn {
-  top: 50%;
-  left: -130px;
-
-  transform: translate(50%, -50%);
-}
-
 .slider {
   max-width: 1000px;
   height: 500px;
   margin: 0 auto;
   position: relative;
-  background-color: red;
+  /* background-color: red; */
+
+  /* IN THE END */
+  overflow: hidden;
 }
 
 .slide {
@@ -74,7 +62,7 @@ ABOUT PAGE STLYES
   top: 0;
   width: 100%;
   height: 500px;
-  background-color: blue;
+  /* background-color: blue; */
 
   display: flex;
   align-items: center;
@@ -101,7 +89,7 @@ ABOUT PAGE STLYES
   height: 55px;
   width: 55px;
   cursor: pointer;
-  @apply text-h3 bg-brand-color flex justify-center items-center rounded-full;
+  @apply text-h3  flex justify-center items-center rounded-full;
 }
 
 .slider__btn--left {
@@ -112,4 +100,45 @@ ABOUT PAGE STLYES
 .slider__btn--right {
   right: 6%;
   transform: translate(50%, -50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  background-color: #fff;
+  opacity: 1;
+}
+
+/* CONTENTS */
+
+.testimonials-content {
+  width: 65%;
+  @apply w-[65%];
+}
+
+.testimonials-content blockquote {
+  text-justify: inter-word;
+  @apply text-h6 mb-lg;
 }

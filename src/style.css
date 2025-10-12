@@ -61,6 +61,11 @@ body {
   transform: translateY(8rem);
 }
 
+.group span {
+  width: 220px;
+  text-align: center;
+}
+
 /* 
 /////////////////////////////////////////////////
 TIPPY STLYES
