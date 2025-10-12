@@ -15,7 +15,7 @@ ABOUT PAGE STLYES
     ),
     url("/Assets/img/about/helping-hands.webp");
   position: relative;
-  min-height: 100vh;
+  max-height: 100vh;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
