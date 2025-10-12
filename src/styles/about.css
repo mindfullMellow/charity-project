@@ -114,10 +114,10 @@ ABOUT PAGE STLYES
   border: none;
   background-color: #b9b9b9;
   opacity: 0.7;
-  height: 1rem;
-  width: 1rem;
+  height: 16px;
+  width: 16px;
   border-radius: 50%;
-  margin-right: 1.75rem;
+  margin-right: 28px;
   cursor: pointer;
   transition: all 0.5s;
 }
@@ -142,14 +142,22 @@ ABOUT PAGE STLYES
   @apply text-h6 mb-lg;
 }
 
+.img-container {
+  @apply relative flex items-center justify-center  h-xxl w-xxl;
+}
+
 @media (max-width: 47.94em) {
   .slider__btn {
     display: none;
   }
 
-  .dots {
-    @apply hidden;
+  address {
+    @apply gap-xxs;
   }
+
+  /* .dots {
+    @apply hidden;
+  } */
 
   .testimonials-content {
     @apply w-[90%];
@@ -159,7 +167,19 @@ ABOUT PAGE STLYES
     text-align: justify;
   }
 
-  address img {
+  address .img {
     @apply h-xl w-xl;
+  }
+}
+
+@media (max-width: 31.3em) {
+  .slide blockquote,
+  address div h6 {
+    @apply text-body;
+  }
+
+  .dots__dot {
+    height: 10px;
+    width: 10px;
   }
 }

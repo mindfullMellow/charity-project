@@ -142,18 +142,18 @@ let observer = new IntersectionObserver(entries => {
     clearInterval(interval)
   }
 })
-observer.observe(document.querySelector('.testimonials'))
+observer.observe(slider)
 
 
 //swipe action for small screens 
 let startX = 0
 
-document.addEventListener('touchstart', e => {
+slider.addEventListener('touchstart', e => {
   startX = e.touches[0].clientX
   console.log(e.touches);
 })
 
-document.addEventListener('touchend', e => {
+slider.addEventListener('touchend', e => {
   const endX = e.changedTouches[0].clientX
   const diff = endX - startX
 
