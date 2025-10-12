@@ -152,6 +152,14 @@ ABOUT PAGE STLYES
   }
 
   .testimonials-content {
-    @apply w-full;
+    @apply w-[90%];
+  }
+
+  .testimonials-content blockquote {
+    text-align: justify;
+  }
+
+  address img {
+    @apply h-xl w-xl;
   }
 }

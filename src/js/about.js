@@ -157,10 +157,10 @@ document.addEventListener('touchend', e => {
   const endX = e.changedTouches[0].clientX
   const diff = endX - startX
 
-  if (diff > 40)
+  if (diff > 50)
     moveLeft()
 
-  if (diff < 40)
+  if (diff < 50)
     moveRight()
 })
 
