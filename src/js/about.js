@@ -52,6 +52,7 @@ slides.forEach((cur, i) => {
 })
 
 function moveRight() {
+  clearInterval(interval)
   if (curSlide === maxslides - 1) {
     //currentslide back to zero if we reach the end of the nodes list 
     curSlide = 0
@@ -71,6 +72,7 @@ function moveRight() {
 }
 
 function moveLeft() {
+  clearInterval(interval)
   if (curSlide === 0) {
     curSlide = maxslides - 1
   } else {

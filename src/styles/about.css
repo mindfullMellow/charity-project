@@ -134,7 +134,6 @@ ABOUT PAGE STLYES
 /* CONTENTS */
 
 .testimonials-content {
-  width: 65%;
   @apply w-[65%];
 }
 
@@ -144,4 +143,15 @@ ABOUT PAGE STLYES
 }
 
 @media (max-width: 47.94em) {
+  .slider__btn {
+    display: none;
+  }
+
+  .dots {
+    @apply hidden;
+  }
+
+  .testimonials-content {
+    @apply w-full;
+  }
 }
