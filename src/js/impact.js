@@ -55,11 +55,13 @@ fetch('../../index.html').then(res => res.text())
 //FUNDS RECIEVED
 const donationRecieved = document.getElementById('donations-received')
 new Chart(donationRecieved, {
+
   type: 'line',
   data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    labels: ['Oct', 'Nov', 'Dec', 'jan', 'feb', 'mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
     datasets: [{
-      data: [12000000, 10000000, 30000000, 40000000, 56000000, 60000000, 16000000],
+      year: [2024, 2024, 2024, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025],
+      data: [32, 37, 48, 81, 64, 95, 61, 82, 67, 63, 47, 11],
       borderColor: '#0066ff',
       borderWidth: 2,
       fill: false,
@@ -77,7 +79,10 @@ new Chart(donationRecieved, {
         mode: 'index',
         intersect: false,
         callbacks: {
-          label: ctx => `$${ctx.parsed.y.toLocaleString()} in ${ctx.label} 2025`
+          label: ctx => {
+            const years = ctx.dataset.year[ctx.dataIndex];
+            return `${ctx.parsed.y.toLocaleString()}k received in ${ctx.label} ${years}`;
+          }
         }
       }
     },
@@ -99,9 +104,10 @@ const fundsReceived = document.getElementById('funds-received');
 new Chart(fundsReceived, {
   type: 'line',
   data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    labels: ['Oct', 'Nov', 'Dec', 'jan', 'feb', 'mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
     datasets: [{
-      data: [12000000, 10000000, 30000000, 40000000, 56000000, 60000000, 16000000],
+      year: [2024, 2024, 2024, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025],
+      data: [57729449, 54120709, 55175955, 55015919, 12277922, 40157059, 28598773, 15238966, 13560540, 40114687, 32805928, 29089206],
       borderColor: '#0066ff',
       borderWidth: 2,
       fill: false,
@@ -119,7 +125,10 @@ new Chart(fundsReceived, {
         mode: 'index',
         intersect: false,
         callbacks: {
-          label: ctx => `$${ctx.parsed.y.toLocaleString()} in ${ctx.label} 2025`
+          label: ctx => {
+            const years = ctx.dataset.year[ctx.dataIndex]
+            return `$${ctx.parsed.y.toLocaleString()} in ${ctx.label} ${years}`
+          }
         }
       }
     },
@@ -147,7 +156,7 @@ new Chart(ctx, {
     datasets: [
       {
         label: '12 month cumulative',
-        data: [10, 20, 25, 40, 60, 70, 90, 100, 120, 130, 135, 140],
+        data: [220000, 210000, 250000, 200000, 230000, 190000, 180000, 210000, 195000, 215000, 200000, 230000],
         fill: true,
         backgroundColor: 'rgba(0, 123, 255, 0.2)', // light blue
         borderColor: 'rgba(0, 123, 255, 0)',
@@ -158,7 +167,7 @@ new Chart(ctx, {
 
       {
         label: 'Monthly',
-        data: [2, 3, 5, 4, 6, 7, 5, 8, 9, 11, 10, 12],
+        data: [32400, 24200, 175000, 14000, 111000, 150500, 75600, 147000, 61900, 169850, 20000, 181700],
         fill: true,
         backgroundColor: 'rgba(0, 102, 255, 1)', // deep blue
         borderColor: 'rgba(0, 102, 255, 1)',
