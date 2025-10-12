@@ -170,6 +170,10 @@ ABOUT PAGE STLYES
   address .img {
     @apply h-xl w-xl;
   }
+
+  .testimonials {
+    background-attachment: scroll;
+  }
 }
 
 @media (max-width: 31.3em) {

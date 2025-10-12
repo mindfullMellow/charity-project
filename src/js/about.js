@@ -147,22 +147,27 @@ observer.observe(slider)
 
 //swipe action for small screens 
 let startX = 0
+const content = document.querySelectorAll('.testimonials-content')
 
-slider.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX
-  console.log(e.touches);
+content.forEach(cur => {
+  cur.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX
+    console.log(e.touches);
+  })
+
+  cur.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX
+    const diff = endX - startX
+
+    if (diff > 50)
+      moveLeft()
+
+    if (diff < 50)
+      moveRight()
+  })
+
 })
 
-slider.addEventListener('touchend', e => {
-  const endX = e.changedTouches[0].clientX
-  const diff = endX - startX
-
-  if (diff > 50)
-    moveLeft()
-
-  if (diff < 50)
-    moveRight()
-})
 
 
 
