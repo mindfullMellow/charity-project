@@ -58,7 +58,7 @@ input:focus {
   align-items: center;
   justify-content: center;
 
-  transition: transform 1s;
+  transition: transform 0.5s;
 }
 
 .news-slide ul {

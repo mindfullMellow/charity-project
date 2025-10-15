@@ -29,26 +29,31 @@ fetch('../../index.html').then(res => res.text())
     document.getElementById('year').textContent = utils.getFullYear()
 
   })
-
+//////////////////////////
 //working on the input(uponn creation f the json file or  this news elements make the serch button real to search for each content)
-const searchInput = document.getElementById('search')
-const clearBtn = document.querySelector('.clear-btn')
-console.log(searchInput);
+//////////////////////////
+function searchInputInit() {
+  const searchInput = document.getElementById('search')
+  const clearBtn = document.querySelector('.clear-btn')
+  console.log(searchInput);
 
-searchInput.addEventListener('input', () => {
-  let text = searchInput.value
+  searchInput.addEventListener('input', () => {
+    let text = searchInput.value
 
-  if (text.length >= 1) {
-    clearBtn.classList.replace('hidden', 'flex')
-  } else {
+    if (text.length >= 1) {
+      clearBtn.classList.replace('hidden', 'flex')
+    } else {
+      clearBtn.classList.replace('flex', 'hidden')
+    }
+  })
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = ''
     clearBtn.classList.replace('flex', 'hidden')
-  }
-})
+  })
+}
+searchInputInit()
 
-clearBtn.addEventListener('click', () => {
-  searchInput.value = ''
-  clearBtn.classList.replace('flex', 'hidden')
-})
 
 
 //////////////////////////
@@ -96,9 +101,9 @@ function paginationInit() {
 
   //This make the observer updates based on the cntent in each slide
   function observeTheNewSlide(slide) {
+    document.querySelector('.news-h3').scrollIntoView({ behavior: 'smooth', block: 'start' })
     resizeObserver.disconnect()
     resizeObserver.observe(newsSlide[slide])
-    document.querySelector('.news-h3').scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
 
@@ -172,23 +177,23 @@ function paginationInit() {
 
 
   //Swipe actions for small screens 
-  let startX = 0
-  newsSlide.forEach(cur => {
-    cur.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX
-    })
+  // let startX = 0
+  // newsSlide.forEach(cur => {
+  //   cur.addEventListener('touchstart', e => {
+  //     startX = e.touches[0].clientX
+  //   })
 
-    cur.addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX
-      const diff = endX - startX
+  //   cur.addEventListener('touchend', e => {
+  //     const endX = e.changedTouches[0].clientX
+  //     const diff = endX - startX
 
-      if (diff > 50)
-        moveLeft()
+  //     if (diff > 40)
+  //       moveLeft()
 
-      if (diff < -50)
-        moveRight()
-    })
-  })
+  //     if (diff < -40)
+  //       moveRight()
+  //   })
+  // })
 
 }
 paginationInit()
