@@ -32,6 +32,8 @@ fetch('../../index.html').then(res => res.text())
     utils.revealElementsOnScroll()
   })
 
+//////////////////////////////
+//
 
 function testimonialSlideInit() {
   const slides = document.querySelectorAll('.slide')
@@ -166,9 +168,10 @@ function testimonialSlideInit() {
 
   })
 }
-
-
 testimonialSlideInit()
+
+
+
 
 
 

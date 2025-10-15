@@ -1,6 +1,7 @@
 'use strict'
 import * as utils from './utilis'
 
+
 fetch('../../index.html').then(res => res.text())
   .then(data => {
     //convert the fecthed html string into a DOM 
@@ -29,7 +30,30 @@ fetch('../../index.html').then(res => res.text())
 
   })
 
+//working on the input(uponn creation f the json file or  this news elements make the serch button real to search for each content)
+const searchInput = document.getElementById('search')
+const clearBtn = document.querySelector('.clear-btn')
+console.log(searchInput);
 
+searchInput.addEventListener('input', () => {
+  let text = searchInput.value
+
+  if (text.length >= 1) {
+    clearBtn.classList.replace('hidden', 'flex')
+  } else {
+    clearBtn.classList.replace('flex', 'hidden')
+  }
+})
+
+clearBtn.addEventListener('click', () => {
+  searchInput.value = ''
+  clearBtn.classList.replace('flex', 'hidden')
+})
+
+
+//////////////////////////
+//Pagination initialization
+/////////////////////////
 function paginationInit() {
   const newsSlide = document.querySelectorAll('.news-slide')
   const newsSlider = document.querySelector('.news-slider')
@@ -167,6 +191,4 @@ function paginationInit() {
   })
 
 }
-
-
 paginationInit()
