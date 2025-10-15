@@ -33,147 +33,143 @@ fetch('../../index.html').then(res => res.text())
   })
 
 
-const slides = document.querySelectorAll('.slide')
-const btnLeft = document.querySelector('.slider__btn--left')
-const btnRight = document.querySelector('.slider__btn--right')
-let curSlide = 0
-const maxslides = slides.length
-const dotContainer = document.querySelector('.dots')
+function testimonialSlideInit() {
+  const slides = document.querySelectorAll('.slide')
+  const btnLeft = document.querySelector('.slider__btn--left')
+  const btnRight = document.querySelector('.slider__btn--right')
+  const dotContainer = document.querySelector('.dots')
+  let curSlide = 0
+  let interval;
+  const maxslides = slides.length
 
 
-const slider = document.querySelector('.slider')
+  function goToSlide(slide) {//First add the transform to teh elmemnt based on tehir positin in teh nodelist
+    //What we want --> 0%, 100%, 200%, 300%
 
-//First add the transform to teh elmemnt based on tehir positin in teh nodelist
-//What we want --> 0%, 100%, 200%, 300%
-
-slides.forEach((cur, i) => {
-  cur.style.transform = `translateX(${100 * i}%)`
-})
-
-function moveRight() {
-  if (curSlide === maxslides - 1) {
-    //currentslide back to zero if we reach the end of the nodes list 
-    curSlide = 0
-  } else {
-    //on every click slides increses by 1 
-    curSlide++
-  }
-
-  //The key logic
-  slides.forEach((cur, i) => {
-    cur.style.transform = `translateX(${100 * (i - curSlide)}%)`
-  })
-  //What we want
-  // -100%, 0%, 100%, 200%, 300%
-
-  activateDots(curSlide)
-  console.log('moving...');
-}
-
-function moveLeft() {
-  if (curSlide === 0) {
-    curSlide = maxslides - 1
-  } else {
-    curSlide--
-  }
-
-
-  slides.forEach((cur, i) => {
-    cur.style.transform = `translateX(${100 * (i - curSlide)}%)`
-  })
-  activateDots(curSlide)
-
-}
-
-function createDots() {
-  slides.forEach((_, i) => {
-    dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
-  })
-}
-createDots()
-
-function activateDots(slide) {
-  document.querySelectorAll('.dots__dot').forEach(dot => dot.classList.remove('dots__dot--active'))
-
-  document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
-}
-
-activateDots(0)
-
-
-btnRight.addEventListener('click', () => {
-  moveRight()
-})
-
-
-btnLeft.addEventListener('click', () => {
-  moveLeft()
-})
-
-//making the dots clickable (using event delgation (bubbling))
-dotContainer.addEventListener('click', (e) => {
-  if (e.target.classList.contains('dots__dot')) {
-    const { slide } = e.target.dataset
-
-
+    //The key logic
     slides.forEach((cur, i) => {
       cur.style.transform = `translateX(${100 * (i - slide)}%)`
     })
-
-    activateDots(slide)
   }
-})
 
-//adding keyboard event for accessibilty 
-document.addEventListener('keydown', (e) => {
-  //Using short  circuting (returns the first flasy value so tsi only runs when e.key === arrowright become true )
-  e.key === 'ArrowRight' && moveRight()
-  e.key === 'ArrowLeft' && moveLeft()
-})
+  goToSlide(0)
 
-let interval;
 
-// start the animation once the element is in view
-const observer = new IntersectionObserver(entries => {
-  const [entry] = entries;
+  function moveRight() {
+    if (curSlide === maxslides - 1) {
+      //currentslide back to zero if we reach the end of the nodes list 
+      curSlide = 0
+    } else {
+      //on every click slides increses by 1 
+      curSlide++
+    }
 
-  if (entry.isIntersecting) {
-    if (!interval) interval = setInterval(() => moveRight(), 15000);
-  } else {
-    clearInterval(interval);
-    interval = null;
+
+    goToSlide(curSlide)
+    activateDots(curSlide)
   }
-}, { threshold: 0.5 }); // fires when any part is visible
 
-observer.observe(document.querySelector('.testimonials'));
+  function moveLeft() {
+    if (curSlide === 0) {
+      curSlide = maxslides - 1
+    } else {
+      curSlide--
+    }
+
+    goToSlide(curSlide)
+    activateDots(curSlide)
+
+  }
+
+  function createDots() {
+    slides.forEach((_, i) => {
+      dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
+    })
+  }
+  createDots()
+
+  function activateDots(slide) {
+    document.querySelectorAll('.dots__dot').forEach(dot => dot.classList.remove('dots__dot--active'))
+
+    document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
+  }
+
+  activateDots(0)
 
 
 
+  // start the animation once the element is in view
+  const observer = new IntersectionObserver(entries => {
+    const [entry] = entries;
+
+    if (entry.isIntersecting) {
+      if (!interval) interval = setInterval(() => moveRight(), 15000);
+    } else {
+      clearInterval(interval);
+      interval = null;
+    }
+  }, { threshold: 0.5 }); // fires when any part is visible
+
+  observer.observe(document.querySelector('.testimonials'));
+
+  ////////////////////////////
+  //Event listners
+  //////////////////////////////
+  btnRight.addEventListener('click', moveRight)
+  btnLeft.addEventListener('click', moveLeft)
+  //making the dots clickable (using event delgation (bubbling))
+  dotContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('dots__dot')) {
+      // This way, we're not keeping track of the current slide when clicking on a slide
+      // const { slide } = e.target.dataset;
+
+      curSlide = Number(e.target.dataset.slide)
 
 
-//swipe action for small screens 
-let startX = 0
-const content = document.querySelectorAll('blockquote')
+      goToSlide(curSlide)
 
-
-content.forEach(cur => {
-  cur.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX
-    console.log(e.touches);
+      activateDots(curSlide)
+    }
   })
 
-  cur.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX
-    const diff = endX - startX
-
-    if (diff > 50)
-      moveLeft()
-
-    if (diff < -50)
-      moveRight()
+  //adding keyboard event for accessibilty 
+  document.addEventListener('keydown', (e) => {
+    //Using short  circuting (returns the first flasy value so tsi only runs when e.key === arrowright become true )
+    e.key === 'ArrowRight' && moveRight()
+    e.key === 'ArrowLeft' && moveLeft()
   })
 
-})
+
+
+  /////////////////////////////////////
+  //swipe action for small screens 
+  ////////////////////////////////
+  let startX = 0
+  const content = document.querySelectorAll('.slide')
+
+
+  content.forEach(cur => {
+    cur.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX
+    })
+
+    cur.addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX
+      const diff = endX - startX
+
+      if (diff > 50)
+        moveLeft()
+
+      if (diff < -50)
+        moveRight()
+    })
+
+  })
+}
+
+
+testimonialSlideInit()
+
 
 
 

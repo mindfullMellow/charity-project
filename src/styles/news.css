@@ -35,8 +35,34 @@ input:focus {
   @apply bg-brand-color;
 }
 
-.span-pagination button {
+.pagin-content button {
   @apply text-h5 flex justify-center items-center mx-xs;
+}
+
+.news-slider {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+
+  transition: height 0.5s;
+  overflow: hidden;
+}
+
+.news-slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 1s;
+}
+
+.news-slide ul {
+  width: 97%;
 }
 
 @media (max-width: 52.1875em) {
