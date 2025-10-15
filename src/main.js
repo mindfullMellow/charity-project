@@ -6,63 +6,28 @@ import 'tippy.js/dist/tippy.css'; // base styles
 ///////////////////////////////////////////
 //GLOBAL VARIABLES
 ///////////////////////////////////////////
-const dataArr = []
-const peopleReached = document.querySelector('.people-reached')
-const countries = document.querySelectorAll('.country')
-const sectionHero = document.querySelector('.section-hero')
+function mainJsInit() {
+  const sectionHero = document.querySelector('.section-hero')
 
-
-// const header = document.querySelector('header')
-// console.log(header);
-// function HideNavOnHover(e, change = false) {
-//   if (!e.target.classList.contains('nav-hover')) return;
-
-//   const link = e.target
-//   const siblings = link.closest('header').querySelectorAll('.nav-hover')
-
-
-//   siblings.forEach(cur => {
-//     if (cur !== link && !change) {
-//       cur.classList.add('opacity-50')
-//     } else {
-//       cur.classList.remove('opacity-50')
-//     }
-//   })
-// }
-
-// header.addEventListener('mouseover', (e) => {
-//   HideNavOnHover(e)
-// })
-
-// header.addEventListener('mouseout', (e) => {
-
-//   HideNavOnHover(e, true)
-// })
-
-///////////////////////////////////////////
-//ADDING THE STICKY NAV
-///////////////////////////////////////////
-
-utils.addStickyNav(sectionHero)
-
-/////////////////////////////////////////////////////
-//DOM MANIPULATION LOGIC
-////////////////////////////////////////////////////
-
-//MOBILE NAV LOGIC
-utils.mobileNav()
-
-///////////////////////////////////////////
-//REVEALING ELEMNTS ON SCROLL
-///////////////////////////////////////////
-utils.revealElementsOnScroll()
+  utils.addStickyNav(sectionHero)
+  utils.mobileNav()
+  utils.revealElementsOnScroll()
+  document.getElementById('year').textContent = utils.getFullYear()
+}
+mainJsInit()
 
 /////////////////////////////////////////////////////
 //PEOPLE REACHED SECTION LOGIC
 ////////////////////////////////////////////////////
-let peopleReachedData;
+function peopleReachedInit() {
+  let peopleReachedData;
+  const dataArr = []
+  const peopleReached = document.querySelector('.people-reached')
+  const countries = document.querySelectorAll('.country')
 
-async function peopleReachedCalc() {
+  ///////////////////////////////////////
+  //CALCULATONS FOR TEH MAPS DATA 
+  //////////////////////////////////////
   countries.forEach(cur => {
     if (cur.dataset.content.includes('million')) {
       const millionvar = parseFloat(cur.dataset.content) * 1000000
@@ -72,49 +37,58 @@ async function peopleReachedCalc() {
     }
 
   })
-
   const totalPeopleReached = dataArr.reduce((acc, cur) => acc + cur, 0).toString();
-
   peopleReachedData = `${totalPeopleReached[0]}.${totalPeopleReached[1]}${totalPeopleReached[2]}  Million`
 
 
 
-  return peopleReachedData
+  //Displaying this on the scetion that as the map
+  peopleReached.textContent = peopleReachedData
 
-}
-export const DataReady = peopleReachedCalc()
+  ///////////////////////////////////////
+  //TIPPY.JS LOGIC FOR THE MAP
+  //////////////////////////////////////
 
+  countries.forEach(country => {
+    const countryName = country.getAttribute('name')
+    const people = country.dataset.content
+    // console.log(countryName, people);
 
-//Displaying this on the scetion that as the map
-peopleReached.textContent = peopleReachedData
-
-
-
-
-
-
-countries.forEach(country => {
-  const countryName = country.getAttribute('name')
-  const people = country.dataset.content
-  // console.log(countryName, people);
-
-  tippy(country, {
-    content:
-      `<div class="flex flex-col gap-xxs items-start ">
+    tippy(country, {
+      content:
+        `<div class="flex flex-col gap-xxs items-start ">
     <span class=" font-bold text-body font-heading">${countryName}</span>
     <span class="text-body">People Reached: ${people}</span>
     </div>`,
-    placement: 'top',
-    theme: 'custom',
-    arrow: true,
-    animation: 'scale',
-    allowHTML: true,
-    maxWidth: 400,
-    delay: [0, 0],
-    duration: 0,
+      placement: 'top',
+      theme: 'custom',
+      arrow: true,
+      animation: 'scale',
+      allowHTML: true,
+      maxWidth: 400,
+      delay: [0, 0],
+      duration: 0,
+    })
   })
-})
+}
 
-// get full year from utils
-document.getElementById('year').textContent = utils.getFullYear()
+peopleReachedInit()
 
+
+///////////////////////////////////////
+//GET THE DATA-TAB TTRUCUTE OF THE CLICKED BUTTON AND SAVE
+//////////////////////////////////////
+function getDataAttributes() {
+  const campaignBtn = document.querySelectorAll('.camp-btn')
+  console.log(campaignBtn);
+
+  campaignBtn.forEach(cur => {
+    cur.addEventListener('click', (e) => {
+      const btnClicked = e.target.dataset.tab
+      sessionStorage.setItem('scrollTab', btnClicked)
+      window.location.href = '/html/campaigns.html'
+      console.log(btnClicked);
+    })
+  })
+}
+getDataAttributes()

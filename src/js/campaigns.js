@@ -27,7 +27,42 @@ fetch('../../index.html').then(res => res.text())
 
   })
 
+///////////////////////////////////////
+//LOGIC TO SCROLL TO THE CLICKED CAMPAIGN CARD FROM THE INDEX.HTML
+///////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', () => {
+  //on page load:
+  //   get tabValue from sessionStorage
+  let btnClickedValue = sessionStorage.getItem('scrollTab')
 
+  if (!btnClickedValue) return;
+  // if tabValue exists:
+  //         find element on page with [data - tab=tabValue]
+  if (btnClickedValue) {
+
+    const clickedValueEL = document.querySelector(`[data-tab=${btnClickedValue}]`)
+    //if element found:
+    //    scroll element into view smoothly
+    clickedValueEL.scrollIntoView({ behavior: 'smooth' })
+
+    clickedValueEL.classList.add('bg-border-b-color', 'rounded-lg', 'p-2')
+
+    setTimeout(() => {
+      clickedValueEL.classList.remove('bg-border-b-color', 'rounded-lg', 'p-2')
+    }, 2000)
+
+
+    // remove tabValue from sessionStorage
+    sessionStorage.clear()
+
+  }
+
+})
+
+
+//////////////////////////////////////////////
+//TAB SWITCHING LOGIC
+//////////////////////////////////////////////
 function switchTabInit() {
   ///////////////////////////////////////
   //switching tab
@@ -85,3 +120,5 @@ function switchTabInit() {
 
 }
 switchTabInit()
+
+
