@@ -139,6 +139,7 @@ function paginationInit() {
 
       curNewSlide = Number(e.target.dataset.slide)
 
+      observeTheNewSlide(curNewSlide)
       goToSlide(curNewSlide)
       activateSpanEl(curNewSlide)
 
