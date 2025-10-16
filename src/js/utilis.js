@@ -51,26 +51,27 @@ export function revealElementsOnScroll() {
 ///////////////////////////////////////////
 export function addStickyNav(sectionHero) {
   const headerEl = document.querySelector('.header')
+  const mainEl = document.querySelector('main')
   const headerHeight = headerEl.getBoundingClientRect().height
 
-
-  const options = {
+  const observer = new IntersectionObserver(entries => {
+    const entry = entries[0]
+    if (!entry.isIntersecting) {
+      headerEl.classList.add('sticky')
+      mainEl.style.paddingTop = `${headerHeight}px`
+    } else {
+      headerEl.classList.remove('sticky')
+      mainEl.style.paddingTop = '0'
+    }
+  }, {
     root: null,
     threshold: 0,
     rootMargin: `-${headerHeight}px`
-  }
-
-
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) headerEl.classList.add('sticky')
-      else headerEl.classList.remove('sticky')
-    })
-  }, options)
+  })
 
   observer.observe(sectionHero)
 }
+
 
 //code to get full year
 export function getFullYear() {

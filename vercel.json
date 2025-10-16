@@ -1,7 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/:path*", "destination": "/:path*.html" },
-    { "source": "/(.*)", "destination": "/html/404.html" },
-    { "source": "/:path*", "destination": "/html/:path*.html" }
-  ]
+  "rewrites": [{ "source": "/:path*", "destination": "/html/:path*.html" }],
+  "fallback": {
+    "source": "/(.*)",
+    "destination": "/html/404.html"
+  }
 }

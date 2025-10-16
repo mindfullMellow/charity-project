@@ -92,3 +92,23 @@ function getDataAttributes() {
   })
 }
 getDataAttributes()
+
+///////////////////////////////////////
+//FORM LOGIC FOR GOOD USER EXPERIENCE
+//////////////////////////////////////
+const inputs = document.querySelectorAll('input')
+const formBtn = document.querySelector('form button')
+console.log(formBtn);
+
+formBtn.addEventListener('click', (e) => {
+  e.preventDefault()
+
+})
+
+
+
+window.addEventListener('beforeunload', (e) => {
+  const filled = [...inputs].some(input => input.value !== '')
+  if (filled) e.returnValue = ''
+
+})
