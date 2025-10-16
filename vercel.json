@@ -1,7 +1,6 @@
 {
   "rewrites": [{ "source": "/:path*", "destination": "/html/:path*.html" }],
-  "fallback": {
-    "source": "/(.*)",
-    "destination": "/html/404.html"
-  }
+  "redirects": [
+    { "source": "/", "destination": "/index.html", "permanent": true }
+  ]
 }
