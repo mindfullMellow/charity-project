@@ -1,6 +1,6 @@
 {
   "rewrites": [{ "source": "/:path*", "destination": "/html/:path*.html" }],
   "redirects": [
-    { "source": "/", "destination": "/index.html", "permanent": true }
+    { "source": "/(.*)", "destination": "/html/404.html", "statusCode": 404 }
   ]
 }

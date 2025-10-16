@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   server: {
-    open: true, // browser opens automatically
+    open: true // browser opens automatically
   },
 
   build: {
@@ -15,8 +15,27 @@ export default defineConfig({
         News: './html/news.html',
         Contact: './html/contact.html',
         Impact: './html/impact.html',
-        queriesCss: './src/styles/queries.css',
+        queriesCss: './src/styles/queries.css'
       }
     }
-  }
+  },
+
+  plugins: [
+    {
+      name: 'dev-rewrite-html',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.method === 'GET') {
+            const url = req.url.split('?')[0].split('#')[0]
+
+            // if path doesn’t include a file extension and isn’t root, rewrite
+            if (!url.includes('.') && url !== '/') {
+              req.url = `/html${url}.html`
+            }
+          }
+          next()
+        })
+      }
+    }
+  ]
 })
