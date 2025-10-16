@@ -86,7 +86,7 @@ function getDataAttributes() {
     cur.addEventListener('click', (e) => {
       const btnClicked = e.target.dataset.tab
       sessionStorage.setItem('scrollTab', btnClicked)
-      window.location.href = '/html/campaigns.html'
+      window.location.href = '/campaigns'
       console.log(btnClicked);
     })
   })
