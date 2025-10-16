@@ -128,6 +128,7 @@ const sliderContents = document.querySelectorAll('.slider-content')
 const maxSlides = sliderContents.length
 const btnLeft = document.querySelector('.btn-left')
 const btnRight = document.querySelector('.btn-right')
+const dotContainer__Index = document.querySelector('.dots')
 let curSlide = 1
 
 function goToSlide(slide) {
@@ -135,8 +136,6 @@ function goToSlide(slide) {
     cur.style.transform = `translateX(${100 * (i - slide)}%)`
   })
 }
-
-
 goToSlide(0)
 
 function moveSlideRight() {
@@ -148,6 +147,7 @@ function moveSlideRight() {
   } else {
     curSlide++
   }
+  activateCarouselDots(curSlide)
   goToSlide(curSlide)
 }
 
@@ -160,15 +160,41 @@ function moveSlideLeft() {
   } else {
     curSlide--
   }
-
+  activateCarouselDots(curSlide)
   goToSlide(curSlide)
 }
 
+function CreateCarouselDots() {
+  sliderContents.forEach((__, i) => {
+    dotContainer__Index.insertAdjacentHTML(
+      'beforeend',
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+}
+CreateCarouselDots()
+
+function activateCarouselDots(slide) {
+  document.querySelectorAll('.dots__dot').forEach(dot => dot.classList.remove('dots__dot--active'))
+
+  document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
+}
+activateCarouselDots(0)
 
 btnRight.addEventListener('click', moveSlideRight)
-
 btnLeft.addEventListener('click', moveSlideLeft)
 
+
+dotContainer__Index.addEventListener('click', (e) => {
+  if (e.target.classList.contains('dots__dot')) {
+    // This way, we're not keeping track of the current slide when clicking on a slide
+    // const { slide } = e.target.dataset;
+
+    curSlide = Number(e.target.dataset.slide)
+    goToSlide(curSlide)
+    activateCarouselDots(curSlide)
+  }
+})
 
 //adding keyboard event for accessibilty 
 document.addEventListener('keydown', (e) => {
