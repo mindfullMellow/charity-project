@@ -198,8 +198,9 @@ SECTION-VOLUNTEERS STLYES
       rgb(17, 22, 24, 0.9)
     ),
     url("/Assets/img/homePage/AhmetKurt.webp");
-  min-height: 500px;
-  min-width: 250px;
+}
+
+.img-default {
   background-size: cover;
   background-repeat: no-repeat;
   transition: transform 0.3s;
@@ -214,13 +215,6 @@ SECTION-VOLUNTEERS STLYES
       rgb(17, 22, 24, 0.9)
     ),
     url("/Assets/img/homePage/donation.webp");
-  min-height: 500px;
-  min-width: 250px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: transform 0.3s;
-  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
-  @apply rounded-lg overflow-hidden;
 }
 
 .vol-img3 {
@@ -230,14 +224,6 @@ SECTION-VOLUNTEERS STLYES
       rgb(17, 22, 24, 0.9)
     ),
     url("/Assets/img/homePage/support.webp");
-  min-height: 500px;
-  min-width: 250px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 0.3s;
-  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
-  @apply rounded-lg overflow-hidden;
 }
 
 /* 
@@ -297,4 +283,34 @@ SECTION-NEWSLETTER STLYES
 .full-name:focus {
   outline: none;
   box-shadow: 0 0 0 8px rgba(9, 46, 72, 0.35);
+}
+/* 
+/////////////////////////////////////////////////
+SECTION-VOLUNTEERS
+////////////////////////////////////////////////
+*/
+.slider-container {
+  max-width: 1200px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+
+  overflow: hidden;
+}
+
+.slider-content {
+  width: 420px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 1s;
+}
+
+.slider-inner {
+  @apply w-[95.24%] h-full mr-auto;
 }

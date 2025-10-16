@@ -2,14 +2,13 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   server: {
-    open: true // browser opens automatically
+    open: true
   },
-
   build: {
     rollupOptions: {
       input: {
         main: 'index.html',
-        404: '404.html',
+        '404': '404.html',
         About: './html/about.html',
         Campaigns: './html/campaigns.html',
         News: './html/news.html',
@@ -19,18 +18,22 @@ export default defineConfig({
       }
     }
   },
-
   plugins: [
     {
       name: 'dev-rewrite-html',
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
+          // Only rewrite GET requests
           if (req.method === 'GET') {
-            const url = req.url.split('?')[0].split('#')[0]
+            // remove query & hash
+            let url = req.url.split('?')[0].split('#')[0]
 
-            // if path doesn’t include a file extension and isn’t root, rewrite
-            if (!url.includes('.') && url !== '/') {
-              req.url = `/html${url}.html`
+            // Ignore requests for actual files or vite client
+            if (!url.includes('.') && !url.startsWith('/@vite')) {
+              // root path stays as is
+              if (url === '/') url = '/index.html'
+              else url = `/html${url}.html`
+              req.url = url
             }
           }
           next()

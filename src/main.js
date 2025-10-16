@@ -11,7 +11,7 @@ function mainJsInit() {
 
   utils.addStickyNav(sectionHero)
   utils.mobileNav()
-  utils.revealElementsOnScroll()
+  // utils.revealElementsOnScroll()
   document.getElementById('year').textContent = utils.getFullYear()
 }
 mainJsInit()
@@ -19,7 +19,7 @@ mainJsInit()
 /////////////////////////////////////////////////////
 //PEOPLE REACHED SECTION LOGIC
 ////////////////////////////////////////////////////
-function peopleReachedInit() {
+export function peopleReachedInit() {
   let peopleReachedData;
   const dataArr = []
   const peopleReached = document.querySelector('.people-reached')
@@ -44,6 +44,7 @@ function peopleReachedInit() {
 
   //Displaying this on the scetion that as the map
   peopleReached.textContent = peopleReachedData
+
 
   ///////////////////////////////////////
   //TIPPY.JS LOGIC FOR THE MAP
@@ -70,24 +71,25 @@ function peopleReachedInit() {
       duration: 0,
     })
   })
+
+  return peopleReachedData;
 }
 
 peopleReachedInit()
 
+console.log(peopleReachedInit());
 
 ///////////////////////////////////////
 //GET THE DATA-TAB TTRUCUTE OF THE CLICKED BUTTON AND SAVE
 //////////////////////////////////////
 function getDataAttributes() {
   const campaignBtn = document.querySelectorAll('.camp-btn')
-  console.log(campaignBtn);
 
   campaignBtn.forEach(cur => {
     cur.addEventListener('click', (e) => {
       const btnClicked = e.target.dataset.tab
       sessionStorage.setItem('scrollTab', btnClicked)
       window.location.href = '/campaigns'
-      console.log(btnClicked);
     })
   })
 }
@@ -96,19 +98,103 @@ getDataAttributes()
 ///////////////////////////////////////
 //FORM LOGIC FOR GOOD USER EXPERIENCE
 //////////////////////////////////////
-const inputs = document.querySelectorAll('input')
-const formBtn = document.querySelector('form button')
-console.log(formBtn);
 
-formBtn.addEventListener('click', (e) => {
-  e.preventDefault()
+function formLogicInit() {
+  const inputs = document.querySelectorAll('input')
+  const formBtn = document.querySelector('form button')
+  console.log(formBtn);
 
+  formBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+
+  })
+
+
+
+  window.addEventListener('beforeunload', (e) => {
+    const filled = [...inputs].some(input => input.value !== '')
+    if (filled) e.returnValue = ''
+
+  })
+
+}
+formLogicInit()
+
+
+///////////////////////////////////////
+//VOLUNTEERS CAOUSELS LOGIC
+//////////////////////////////////////
+const sliderContents = document.querySelectorAll('.slider-content')
+const maxSlides = sliderContents.length
+const btnLeft = document.querySelector('.btn-left')
+const btnRight = document.querySelector('.btn-right')
+let curSlide = 1
+
+function goToSlide(slide) {
+  sliderContents.forEach((cur, i) => {
+    cur.style.transform = `translateX(${100 * (i - slide)}%)`
+  })
+}
+
+
+goToSlide(0)
+
+function moveSlideRight() {
+
+  if (window.innerWidth < 680 && curSlide === maxSlides - 1) {
+    curSlide = 0
+  } else if (window.innerWidth > 680 && curSlide === maxSlides - 3) {
+    curSlide = 0
+  } else {
+    curSlide++
+  }
+  goToSlide(curSlide)
+}
+
+function moveSlideLeft() {
+  //Added the logic to check for the width (dynamic calculations based on the width )
+  if (window.innerWidth < 680 && curSlide === 0) {
+    curSlide = maxSlides - 1
+  } else if (window.innerWidth > 680 && curSlide === 0) {
+    curSlide = maxSlides - 3
+  } else {
+    curSlide--
+  }
+
+  goToSlide(curSlide)
+}
+
+
+btnRight.addEventListener('click', moveSlideRight)
+
+btnLeft.addEventListener('click', moveSlideLeft)
+
+
+//adding keyboard event for accessibilty 
+document.addEventListener('keydown', (e) => {
+  //Using short  circuting (returns the first flasy value so tsi only runs when e.key === arrowright become true )
+  e.key === 'ArrowRight' && moveSlideRight()
+  e.key === 'ArrowLeft' && moveSlideLeft()
 })
 
+/////////////////////////////////////
+//swipe action for small screens 
+////////////////////////////////
+let startX = 0
+sliderContents.forEach(cur => {
+  cur.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX
+  })
 
+  cur.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX
+    const diff = endX - startX
 
-window.addEventListener('beforeunload', (e) => {
-  const filled = [...inputs].some(input => input.value !== '')
-  if (filled) e.returnValue = ''
+    if (diff > 50)
+      moveSlideLeft()
+
+    if (diff < -50)
+      moveSlideRight()
+  })
 
 })

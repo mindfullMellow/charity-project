@@ -3,6 +3,9 @@ import { Chart } from 'chart.js/auto';
 
 import * as utils from './utilis'
 
+// import { peopleReachedInit } from '../main';
+
+
 fetch('../../index.html').then(res => res.text())
   .then(data => {
     //convert the fecthed html string into a DOM 
@@ -46,8 +49,6 @@ fetch('../../index.html').then(res => res.text())
 
 
   })
-
-
 
 
 
