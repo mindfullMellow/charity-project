@@ -59,6 +59,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+const tabContainer = document.getElementById('tab-container')
+const target = document.querySelector('.campaign-hero-section')
+
+const observer = new IntersectionObserver(entries => {
+  const entry = entries[0]
+  if (!entry.isIntersecting) {
+    tabContainer.classList.add('sticky', 'top-0', 'left-0', 'h-xxl')
+    tabContainer.classList.replace('justify-start', 'justify-center')
+  } else {
+    tabContainer.classList.remove('sticky', 'top-0', 'left-0', 'h-xxl')
+    tabContainer.classList.replace('justify-center', 'justify-start')
+  }
+}, {
+  root: null,
+  threshold: 0,
+  rootMargin: '-124px'
+}
+)
+
+observer.observe(target)
+
 
 //////////////////////////////////////////////
 //TAB SWITCHING LOGIC
