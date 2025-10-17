@@ -129,20 +129,41 @@ const maxSlides = sliderContents.length
 const btnLeft = document.querySelector('.btn-left')
 const btnRight = document.querySelector('.btn-right')
 const dotContainer__Index = document.querySelector('.dots')
-let curSlide = 1
+let curSlide = 0
 
 function goToSlide(slide) {
-  sliderContents.forEach((cur, i) => {
+  sliderContents.forEach((cur, i, arr) => {
     cur.style.transform = `translateX(${100 * (i - slide)}%)`
+
+    //add active slides to the matched el
+    if (cur === arr[slide]) {
+      cur.classList.add('active-slide')
+    } else {
+      cur.classList.remove('active-slide')
+    }
+
+    //remove the Vol-btn based on the specified condition
+    if (cur.classList.contains('active-slide')) {
+      const innerSlide = cur.querySelector('.slider-inner')
+      if (!innerSlide.querySelector('.Vol-hover')) {
+        innerSlide.insertAdjacentHTML('beforeend', `<a href="#" class=" cta-btn Vol-hover transition-all duration-300 ease-in-out">Volunteer
+              Now</a>`)
+      }
+
+    } else {
+      const volBtn = cur.querySelector('.Vol-hover')
+      if (volBtn)
+        volBtn.remove()
+    }
+
   })
-}
-goToSlide(0)
+
+} goToSlide(0)
+
 
 function moveSlideRight() {
 
-  if (window.innerWidth < 680 && curSlide === maxSlides - 1) {
-    curSlide = 0
-  } else if (window.innerWidth > 680 && curSlide === maxSlides - 3) {
+  if (curSlide === maxSlides - 1) {
     curSlide = 0
   } else {
     curSlide++
@@ -153,13 +174,11 @@ function moveSlideRight() {
 
 function moveSlideLeft() {
   //Added the logic to check for the width (dynamic calculations based on the width )
-  if (window.innerWidth < 680 && curSlide === 0) {
+  if (curSlide === 0) {
     curSlide = maxSlides - 1
-  } else if (window.innerWidth > 680 && curSlide === 0) {
-    curSlide = maxSlides - 3
   } else {
-    curSlide--
-  }
+
+  } curSlide--
   activateCarouselDots(curSlide)
   goToSlide(curSlide)
 }

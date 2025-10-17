@@ -48,7 +48,12 @@ body {
 }
 
 .Vol-hover {
-  @apply opacity-0 group-hover:opacity-100 transition-opacity  -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2 absolute  px-6 py-3 text-sm font-medium visible pointer-events-auto;
+  @apply opacity-100 transition-opacity  -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2 absolute  px-6 py-3 text-sm font-medium visible pointer-events-auto;
+}
+
+.active-slide {
+  box-shadow: 0 0 72px rgba(0, 0, 0, 0.2);
+  color: red !important;
 }
 
 .header.sticky {
@@ -291,7 +296,7 @@ SECTION-VOLUNTEERS
 */
 .slider-container {
   max-width: 1200px;
-  height: 500px;
+  height: 520px;
   margin: 0 auto;
   position: relative;
 
@@ -300,7 +305,7 @@ SECTION-VOLUNTEERS
 
 .slider-content {
   width: 420px;
-  height: 100%;
+  height: 98%;
   position: absolute;
   top: 0;
 
