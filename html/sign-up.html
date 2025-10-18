@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../src/styles/forms.css">
+
+  <title>Sign Up | One-Life Org</title>
+</head>
+
+<body class="relative flex items-center justify-center py-section">
+  <div
+    class="fixed flex items-center font-medium transition-all duration-300 bg-white go-home h-14 left-5 top-5 text-body text-brand-color hover:text-brand-color/80">
+    <ion-icon name="arrow-back-outline" class="mr-xs"></ion-icon><a href="/" class="pb-[1px]">Go back
+      to homePage</a>
+  </div>
+
+
+  <div class="w-[600px] px-sm">
+    <h1 class="font-bold text-center md:text-h3 text-h4 font-heading mb-sm">Apply for a <span
+        class="text-brand-color">Membership</span> </h1>
+    <p class="text-center text-body mb-md">Please fill out the following details and a representative from the
+      organization
+      will get back to you</p>
+
+    <form action="" class="flex flex-col gap-lg">
+      <div class="flex flex-col gap-xs">
+        <label for="user-name">Name</label>
+        <input type="text" id="user-name" placeholder="e.g John Doe">
+      </div>
+
+      <div class="flex flex-col gap-xs">
+        <label for="user-password">Email</label>
+        <input type="email" id="user-password" placeholder="me@example.com">
+      </div>
+
+      <div class="flex flex-col gap-xs">
+        <label for="user-phone-no">Phone Number</label>
+        <input type="email" id="user-phone-no" placeholder="e.g +(333)xxx-xxx">
+      </div>
+      <div class="flex flex-col gap-xs">
+        <label for="user-country">Country</label>
+        <input type="email" id="user-country" placeholder="e.g United States of America">
+      </div>
+
+      <div class="flex flex-col gap-sm">
+        <button class="font-semibold cta-btn px-md py-sm text-body">Sumbit Details</button>
+
+        <p class="text-sm text-center mr-sm">Already a member?<a href="/sign-in" class="ml-xs form-links">Sign In</a>
+        </p>
+      </div>
+
+    </form>
+
+
+  </div>
+
+
+  <script type="module" src="../src/js/forms.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

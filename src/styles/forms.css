@@ -1,0 +1,24 @@
+@import url("../style.css");
+@import url("./queries.css");
+
+input {
+  @apply rounded-lg p-sm bg-white-accent h-14  w-full placeholder:text-body border border-border-b-color;
+}
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(19, 164, 236, 0.5);
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.form-links {
+  @apply pb-[2px] border-b text-small text-brand-color border-b-brand-color hover:border-b-transparent transition-all duration-300;
+}
+
+@media (max-width: 52em) {
+  .go-home {
+    @apply shadow-lg w-full top-0 left-0 pl-4;
+  }
+}

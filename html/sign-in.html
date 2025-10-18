@@ -4,35 +4,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../src/styles/sign-in.css">
+  <link rel="stylesheet" href="../src/styles/forms.css">
   <title>Sign In | One-Life Org</title>
 </head>
 
-<body class="flex justify-center h-screen">
+<body class="relative flex items-center justify-center h-screen">
 
 
+  <div
+    class="fixed flex items-center font-medium transition-all duration-300 left-5 top-5 text-body text-brand-color hover:text-brand-color/80">
+    <ion-icon name="arrow-back-outline" class="mr-xs"></ion-icon><a href="/" class="pb-[1px]">Go back
+      to homePage</a>
+  </div>
 
+  <div class="w-[600px] px-sm">
+    <h1 class="font-bold text-center text-h4 font-heading mb-md">Sign in to your account</h1>
 
-  <div class="w-[800px]">
-    <h1 class="font-bold text-h4 font-heading mb-md">Sign in to your account</h1>
-
-    <form action="" class="space-y-md">
-      <div class="flex flex-col gap-xxs">
+    <form action="" class="flex flex-col gap-lg">
+      <div class="flex flex-col gap-xs">
         <label for="user-email">Email</label>
         <input type="email" id="user-email" placeholder="Enter your Email">
       </div>
 
-      <div class="flex flex-col gap-xxs">
+      <div class="flex flex-col gap-xs">
         <label for="user-password">Password</label>
-        <input type="email" id="user-password" placeholder="Enter your Password">
+        <input type="password" id="user-password" placeholder="Enter your Password">
       </div>
 
+      <div class="flex flex-col gap-sm">
+        <div>
+          <a href="#" class="form-links">Forgot
+
+            password?</a>
+        </div>
+        <button class="font-semibold cta-btn px-md py-sm text-body">Sign In</button>
+
+        <p class="text-sm text-center mr-sm">New to One-Life Org?<a href="/sign-up" class="ml-xs form-links">Sign up for
+            a
+            membership</a>
+        </p>
+      </div>
 
     </form>
   </div>
 
 
-  <script type="module" src="../src/js/sign-in.js"></script>
+  <script type="module" src="../src/js/forms.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
