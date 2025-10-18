@@ -14,6 +14,9 @@ export default defineConfig({
         News: './html/news.html',
         Contact: './html/contact.html',
         Impact: './html/impact.html',
+        'sign-in': './html/sign-in.html',
+        'sign-up': './html/sign-up.html',
+        'forgot-password': './html/forgot-password.html',
         queriesCss: './src/styles/queries.css'
       }
     }
