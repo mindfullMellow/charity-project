@@ -76,9 +76,6 @@ function peopleReachedInit() {
 }
 
 peopleReachedInit()
-
-console.log(peopleReachedInit());
-
 ///////////////////////////////////////
 //GET THE DATA-TAB ATTRIBUTE OF THE CLICKED BUTTON AND SAVE
 //////////////////////////////////////
@@ -254,10 +251,6 @@ function VolunteerCarouselInit() {
   // EVENT LISTENERS
   btnRight.addEventListener('click', moveSlideRight)
   btnLeft.addEventListener('click', moveSlideLeft)
-
-
-
-
 }
 
 VolunteerCarouselInit()

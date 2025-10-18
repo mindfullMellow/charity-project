@@ -1,0 +1,6 @@
+@import url("../style.css");
+@import url("./queries.css");
+
+input {
+  @apply rounded-lg p-sm bg-white-accent h-full  w-full placeholder:text-body;
+}
