@@ -305,3 +305,13 @@ SECTION-VOLUNTEERS
   @apply bg-brand-color;
   opacity: 1;
 }
+
+/* QUERIES SECIFIC TO THE INDEX PAGE  */
+@media (max-width: 37.5em) {
+  .vol-btn {
+    display: none;
+  }
+  .dots__dot {
+    margin-right: 16px;
+  }
+}

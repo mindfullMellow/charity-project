@@ -11,7 +11,7 @@ function mainJsInit() {
 
   utils.addStickyNav(sectionHero)
   utils.mobileNav()
-  // utils.revealElementsOnScroll()
+  utils.revealElementsOnScroll()
   document.getElementById('year').textContent = utils.getFullYear()
 }
 mainJsInit()
@@ -19,7 +19,7 @@ mainJsInit()
 /////////////////////////////////////////////////////
 //PEOPLE REACHED SECTION LOGIC
 ////////////////////////////////////////////////////
-export function peopleReachedInit() {
+function peopleReachedInit() {
   let peopleReachedData;
   const dataArr = []
   const peopleReached = document.querySelector('.people-reached')
@@ -124,123 +124,141 @@ formLogicInit()
 ///////////////////////////////////////
 //VOLUNTEERS CAOUSELS LOGIC
 //////////////////////////////////////
-const sliderContents = document.querySelectorAll('.slider-content')
-const maxSlides = sliderContents.length
-const btnLeft = document.querySelector('.btn-left')
-const btnRight = document.querySelector('.btn-right')
-const dotContainer__Index = document.querySelector('.dots')
-let curSlide = 0
+function VolunteerCarouselInit() {
+  //Global fumction for this scope
+  const sliderContents = document.querySelectorAll('.slider-content')
+  const maxSlides = sliderContents.length
+  const btnLeft = document.querySelector('.btn-left')
+  const btnRight = document.querySelector('.btn-right')
+  const dotContainer__Index = document.querySelector('.dots')
+  let curSlide = 0
 
-function goToSlide(slide) {
-  sliderContents.forEach((cur, i, arr) => {
-    cur.style.transform = `translateX(${100 * (i - slide)}%)`
+  function goToSlide(slide) {
+    sliderContents.forEach((cur, i, arr) => {
+      cur.style.transform = `translateX(${100 * (i - slide)}%)`
 
-    //add active slides to the matched el
-    if (cur === arr[slide]) {
-      cur.classList.add('active-slide')
-    } else {
-      cur.classList.remove('active-slide')
-    }
-
-    //remove the Vol-btn based on the specified condition
-    if (cur.classList.contains('active-slide')) {
-      const innerSlide = cur.querySelector('.slider-inner')
-      if (!innerSlide.querySelector('.Vol-hover')) {
-        innerSlide.insertAdjacentHTML('beforeend', `<a href="#" class=" cta-btn Vol-hover transition-all duration-2000 ease-in-out">Volunteer
-              Now</a>`)
+      //add active slides to the matched el
+      if (cur === arr[slide]) {
+        cur.classList.add('active-slide')
+      } else {
+        cur.classList.remove('active-slide')
       }
 
-    } else {
-      const volBtn = cur.querySelector('.Vol-hover')
-      if (volBtn)
-        volBtn.remove()
-    }
+      //remove the Vol-btn based on the specified condition
+      if (cur.classList.contains('active-slide')) {
+        const innerSlide = cur.querySelector('.slider-inner')
+        if (!innerSlide.querySelector('.Vol-hover')) {
+          innerSlide.insertAdjacentHTML('beforeend', `<a href="#" class=" cta-btn Vol-hover transition-all duration-2000 ease-in-out">Volunteer
+              Now</a>`)
+        }
 
-  })
+      } else {
+        const volBtn = cur.querySelector('.Vol-hover')
+        if (volBtn)
+          volBtn.remove()
+      }
 
-} goToSlide(0)
+    })
 
-
-function moveSlideRight() {
-
-  if (curSlide === maxSlides - 1) {
-    curSlide = 0
-  } else {
-    curSlide++
   }
-  goToSlide(curSlide)
-  activateCarouselDots(curSlide)
-
-}
-
-function moveSlideLeft() {
-  //Added the logic to check for the width (dynamic calculations based on the width )
-  if (curSlide === 0) {
-    curSlide = maxSlides - 1
-  } else {
-
-  } curSlide--
-  activateCarouselDots(curSlide)
-  goToSlide(curSlide)
-}
-
-function CreateCarouselDots() {
-  sliderContents.forEach((__, i) => {
-    dotContainer__Index.insertAdjacentHTML(
-      'beforeend',
-      `<button class="dots__dot" data-slide="${i}"></button>`
-    );
-  });
-}
-CreateCarouselDots()
-
-function activateCarouselDots(slide) {
-  document.querySelectorAll('.dots__dot').forEach(dot => dot.classList.remove('dots__dot--active'))
-
-  document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
-}
-activateCarouselDots(0)
-
-btnRight.addEventListener('click', moveSlideRight)
-btnLeft.addEventListener('click', moveSlideLeft)
 
 
-dotContainer__Index.addEventListener('click', (e) => {
-  if (e.target.classList.contains('dots__dot')) {
-    // This way, we're not keeping track of the current slide when clicking on a slide
-    // const { slide } = e.target.dataset;
+  function moveSlideRight() {
 
-    curSlide = Number(e.target.dataset.slide)
+    if (curSlide === maxSlides - 1) {
+      curSlide = 0
+    } else {
+      curSlide++
+    }
     goToSlide(curSlide)
     activateCarouselDots(curSlide)
+
   }
-})
 
-//adding keyboard event for accessibilty 
-document.addEventListener('keydown', (e) => {
-  //Using short  circuting (returns the first flasy value so tsi only runs when e.key === arrowright become true )
-  e.key === 'ArrowRight' && moveSlideRight()
-  e.key === 'ArrowLeft' && moveSlideLeft()
-})
+  function moveSlideLeft() {
+    //Added the logic to check for the width (dynamic calculations based on the width )
+    if (curSlide === 0) {
+      curSlide = maxSlides - 1
+    } else {
 
-/////////////////////////////////////
-//swipe action for small screens 
-////////////////////////////////
-let startX = 0
-sliderContents.forEach(cur => {
-  cur.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX
+    } curSlide--
+    activateCarouselDots(curSlide)
+    goToSlide(curSlide)
+  }
+
+  function CreateCarouselDots() {
+    sliderContents.forEach((__, i) => {
+      dotContainer__Index.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  }
+
+
+  function activateCarouselDots(slide) {
+    document.querySelectorAll('.dots__dot').forEach(dot => dot.classList.remove('dots__dot--active'))
+
+    document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
+  }
+
+  dotContainer__Index.addEventListener('click', (e) => {
+    if (e.target.classList.contains('dots__dot')) {
+      // This way, we're not keeping track of the current slide when clicking on a slide
+      // const { slide } = e.target.dataset;
+
+      curSlide = Number(e.target.dataset.slide)
+      goToSlide(curSlide)
+      activateCarouselDots(curSlide)
+    }
   })
 
-  cur.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX
-    const diff = endX - startX
-
-    if (diff > 50)
-      moveSlideLeft()
-
-    if (diff < -50)
-      moveSlideRight()
+  //ADDING KEYBOARD EVENT FOR ASSECCIBILITY
+  document.addEventListener('keydown', (e) => {
+    //Using short  circuting (returns the first flasy value so tsi only runs when e.key === arrowright become true )
+    e.key === 'ArrowRight' && moveSlideRight()
+    e.key === 'ArrowLeft' && moveSlideLeft()
   })
 
-})
+
+  //SWIPE ACTION LOGIC FROM SMALL SCREEN
+  function swipeFeature() {
+    let startX = 0
+    sliderContents.forEach(cur => {
+      cur.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX
+      })
+
+      cur.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].clientX
+        const diff = endX - startX
+
+        if (diff > 50)
+          moveSlideLeft()
+
+        if (diff < -50)
+          moveSlideRight()
+      })
+
+    })
+  }
+
+
+  (() => {
+    swipeFeature()
+    goToSlide(0)
+    CreateCarouselDots()
+    activateCarouselDots(0)
+  })()
+
+  // EVENT LISTENERS
+  btnRight.addEventListener('click', moveSlideRight)
+  btnLeft.addEventListener('click', moveSlideLeft)
+
+
+
+
+}
+
+VolunteerCarouselInit()
+
