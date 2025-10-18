@@ -71,6 +71,10 @@ body {
   text-align: center;
 }
 
+.footer-link {
+  @apply font-medium transition-all duration-300 hover:text-header-color;
+}
+
 /* 
 /////////////////////////////////////////////////
 TIPPY STLYES
@@ -132,61 +136,33 @@ SECTION-HERO STYLES
 SECTION-CAMPAIGN STLYES
 ////////////////////////////////////////////////
 */
-
-.camp-img1 {
-  background-image: linear-gradient(
-      to bottom,
-      rgb(17, 22, 24, 0.2),
-      rgb(17, 22, 24, 1)
-    ),
-    url("/Assets/img/homePage/warTornGaza.webp");
+.camp-img {
   min-height: 500px;
   min-width: 250px;
   background-size: cover;
   background-repeat: no-repeat;
   transition: transform 0.3s;
   box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
-  @apply rounded-lg overflow-hidden;
+  @apply rounded-lg overflow-hidden relative flex flex-col flex-1 p-sm;
 }
 
-.camp-img2 {
-  background-image: linear-gradient(
-      to bottom,
-      rgb(17, 22, 24, 0.2),
-      rgb(17, 22, 24, 1)
-    ),
-    url("/Assets/img/homePage/EnviromentalProtect.webp");
-  min-height: 500px;
-  min-width: 250px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: transform 0.3s;
-  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
-  @apply rounded-lg overflow-hidden;
+.camp-btn {
+  @apply absolute p-2 text-xl transition-all duration-300 rounded-full top-4 right-4 bg-white/40 hover:bg-brand-color;
 }
 
-.camp-img3 {
-  background-image: linear-gradient(
-      to bottom,
-      rgb(17, 22, 24, 0.2),
-      rgb(17, 22, 24, 1)
-    ),
-    url("/Assets/img/homePage/ukraineFlag.webp");
-  min-height: 500px;
-  min-width: 250px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: transform 0.3s;
-  box-shadow: 0 8px 6px 2px rgba(0, 0, 0, 0.3);
-  @apply rounded-lg overflow-hidden;
+.camp-content-container {
+  @apply flex flex-col mt-auto gap-sm;
+}
+.camp-content-container h6 {
+  @apply font-bold text-lead font-heading;
 }
 
-.camp-img1:hover,
-.camp-img2:hover,
-.camp-img3:hover,
-.vol-img1:hover,
-.vol-img2:hover,
-.vol-img3:hover {
+.camp-content-container p {
+  @apply text-small text-opacity-90;
+}
+
+.camp-img:hover,
+.img-default:hover {
   transform: scale(1.01);
   box-shadow: 0 8px 6px 2px rgba(19, 164, 236, 0.3);
 }
@@ -196,15 +172,6 @@ SECTION-CAMPAIGN STLYES
 SECTION-VOLUNTEERS STLYES
 ////////////////////////////////////////////////
 */
-.vol-img1 {
-  background-image: linear-gradient(
-      to bottom,
-      rgb(17, 22, 24, 0.2),
-      rgb(17, 22, 24, 0.9)
-    ),
-    url("/Assets/img/homePage/AhmetKurt.webp");
-}
-
 .img-default {
   background-size: cover;
   background-repeat: no-repeat;
@@ -213,22 +180,20 @@ SECTION-VOLUNTEERS STLYES
   @apply rounded-lg overflow-hidden;
 }
 
-.vol-img2 {
-  background-image: linear-gradient(
-      to bottom,
-      rgb(17, 22, 24, 0.2),
-      rgb(17, 22, 24, 0.9)
-    ),
-    url("/Assets/img/homePage/donation.webp");
+.vol-content-container {
+  @apply flex flex-col mt-auto gap-sm p-sm;
 }
 
-.vol-img3 {
-  background-image: linear-gradient(
-      to bottom,
-      rgb(17, 22, 24, 0.2),
-      rgb(17, 22, 24, 0.9)
-    ),
-    url("/Assets/img/homePage/support.webp");
+.vol-content-container h6 {
+  @apply font-bold text-lead font-heading;
+}
+
+.vol-content-container p {
+  @apply text-small text-opacity-90;
+}
+
+.vol-icon {
+  @apply p-2 text-xl transition-all duration-300 rounded-full bg-brand-color hover:bg-btn-hover;
 }
 
 /* 

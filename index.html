@@ -1757,7 +1757,7 @@
 
     <!-- LATEST CAMPAIGN SECTION-->
     <section class="latest-campaign-section py-section px-sm">
-      <div class="container mx-auto max-w-[1200px]  flex flex-col gap-sm">
+      <div class="flex flex-col container-div gap-sm">
         <h2 class="font-semibold text-center font-heading text-header-color lg:md-h2 md:text-h3 text-h4 mb-sm">Our
           Latest
           Campaigns
@@ -1767,11 +1767,12 @@
         <div class="flex flex-wrap text-white gap-sm mb-sm">
 
           <!-- IMG1 -->
-          <div class="relative flex flex-col flex-1 camp-img1 p-sm min-w-[600px]" role="img"
-            aria-label="A tired and furstrated kid on a queue to get water">
-            <div class="flex flex-col mt-auto gap-sm">
-              <h6 class="font-bold text-lead font-heading">Help Gaza Children In Need</h6>
-              <p class="text-small text-opacity-90">Every child in Gaza deserves safety, care, and hope.
+          <div
+            class="min-w-[600px] bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,1)),url('/Assets/img/homePage/warTornGaza.webp')] camp-img "
+            role="img" aria-label="A tired and furstrated kid on a queue to get water">
+            <div class="camp-content-container">
+              <h6>Help Gaza Children In Need</h6>
+              <p>Every child in Gaza deserves safety, care, and hope.
                 Together, we
                 can
                 provide the
@@ -1779,40 +1780,39 @@
                 urgently need - Help save a child today!!!</p>
             </div>
 
-            <button><ion-icon name="arrow-forward-outline"
-                class="absolute p-2 text-xl transition-all duration-300 rounded-full top-4 right-4 bg-white/40 hover:bg-brand-color camp-btn"
-                title="Save a child" data-tab="warTornGaza"></ion-icon></button>
+            <button><ion-icon name="arrow-forward-outline" class="camp-btn" title="Save a child"
+                data-tab="warTornGaza"></ion-icon></button>
           </div>
 
           <!-- IMG2 -->
-          <div class="relative flex flex-col flex-1 camp-img2 p-sm min-w-[600px]" role="img"
-            aria-label="Ahmet Kurt planting a tree">
-            <div class="flex flex-col mt-auto gap-sm">
-              <h6 class="font-bold text-lead font-heading">Meet Ahmet Kurt</h6>
-              <p class="text-small text-opacity-90">One of the top volunteers who helps steer sustainable environmental
+          <div
+            class="min-w-[600px] bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,1)),url('/Assets/img/homePage/EnviromentalProtect.webp')] camp-img"
+            role="img" aria-label="Ahmet Kurt planting a tree">
+            <div class="camp-content-container">
+              <h6>Meet Ahmet Kurt</h6>
+              <p>One of the top volunteers who helps steer sustainable environmental
                 initiatives, bringing dedication, expertise, and
                 positive change to every project they join. </p>
             </div>
 
-            <button><ion-icon name="arrow-forward-outline"
-                class="absolute p-2 text-xl transition-all duration-300 rounded-full top-4 right-4 bg-white/40 hover:bg-brand-color camp-btn"
-                title="Join the initiative" data-tab="enviromental-conservation"></ion-icon></button>
+            <button><ion-icon name="arrow-forward-outline" class="camp-btn" title="Join the initiative"
+                data-tab="enviromental-conservation"></ion-icon></button>
           </div>
 
           <!-- IMG3 -->
-          <div class="relative flex flex-col flex-1 camp-img3 p-sm min-w-[600px]" role="img"
-            aria-label="A hand holding the ukraine flag">
-            <div class="flex flex-col mt-auto gap-sm">
-              <h6 class="font-bold text-lead font-heading">Save a refugee today</h6>
-              <p class="text-small text-opacity-90">Every refugee in Ukraine deserves safety, support, and hope—join us
+          <div
+            class="min-w-[600px] bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,1)),url('/Assets/img/homePage/ukraineFlag.webp')] camp-img "
+            role="img" aria-label="A hand holding the ukraine flag">
+            <div class="camp-content-container">
+              <h6>Save a refugee today</h6>
+              <p>Every refugee in Ukraine deserves safety, support, and hope—join us
                 in
                 providing aid and relief to those affected by the
                 crisis</p>
             </div>
 
-            <button><ion-icon name="arrow-forward-outline"
-                class="absolute p-2 text-xl transition-all duration-300 rounded-full top-4 right-4 bg-white/40 hover:bg-brand-color camp-btn"
-                title="Save a refugee" data-tab="ukraine-campaign"></ion-icon></button>
+            <button><ion-icon name="arrow-forward-outline" class="camp-btn" title="Save a refugee"
+                data-tab="ukraine-campaign"></ion-icon></button>
           </div>
         </div>
 
@@ -1847,12 +1847,13 @@
           <!-- IMG1 -->
           <div class=" slider-content">
 
-            <div class="relative flex flex-col text-white cursor-pointer vol-img1 group slider-inner img-default"
+            <div
+              class="relative flex flex-col text-white cursor-pointer bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,0.9)),url('/Assets/img/homePage/AhmetKurt.webp')] group slider-inner img-default"
               role="img" aria-label="Ahmet Kurt holding a flower she planted">
 
-              <div class="flex flex-col mt-auto gap-sm p-sm">
-                <h6 class="font-bold text-lead font-heading">Enviromental Conservation</h6>
-                <p class=" text-small text-opacity-90">Help us protect and restore natural habitats by taking part
+              <div class="vol-content-container">
+                <h6>Enviromental Conservation</h6>
+                <p>Help us protect and restore natural habitats by taking part
                   in tree
                   planting initiatives, supporting wildlife
                   conservation efforts, and promoting environmental education programs that inspire lasting change and a
@@ -1869,12 +1870,13 @@
 
           <!-- IMG2 -->
           <div class=" slider-content">
-            <div class="relative flex flex-col text-white cursor-pointer slider-inner vol-img2 group img-default"
+            <div
+              class="relative flex flex-col text-white cursor-pointer slider-inner bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,0.9)),url('/Assets/img/homePage/donation.webp')] group img-default"
               role="img" aria-label="A hand showing a transparent plastic container for donations">
 
-              <div class="flex flex-col mt-auto gap-sm p-sm">
-                <h6 class="font-bold text-lead font-heading">Fundraising and Support</h6>
-                <p class=" text-small text-opacity-90">Support our mission by actively contributing to fundraising
+              <div class="vol-content-container">
+                <h6>Fundraising and Support</h6>
+                <p>Support our mission by actively contributing to fundraising
                   initiatives, helping with event planning and coordination,
                   and providing valuable assistance with day-to-day administrative tasks that keep our work running
                   smoothly.</p>
@@ -1889,12 +1891,13 @@
 
           <!-- IMG3 -->
           <div class=" slider-content">
-            <div class="relative flex flex-col text-white cursor-pointer slider-inner vol-img3 group img-default"
+            <div
+              class="relative flex flex-col text-white cursor-pointer slider-inner bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,0.9)),url('/Assets/img/homePage/support.webp')] group img-default"
               role="img" aria-label="Two men smiling while doing a communit outreach">
 
-              <div class="flex flex-col mt-auto gap-sm p-sm">
-                <h6 class="font-bold text-lead font-heading">Community Outreach</h6>
-                <p class=" text-small text-opacity-90">Engage with local communities by leading and supporting
+              <div class="vol-content-container">
+                <h6>Community Outreach</h6>
+                <p>Engage with local communities by leading and supporting
                   workshops,
                   organizing impactful events, and participating in
                   direct support programs that are designed to uplift and improve the quality of life for those we
@@ -1909,16 +1912,15 @@
 
           <!-- IMG4 -->
           <div class=" slider-content">
-            <div class="relative flex flex-col text-white cursor-pointer slider-inner vol-img3 group img-default"
-              role="img" aria-label="Two men smiling while doing a communit outreach">
+            <div
+              class="relative flex flex-col text-white cursor-pointer slider-inner bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,0.9)),url('/Assets/img/homePage/food-donation.webp')] group img-default"
+              role="img" aria-label="Donated food ready to be shared">
 
-              <div class="flex flex-col mt-auto gap-sm p-sm">
-                <h6 class="font-bold text-lead font-heading">Community Outreach</h6>
-                <p class=" text-small text-opacity-90">Engage with local communities by leading and supporting
-                  workshops,
-                  organizing impactful events, and participating in
-                  direct support programs that are designed to uplift and improve the quality of life for those we
-                  serve.
+              <div class="vol-content-container">
+                <h6>Food Security & Nutrition</h6>
+                <p>Stand with us to fight hunger by supporting food drives,
+                  assisting with community kitchens, and helping distribute meals
+                  that bring hope and nourishment to families who need it most.
                 </p>
 
               </div>
@@ -1930,16 +1932,15 @@
 
           <!-- IMG5 -->
           <div class=" slider-content">
-            <div class="relative flex flex-col text-white cursor-pointer slider-inner vol-img3 group img-default"
+            <div
+              class="relative flex flex-col text-white cursor-pointer slider-inner bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,0.9)),url('/Assets/img/homePage/disater-relief.webp')] group img-default"
               role="img" aria-label="Two men smiling while doing a communit outreach">
 
-              <div class="flex flex-col mt-auto gap-sm p-sm">
-                <h6 class="font-bold text-lead font-heading">Community Outreach</h6>
-                <p class=" text-small text-opacity-90">Engage with local communities by leading and supporting
-                  workshops,
-                  organizing impactful events, and participating in
-                  direct support programs that are designed to uplift and improve the quality of life for those we
-                  serve.
+              <div class="vol-content-container">
+                <h6>Disaster Relief & Emergency Response</h6>
+                <p>Take part in bringing comfort and stability to families affected
+                  by disasters by volunteering in emergency response
+                  efforts that deliver aid, rebuild homes, and restore dignity..
                 </p>
 
               </div>
@@ -1951,16 +1952,36 @@
 
           <!-- IMG6 -->
           <div class=" slider-content">
-            <div class="relative flex flex-col text-white cursor-pointer slider-inner vol-img3 group img-default"
-              role="img" aria-label="Two men smiling while doing a communit outreach">
+            <div
+              class="relative flex flex-col text-white cursor-pointer slider-inner bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,0.9)),url('/Assets/img/homePage/elderly-care.webp')] group img-default"
+              role="img" aria-label="A elderly woman">
 
-              <div class="flex flex-col mt-auto gap-sm p-sm">
-                <h6 class="font-bold text-lead font-heading">Community Outreach</h6>
-                <p class=" text-small text-opacity-90">Engage with local communities by leading and supporting
-                  workshops,
-                  organizing impactful events, and participating in
-                  direct support programs that are designed to uplift and improve the quality of life for those we
-                  serve.
+              <div class="vol-content-container">
+                <h6>Elderly Care & Support</h6>
+                <p>Help brighten the lives of seniors by offering your time through
+                  companionship visits, recreational programs, and
+                  community events that remind them they’re valued and never forgotten.
+                </p>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+          <!-- IMG7 -->
+          <div class=" slider-content">
+            <div
+              class="relative flex flex-col text-white cursor-pointer slider-inner bg-[linear-gradient(to_bottom,rgba(17,22,24,0.2),rgba(17,22,24,0.9)),url('/Assets/img/homePage/women-empowerment.webp')] group img-default"
+              role="img" aria-label="women empowerment">
+
+              <div class="vol-content-container">
+                <h6>Women Empowerment Programs</h6>
+                <p>
+                  Stand with women working toward independence and equality by supporting training sessions, educational
+                  programs, and
+                  awareness drives that help them build stronger futures.
                 </p>
 
               </div>
@@ -1975,15 +1996,14 @@
         <!-- BUTTONS -->
         <div class="flex items-center justify-center text-xl text-white mt-lg gap-lg">
           <!-- LEFT ARROW -->
-          <button class="btn-left"><ion-icon name="arrow-back-outline"
-              class="p-2 text-xl transition-all duration-300 rounded-full bg-brand-color hover:bg-btn-hover"></ion-icon>
+          <button class="btn-left"><ion-icon name="arrow-back-outline" class="vol-icon"></ion-icon>
           </button>
 
+          <!-- DOTS CONTAINERTO BE FILLED DYNAMICALLY -->
           <div class="flex items-center dots"></div>
 
           <!-- RIGHT ARROW -->
-          <button class="btn-right"><ion-icon name="arrow-forward-outline"
-              class="p-2 text-xl transition-all duration-300 rounded-full bg-brand-color hover:bg-btn-hover"></ion-icon></button>
+          <button class="btn-right"><ion-icon name="arrow-forward-outline" class="vol-icon"></ion-icon></button>
         </div>
 
 
@@ -2074,12 +2094,12 @@
 
       <div class="flex flex-col items-center justify-center gap-sm opacity-80">
         <ul class="flex items-center justify-between text-sm md:gap-xl gap-md md:text-body">
-          <li><a href="#" class="font-medium transition-all duration-300 hover:text-header-color/80">About
+          <li><a href="#" class="footer-link">About
               Us</a></li>
-          <li><a href="#" class="font-medium transition-all duration-300 hover:text-header-color/80">Contact</a></li>
-          <li><a href="#" class="font-medium transition-all duration-300 hover:text-header-color/80">Privacy
+          <li><a href="#" class="footer-link">Contact</a></li>
+          <li><a href="#" class="footer-link">Privacy
               Policy</a></li>
-          <li><a href="#" class="font-medium transition-all duration-300 hover:text-header-color/80">Terms of
+          <li><a href="#" class="footer-link">Terms of
               Service</a></li>
         </ul>
 
@@ -2104,7 +2124,7 @@
 
 
 
-  <script type="module" src="./src/main.js"></script>
+  <script type="module" async src="./src/main.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

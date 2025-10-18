@@ -80,7 +80,7 @@ peopleReachedInit()
 console.log(peopleReachedInit());
 
 ///////////////////////////////////////
-//GET THE DATA-TAB TTRUCUTE OF THE CLICKED BUTTON AND SAVE
+//GET THE DATA-TAB ATTRIBUTE OF THE CLICKED BUTTON AND SAVE
 //////////////////////////////////////
 function getDataAttributes() {
   const campaignBtn = document.querySelectorAll('.camp-btn')
@@ -146,7 +146,7 @@ function goToSlide(slide) {
     if (cur.classList.contains('active-slide')) {
       const innerSlide = cur.querySelector('.slider-inner')
       if (!innerSlide.querySelector('.Vol-hover')) {
-        innerSlide.insertAdjacentHTML('beforeend', `<a href="#" class=" cta-btn Vol-hover transition-all duration-300 ease-in-out">Volunteer
+        innerSlide.insertAdjacentHTML('beforeend', `<a href="#" class=" cta-btn Vol-hover transition-all duration-2000 ease-in-out">Volunteer
               Now</a>`)
       }
 
@@ -168,8 +168,9 @@ function moveSlideRight() {
   } else {
     curSlide++
   }
-  activateCarouselDots(curSlide)
   goToSlide(curSlide)
+  activateCarouselDots(curSlide)
+
 }
 
 function moveSlideLeft() {
