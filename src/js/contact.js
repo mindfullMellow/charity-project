@@ -28,3 +28,17 @@ fetch('../../index.html').then(res => res.text())
     document.getElementById('year').textContent = utils.getFullYear()
 
   })
+
+  /////////////////////////////////
+  //skeleton Loader for the iframe
+  /////////////////////////////////
+
+  //Here i did a trick to ping or get a small file trhrugh this link if its succesfull it means the user it online so definately we wont get that default dino game but if it failes that means we are offline so remove the iframe (also i used and IIFE because the code it only expecte to run once and also not expose other things to the global scope )
+  (async () => {
+    const iframe = document.getElementById('iframe')
+    try {
+      await fetch("https://www.google.com/favicon.ico", { method: 'HEAD', mode: 'no-cors' })
+    } catch {
+      iframe.remove()
+    }
+  })()

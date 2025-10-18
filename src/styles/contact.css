@@ -12,3 +12,21 @@ input:focus {
 .follow a {
   @apply h-10 w-10 p-2 rounded-full bg-white-accent flex items-center justify-center hover:bg-brand-color transition-all duration-300;
 }
+
+#skeleton {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #eee 25%, #ddd 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
