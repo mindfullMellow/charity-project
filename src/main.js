@@ -1,5 +1,4 @@
 'use strict'
-import { clearCanvas } from "chart.js/helpers";
 import * as utils from "./js/utilis"
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'; // base styles
@@ -15,7 +14,6 @@ function mainJsInit() {
   utils.revealElementsOnScroll()
   document.getElementById('year').textContent = utils.getFullYear()
 }
-mainJsInit()
 
 /////////////////////////////////////////////////////
 //PEOPLE REACHED SECTION LOGIC
@@ -76,7 +74,6 @@ function peopleReachedInit() {
   return peopleReachedData;
 }
 
-peopleReachedInit()
 ///////////////////////////////////////
 //GET THE DATA-TAB ATTRIBUTE OF THE CLICKED BUTTON AND SAVE
 //////////////////////////////////////
@@ -91,7 +88,6 @@ function getDataAttributes() {
     })
   })
 }
-getDataAttributes()
 
 ///////////////////////////////////////
 //FORM LOGIC FOR GOOD USER EXPERIENCE
@@ -113,7 +109,6 @@ function formLogicInit() {
   })
 
 }
-formLogicInit()
 
 
 ///////////////////////////////////////
@@ -199,9 +194,6 @@ function VolunteerCarouselInit() {
 
   dotContainer__Index.addEventListener('click', (e) => {
     if (e.target.classList.contains('dots__dot')) {
-      // This way, we're not keeping track of the current slide when clicking on a slide
-      // const { slide } = e.target.dataset;
-
       curSlide = Number(e.target.dataset.slide)
       goToSlide(curSlide)
       activateCarouselDots(curSlide)
@@ -251,148 +243,186 @@ function VolunteerCarouselInit() {
   btnLeft.addEventListener('click', moveSlideLeft)
 }
 
-VolunteerCarouselInit()
+///////////////////////////////////////
+//MODAL LOGIC
+//////////////////////////////////////
 
-// console.log(document.querySelector('.twt').getBoundingClientRect().width
-// );
+function ModalInit() {
+  //Variables
+  const donateBtns = document.querySelectorAll('.donate')
+  const closeBtn = document.getElementById('close-btn')
+  const modal = document.querySelector('.donation-modal')
+  const overlay = document.querySelector('.overlay')
+  const headerEl = document.querySelector('.header')
+  const btnContainer = document.querySelector('.btn-container')
+  const tabBtns = document.querySelectorAll('.btn-tabs')
+  const donationAmounts = document.querySelectorAll('.donation-amount')
+  const donationAmountsContainer = document.querySelector('.donation-amount-container')
+  const donationInput = document.querySelector('.donation-input-0')
+  const donationCustomInput = donationInput.querySelector('input')
+  const inputErrMessage = donationInput.querySelector('span')
+  const paymentContent = document.querySelector('.payment-content')
+  const paymentMethod = paymentContent.querySelectorAll('span')
+  const durationContext = document.getElementById('duration')
+  const amountContext = document.getElementById('amount')
 
-const donateBtns = document.querySelectorAll('.donate')
-const closeBtn = document.getElementById('close-btn')
-const modal = document.querySelector('.donation-modal')
-const overlay = document.querySelector('.overlay')
-const headerEl = document.querySelector('.header')
-const btnContainer = document.querySelector('.btn-container')
-const tabBtns = document.querySelectorAll('.btn-tabs')
-const donationAmounts = document.querySelectorAll('.donation-amount')
-const donationAmountsContainer = document.querySelector('.donation-amount-container')
-const donationInput = document.querySelector('.donation-input-0')
-const donationCustomInput = donationInput.querySelector('input')
-const inputErrMessage = donationInput.querySelector('span')
-const paymentContent = document.querySelector('.payment-content')
-const paymentMethod = paymentContent.querySelectorAll('span')
-const durationContext = document.getElementById('duration')
-const amountContext = document.getElementById('amount')
+  //Reuseable Function blocks
+  function openModal() {
+    //Disable scrolling while the modal is active (body and html elemnt itslef)
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden';
 
-console.dir(donationAmounts[0]);
-
-paymentContent.addEventListener('click', (e) => {
-  if (!e.target.classList.contains('payment-span')) return
-
-  const clickedMethod = e.target
-  paymentMethod.forEach(cur => {
-    cur.classList.remove('active-tab')
-
-    if (cur === clickedMethod)
-      cur.classList.add('active-tab')
-  })
-})
-
-
-donationAmountsContainer.addEventListener('click', (e) => {
-  if (!e.target.classList.contains('payment-span')) return;
-  const clickedAmount = e.target
-
-  donationAmounts.forEach(cur => {
-    cur.classList.remove('active-tab');
-
-    if (cur === clickedAmount)
-      cur.classList.add('active-tab');
-
-    if (cur.classList.contains('active-tab') && cur.textContent === 'others') {
-      amountContext.textContent = ''
-      donationInput.classList.remove('hidden')
-      donationCustomInput.value = ''
-
-    } else {
-      donationInput.classList.add('hidden')
-    }
-  })
-
-  if (clickedAmount.dataset.amount !== 'others') {
-    amountContext.textContent = clickedAmount.textContent
-  } else {
-
-    donationCustomInput.addEventListener('input', () => {
-      if (donationCustomInput.value.length <= 5) {
-
-        const testing = Number(donationCustomInput.value)
-        amountContext.textContent = '$' + testing.toLocaleString()
-        if (!inputErrMessage.classList.contains('hidden'))
-          inputErrMessage.classList.add('hidden')
-      } else {
-        donationCustomInput.value = donationCustomInput.value.slice(0, 5)
-        inputErrMessage.classList.remove('hidden')
-      }
-    })
-  }
-
-
-
-})
-
-//switching the tabs 
-btnContainer.addEventListener('click', (e) => {
-  if (!e.target.classList.contains('btn-tabs')) return;
-
-  const clickedTab = e.target
-  //Loop to switch tabs 
-  tabBtns.forEach(cur => {
-    cur.classList.remove('active-tab')
-
-    if (cur === clickedTab)
-      cur.classList.add('active-tab')
-
-    if (cur.classList.contains('active-tab') && cur.textContent === 'Monthly Donation') {
-      donationAmounts.forEach(cur => {
-        cur.textContent = cur.dataset.monthly
-      }
-      )
-    } else {
-      donationAmounts.forEach(cur => {
-        cur.textContent = cur.dataset.amount
-      })
-    }
-
-
-  })
-
-  // after switcing the tab get the payment amount with the active tad mad updte its textcontent to the btn modal btn 
-  donationAmounts.forEach(cur => {
-    if (!cur.classList.contains('active-tab')) return;
-
-    if (cur.classList.contains('active-tab'))
-      amountContext.textContent = cur.textContent
-
-
-  })
-
-  //update the modal btn base on the clickedtab
-  durationContext.textContent = clickedTab.textContent === 'Monthly Donation' ? 'monthly' : 'once'
-})
-
-//closing the modal
-donateBtns.forEach(cur => {
-  cur.addEventListener('click', () => {
     modal.classList.remove('hidden')
     overlay.classList.remove('hidden')
+
+    //store a message to inform the page taht sticky is activated 
     if (headerEl.classList.contains('sticky')) {
-      console.log('headr contains sticky');
       headerEl.classList.remove('sticky')
       sessionStorage.setItem('sticky', "sticky is active")
     }
 
     if (!headerEl.classList.contains('sticky')) return
-  })
-})
-
-//Opending the modal 
-closeBtn.addEventListener('click', () => {
-  modal.classList.add('hidden')
-  overlay.classList.add('hidden')
-  if (sessionStorage.getItem('sticky')) {
-    console.log('sticky was active before removed');
-    headerEl.classList.add('sticky')
-    sessionStorage.clear()
   }
-})
 
+  function closeModal() {
+    //activate  scrolling while the modal is inactive (body and html elemnt itslef)
+    document.body.style.overflow = ''
+    document.documentElement.style.overflow = ''
+
+    modal.classList.add('hidden')
+    overlay.classList.add('hidden')
+
+    //check the stored message to know if sticky class isactivated 
+    if (sessionStorage.getItem('sticky')) {
+      headerEl.classList.add('sticky')
+      sessionStorage.clear()
+    }
+  }
+
+  ////////////////////////////////////////
+  //LOGICS
+  paymentContent.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('payment-span')) return
+
+    const clickedMethod = e.target
+    paymentMethod.forEach(cur => {
+      cur.classList.remove('active-tab')
+
+      if (cur === clickedMethod)
+        cur.classList.add('active-tab')
+    })
+  })
+
+
+  donationAmountsContainer.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('payment-span')) return;
+    const clickedAmount = e.target
+
+    donationAmounts.forEach(cur => {
+      cur.classList.remove('active-tab');
+
+      if (cur === clickedAmount)
+        cur.classList.add('active-tab');
+
+      if (cur.classList.contains('active-tab') && cur.textContent === 'others') {
+        amountContext.textContent = ''
+        donationInput.classList.remove('hidden')
+        donationCustomInput.value = ''
+
+      } else {
+        donationInput.classList.add('hidden')
+      }
+    })
+
+    if (clickedAmount.dataset.amount !== 'others') {
+      amountContext.textContent = clickedAmount.textContent
+    } else {
+
+      donationCustomInput.addEventListener('input', () => {
+        if (donationCustomInput.value.length <= 5) {
+
+          const testing = Number(donationCustomInput.value)
+          amountContext.textContent = '$' + testing.toLocaleString()
+          if (!inputErrMessage.classList.contains('hidden'))
+            inputErrMessage.classList.add('hidden')
+        } else {
+          donationCustomInput.value = donationCustomInput.value.slice(0, 5)
+          inputErrMessage.classList.remove('hidden')
+        }
+      })
+    }
+
+
+
+  })
+
+  //switching the tabs 
+  btnContainer.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('btn-tabs')) return;
+
+    const clickedTab = e.target
+    //Loop to switch tabs 
+    tabBtns.forEach(cur => {
+      cur.classList.remove('active-tab')
+
+      if (cur === clickedTab)
+        cur.classList.add('active-tab')
+
+      if (cur.classList.contains('active-tab') && cur.textContent === 'Monthly Donation') {
+        donationAmounts.forEach(cur => {
+          cur.textContent = cur.dataset.monthly
+        }
+        )
+      } else {
+        donationAmounts.forEach(cur => {
+          cur.textContent = cur.dataset.amount
+        })
+      }
+
+
+    })
+
+    // after switcing the tab get the payment amount with the active tad mad updte its textcontent to the btn modal btn 
+    donationAmounts.forEach(cur => {
+      if (!cur.classList.contains('active-tab')) return;
+
+      if (cur.classList.contains('active-tab'))
+        amountContext.textContent = cur.textContent
+
+
+    })
+
+    //update the modal btn base on the clickedtab
+    durationContext.textContent = clickedTab.textContent === 'Monthly Donation' ? 'monthly' : 'once'
+  })
+
+
+  //OPENING THE MODAL 
+  donateBtns.forEach(cur => {
+    cur.addEventListener('click', () => {
+      openModal()
+    })
+  })
+
+  //CLOSE THE MODAL
+  closeBtn.addEventListener('click', closeModal)
+
+  //ADDINGG KEYBOARD EVENTS FOR ACCESSIBILTY
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal()
+    }
+  })
+}
+
+
+
+//IIEF to call the initailization on page load
+(() => {
+  VolunteerCarouselInit()
+  formLogicInit()
+  getDataAttributes()
+  peopleReachedInit()
+  mainJsInit()
+  ModalInit()
+})()

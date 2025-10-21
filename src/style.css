@@ -376,6 +376,10 @@ MODALS CSS COMPONENTS
   @apply py-xs px-lg bg-white-accent;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 /* 
 /////////////////////////////////////////////////
  QUERIES SECIFIC TO THE INDEX PAGE  
