@@ -301,6 +301,7 @@ donationAmountsContainer.addEventListener('click', (e) => {
     if (cur.classList.contains('active-tab') && cur.textContent === 'others') {
       amountContext.textContent = ''
       donationInput.classList.remove('hidden')
+      donationCustomInput.value = ''
 
     } else {
       donationInput.classList.add('hidden')
@@ -312,8 +313,6 @@ donationAmountsContainer.addEventListener('click', (e) => {
   } else {
 
     donationCustomInput.addEventListener('input', () => {
-
-
       if (donationCustomInput.value.length <= 5) {
 
         const testing = Number(donationCustomInput.value)
