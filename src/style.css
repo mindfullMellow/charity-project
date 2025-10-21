@@ -13,6 +13,16 @@ HELPER CLASS
   @apply bg-brand-color text-white;
 }
 
+/* Hide scrollbar for all elements - Chrome, Safari, Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for all elements - IE, Edge, Firefox */
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 *:focus {
   outline: none;
   box-shadow: 0 0 0 8px rgba(19, 164, 236, 0.5);
@@ -196,6 +206,53 @@ SECTION-VOLUNTEERS STLYES
   @apply p-2 text-xl transition-all duration-300 rounded-full bg-brand-color hover:bg-btn-hover;
 }
 
+.slider-container {
+  max-width: 1200px;
+  height: 520px;
+  margin: 0 auto;
+  position: relative;
+
+  overflow: hidden;
+}
+
+.slider-content {
+  width: 420px;
+  height: 98%;
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 1s;
+}
+
+.slider-inner {
+  @apply w-[95.24%] h-full mr-auto;
+}
+
+.dots__dot {
+  border: none;
+  opacity: 0.7;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all 0.5s;
+  @apply bg-[#b9b9b9];
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  @apply bg-brand-color;
+  opacity: 1;
+}
+
 /* 
 /////////////////////////////////////////////////
 SECTION-NEWSLETTER STLYES
@@ -256,62 +313,103 @@ SECTION-NEWSLETTER STLYES
 }
 /* 
 /////////////////////////////////////////////////
-SECTION-VOLUNTEERS
+MODALS CSS COMPONENTS
 ////////////////////////////////////////////////
 */
-.slider-container {
-  max-width: 1200px;
-  height: 520px;
-  margin: 0 auto;
-  position: relative;
-
-  overflow: hidden;
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(3px);
+  z-index: 5;
 }
 
-.slider-content {
-  width: 420px;
-  height: 98%;
-  position: absolute;
-  top: 0;
+@layer utilities {
+  .no-spinner::-webkit-outer-spin-button,
+  .no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: transform 1s;
+  .no-spinner {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
 }
 
-.slider-inner {
-  @apply w-[95.24%] h-full mr-auto;
+.donation-modal {
+  max-width: 90vw;
+  max-height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999 !important;
+  background-color: red;
+  @apply rounded-lg bg-white w-[700px] py-md px-md  z-10;
+  overflow-y: scroll;
 }
 
-.dots__dot {
-  border: none;
-  opacity: 0.7;
-  height: 14px;
-  width: 14px;
-  border-radius: 50%;
-  margin-right: 20px;
-  cursor: pointer;
-  transition: all 0.5s;
-  @apply bg-[#b9b9b9];
+.active-tab {
+  @apply font-semibold text-brand-color border border-brand-dark-accent transition-all duration-300;
 }
 
-.dots__dot:last-child {
-  margin: 0;
+.payment-span {
+  @apply inline-block rounded-md shadow-custom-shadow shrink-0 p-sm transition-all duration-300 cursor-pointer;
 }
 
-.dots__dot--active {
-  @apply bg-brand-color;
-  opacity: 1;
+.payment input {
+  @apply rounded-lg p-sm bg-white-accent h-14  w-full placeholder:text-body border border-border-b-color;
+}
+.payment input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(19, 164, 236, 0.5);
 }
 
-/* QUERIES SECIFIC TO THE INDEX PAGE  */
+#close-btn {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.btn-tabs {
+  @apply py-xs px-lg bg-white-accent;
+}
+
+/* 
+/////////////////////////////////////////////////
+ QUERIES SECIFIC TO THE INDEX PAGE  
+////////////////////////////////////////////////
+*/
+
 @media (max-width: 37.5em) {
   .vol-btn {
     display: none;
   }
   .dots__dot {
     margin-right: 16px;
+  }
+}
+
+@media (max-width: 34.37em) {
+  .payment-span {
+    @apply text-small p-xs;
+  }
+
+  .btn-tabs {
+    @apply px-sm text-small;
+  }
+
+  .main-modal-btn {
+    @apply px-sm py-xs;
+  }
+}
+
+@media (max-width: 26.25em) {
+  .payment-content {
+    @apply pl-lg;
+  }
+  #close-btn {
+    @apply top-1 right-1;
   }
 }

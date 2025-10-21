@@ -56,6 +56,9 @@ module.exports = {
         xxl: '1.5rem',    // 24px - Large containers
         full: '9999px',   // Pill/circle
       },
+      boxShadow: {
+        'custom-shadow': 'inset 0 1px 4px 2px rgba(0 0 0 / 0.1)'
+      }
     },
   },
   plugins: [],

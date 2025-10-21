@@ -3,12 +3,13 @@
 @media (max-width: 59.3em) {
   .btn-mobile-nav {
     display: block;
-    z-index: 9999;
+    /* z-index: 9999; */
   }
 
   .nav {
     @apply bg-white-accent/95 px-sm;
-    @apply flex flex-col justify-between gap-md z-10;
+    @apply flex flex-col justify-between gap-md;
+    /* z-index: 9999; */
     position: absolute;
 
     top: 0;
