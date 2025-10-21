@@ -417,7 +417,7 @@ function ModalInit() {
 
 
 
-//IIEF to call the initailization on page load
+//IIEF to call the initailization functions on page load
 (() => {
   VolunteerCarouselInit()
   formLogicInit()
