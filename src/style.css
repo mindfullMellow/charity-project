@@ -346,7 +346,6 @@ MODALS CSS COMPONENTS
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999 !important;
-  background-color: red;
   @apply rounded-lg bg-white w-[700px] py-md px-md  z-10;
   overflow-y: scroll;
 }
@@ -367,7 +366,7 @@ MODALS CSS COMPONENTS
   box-shadow: 0 0 0 1px rgba(19, 164, 236, 0.5);
 }
 
-#close-btn {
+.modal-icon {
   font-size: 24px;
   font-weight: 500;
 }
@@ -380,6 +379,34 @@ body.modal-open {
   overflow: hidden;
 }
 
+.donation-modal-2,
+.donation-modal-4 {
+  max-width: 90vw;
+  max-height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @apply rounded-lg bg-white  w-[700px] py-md px-md  z-10;
+}
+
+.donation-details p {
+  @apply text-lead font-semibold;
+}
+
+.donation-details span {
+  @apply text-body font-light font-heading ml-2;
+}
+
+.donation-modal-3 {
+  max-width: 50vw;
+  max-height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @apply rounded-lg bg-white  w-[400px] py-md px-md  z-10;
+}
 /* 
 /////////////////////////////////////////////////
  QUERIES SECIFIC TO THE INDEX PAGE  
@@ -404,7 +431,7 @@ body.modal-open {
     @apply px-sm text-small;
   }
 
-  .main-modal-btn {
+  .modal-icon {
     @apply px-sm py-xs;
   }
 }
@@ -413,7 +440,7 @@ body.modal-open {
   .payment-content {
     @apply pl-lg;
   }
-  #close-btn {
+  .modal-btn {
     @apply top-1 right-1;
   }
 }

@@ -250,8 +250,12 @@ function VolunteerCarouselInit() {
 function ModalInit() {
   //Variables
   const donateBtns = document.querySelectorAll('.donate')
-  const closeBtn = document.getElementById('close-btn')
+  const closeBtn = document.getElementById('close-modal-btn')
+  const goBackBtn = document.getElementById('go-back-btn')
   const modal = document.querySelector('.donation-modal')
+  const modal__2 = document.querySelector('.donation-modal-2')
+  const modal__3 = document.querySelector('.donation-modal-3')
+  const allMainModalEl = Array.from(modal.querySelectorAll('*'))
   const overlay = document.querySelector('.overlay')
   const headerEl = document.querySelector('.header')
   const btnContainer = document.querySelector('.btn-container')
@@ -261,18 +265,20 @@ function ModalInit() {
   const donationInput = document.querySelector('.donation-input-0')
   const donationCustomInput = donationInput.querySelector('input')
   const inputErrMessage = donationInput.querySelector('span')
-  const paymentContent = document.querySelector('.payment-content')
+  const paymentContent = document.querySelector('.payment-method-content')
   const paymentMethod = paymentContent.querySelectorAll('span')
   const durationContext = document.getElementById('duration')
   const amountContext = document.getElementById('amount')
+  const mainModalBtn = document.querySelector('.main-modal-btn')
+  const modal_2_btn = document.querySelector('.modal-2-btn')
 
   //Reuseable Function blocks
-  function openModal() {
+  function openModal(element) {
     //Disable scrolling while the modal is active (body and html elemnt itslef)
     document.body.style.overflow = 'hidden'
     document.documentElement.style.overflow = 'hidden';
 
-    modal.classList.remove('hidden')
+    element.classList.remove('hidden')
     overlay.classList.remove('hidden')
 
     //store a message to inform the page taht sticky is activated 
@@ -284,45 +290,95 @@ function ModalInit() {
     if (!headerEl.classList.contains('sticky')) return
   }
 
-  function closeModal() {
+  function closeModal(element) {
     //activate  scrolling while the modal is inactive (body and html elemnt itslef)
     document.body.style.overflow = ''
     document.documentElement.style.overflow = ''
 
-    modal.classList.add('hidden')
+    element.classList.add('hidden')
     overlay.classList.add('hidden')
 
     //check the stored message to know if sticky class isactivated 
     if (sessionStorage.getItem('sticky')) {
       headerEl.classList.add('sticky')
-      sessionStorage.clear()
+      sessionStorage.removeItem('sticky')
     }
   }
 
+  function tabsInit(index) {
+    tabBtns.forEach((__, _, arr) => {
+      const tab = arr[index]
+
+      tab.classList.add('active-tab')
+      tab.dataset.tab = 'donation-type'
+
+    })
+  }
+
+  function DonationAmountsInit(index) {
+
+
+    donationAmounts.forEach((_, __, arr) => {
+      const amountTab = arr[index]
+
+      amountTab.classList.add('active-tab');
+      amountTab.dataset.tab = 'donation-amount'
+    })
+  }
+
+  function DonationMethodInit(index) {
+    paymentMethod.forEach((_, __, arr) => {
+      const methodTab = arr[index]
+
+      methodTab.classList.add('active-tab')
+      methodTab.dataset.tab = 'donation-method'
+    })
+  }
+
+
+  (() => {
+    tabsInit(0)
+    DonationAmountsInit(3)
+    DonationMethodInit(3)
+  })()
+
+
+
+
+
+
+
   ////////////////////////////////////////
-  //LOGICS
+  //  DONATION MODAL (STEP 1) LOGIC
+  ///////////////////////////////////////
+  //switching the payment-method tabs 
   paymentContent.addEventListener('click', (e) => {
     if (!e.target.classList.contains('payment-span')) return
 
     const clickedMethod = e.target
-    paymentMethod.forEach(cur => {
-      cur.classList.remove('active-tab')
 
-      if (cur === clickedMethod)
-        cur.classList.add('active-tab')
+    paymentMethod.forEach((cur, i) => {
+      cur.classList.remove('active-tab');
+      delete cur.dataset.tab
+
+      if (cur === clickedMethod) {
+        DonationMethodInit(i)
+      }
     })
   })
 
-
+  //switching the donation-amount tabs 
   donationAmountsContainer.addEventListener('click', (e) => {
     if (!e.target.classList.contains('payment-span')) return;
     const clickedAmount = e.target
 
-    donationAmounts.forEach(cur => {
+    donationAmounts.forEach((cur, i) => {
       cur.classList.remove('active-tab');
+      delete cur.dataset.tab
 
-      if (cur === clickedAmount)
-        cur.classList.add('active-tab');
+      if (cur === clickedAmount) {
+        DonationAmountsInit(i)
+      }
 
       if (cur.classList.contains('active-tab') && cur.textContent === 'others') {
         amountContext.textContent = ''
@@ -361,16 +417,20 @@ function ModalInit() {
     if (!e.target.classList.contains('btn-tabs')) return;
 
     const clickedTab = e.target
-    //Loop to switch tabs 
-    tabBtns.forEach(cur => {
-      cur.classList.remove('active-tab')
 
-      if (cur === clickedTab)
-        cur.classList.add('active-tab')
+    //Loop to switch tabs 
+    tabBtns.forEach((cur, i) => {
+      cur.classList.remove('active-tab')
+      delete cur.dataset.tab
+
+      if (cur === clickedTab) {
+        tabsInit(i)
+      }
 
       if (cur.classList.contains('active-tab') && cur.textContent === 'Monthly Donation') {
         donationAmounts.forEach(cur => {
           cur.textContent = cur.dataset.monthly
+
         }
         )
       } else {
@@ -379,16 +439,19 @@ function ModalInit() {
         })
       }
 
-
     })
 
-    // after switcing the tab get the payment amount with the active tad mad updte its textcontent to the btn modal btn 
+    // after switcing the tab get the payment amount with the active tab and update its textcontent to the btn modal btn 
     donationAmounts.forEach(cur => {
       if (!cur.classList.contains('active-tab')) return;
 
       if (cur.classList.contains('active-tab'))
         amountContext.textContent = cur.textContent
 
+      if (amountContext.textContent === 'others') {
+        amountContext.textContent = ''
+        donationCustomInput.value = ''
+      }
 
     })
 
@@ -400,24 +463,94 @@ function ModalInit() {
   //OPENING THE MODAL 
   donateBtns.forEach(cur => {
     cur.addEventListener('click', () => {
-      openModal()
+      openModal(modal)
     })
   })
 
   //CLOSE THE MODAL
-  closeBtn.addEventListener('click', closeModal)
+  closeBtn.addEventListener('click', () => closeModal(modal))
 
   //ADDINGG KEYBOARD EVENTS FOR ACCESSIBILTY
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-      closeModal()
+      closeModal(modal)
     }
   })
+
+  //BUTTON SUMBMISSION
+  mainModalBtn.addEventListener('click', () => {
+    if (amountContext.textContent === '') return;
+
+    const datasetDetailsArr = []
+    const datasetEl__textcontentArr = []
+    const donationObj = {}
+
+    if (amountContext.textContent !== '') {
+      const selectedTabs = allMainModalEl.filter(cur => cur.dataset.tab)
+
+      //loop to sout ut the dataset content and textcontent
+      selectedTabs.forEach(cur => {
+        datasetDetailsArr.push(cur.dataset.tab)
+
+        if (cur.textContent === 'others') {
+          const customInput = '$' + donationCustomInput.value
+          datasetEl__textcontentArr.push(customInput)
+        } else {
+          datasetEl__textcontentArr.push(cur.textContent)
+        }
+      })
+
+      //loop to put the sorted data into the object
+      for (let i = 0; i < datasetDetailsArr.length; i++) {
+        donationObj[datasetDetailsArr[i]] = datasetEl__textcontentArr[i]
+      }
+
+      sessionStorage.setItem('donationDetails', JSON.stringify(donationObj))
+      console.log(sessionStorage);
+
+      //fix the elment into the textcontent
+      (() => {
+        document.getElementById('donation-type').textContent = donationObj["donation-type"]
+        const amount = Number(donationObj['donation-amount'].replace(/[^0-9.]/g, '')).toLocaleString();
+        document.getElementById('donation-amount').textContent = '$' + amount;
+        document.getElementById('donation-method').textContent = donationObj['donation-method']
+      })()
+    }
+
+    //close the modal and open step 2 modal
+    closeModal(modal)
+    openModal(modal__2)
+
+  })
+
+  ////////////////////////////////////////
+  //  DONATION MODAL (STEP 2) LOGIC
+  ///////////////////////////////////////
+
+  goBackBtn.addEventListener('click', () => {
+    closeModal(modal__2)
+    openModal(modal)
+  })
+
+  modal_2_btn.addEventListener('click', () => {
+
+    const donationDetails = JSON.parse(sessionStorage.getItem('donationDetails'))
+    console.log(donationDetails);
+    closeModal(modal__2)
+    openModal(modal__3)
+  })
+
+
+  ////////////////////////////////////////
+  //  DONATION MODAL (STEP 3) LOGIC
+  ///////////////////////////////////////
+
+
 }
 
 
 
-//IIEF to call the initailization functions on page load
+//IIEF to invoke the initailization functions on page load
 (() => {
   VolunteerCarouselInit()
   formLogicInit()
@@ -425,4 +558,20 @@ function ModalInit() {
   peopleReachedInit()
   mainJsInit()
   ModalInit()
-})()
+})();
+
+function getRandomNumbers(lowerRange, higherRange) {
+  // return Math.floor((Math.random() * (higherRange - lowerRange) + 1) + lowerRange)
+  const min = lowerRange;
+  const max = higherRange;
+  const randomArray = new Uint32Array(1);
+  crypto.getRandomValues(randomArray);
+  const num = min + (randomArray[0] % (max - min + 1));
+  return num
+}
+
+
+
+// setInterval(() => {
+//   console.log(getRandomNumbers(3, 8));
+// }, getRandomNumbers(3, 8) * 1000)

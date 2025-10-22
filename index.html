@@ -2063,7 +2063,7 @@
     </section>
   </main>
 
-  <!-- DONATION MODAL -->
+  <!-- DONATION MODAL (STEP-1)-->
   <div class="relative hidden donation-modal">
     <div class="flex flex-col max-w-[600px] items-center justify-center mx-auto">
       <h4 class="font-bold text-center text-h4 font-heading max-[550px]:text-h4">Make a Donation</h4>
@@ -2076,7 +2076,7 @@
       <!-- BTN TABS -->
       <div class="flex items-center justify-center font-medium rounded-full mt-sm text-body">
         <div class="flex gap-sm btn-container">
-          <button class="rounded-full active-tab btn-tabs">One-time Donation</button>
+          <button class="rounded-full btn-tabs" data-tab="donation-type">One-time Donation</button>
           <button class="rounded-full btn-tabs">Monthly Donation</button>
         </div>
       </div>
@@ -2088,7 +2088,7 @@
           <span class="payment-span donation-amount" data-amount="$40" data-monthly="$50">$40</span>
           <span class="payment-span donation-amount " data-amount="$100" data-monthly="$100">$100</span>
           <span class="payment-span donation-amount " data-amount="$500" data-monthly="$300">$500</span>
-          <span class="payment-span donation-amount active-tab " data-amount="$1000" data-monthly="$5000">$1000</span>
+          <span class="payment-span donation-amount " data-amount="$1000" data-monthly="$5000">$1000</span>
           <span class="payment-span donation-amount" data-amount="others" data-monthly="others">others</span>
         </div>
 
@@ -2109,27 +2109,89 @@
       <!-- DONATION METHODS -->
       <div class="flex flex-col items-center pt-xl pb-md gap-sm donation-method">
         <h6 class="font-bold text-h6 font-heading">Donation Method</h6>
-        <div class="flex items-center justify-center overflow-x-scroll gap-sm payment-content">
+        <div class="flex items-center justify-center overflow-x-scroll gap-sm payment-method-content">
           <span class="payment-span ">Credit card</span>
           <span class="payment-span ">Bank transfer</span>
           <span class="payment-span ">Paypal</span>
-          <span class="payment-span active-tab">Crypto</span>
+          <span class="payment-span ">Crypto</span>
         </div>
       </div>
 
-      <button class="w-[80%] mx-auto my-0 block text-body cta-btn py-sm px-md font-bold main-modal-btn">Give <span
-          id="amount">$100</span> <span id="duration">once</span>
+      <button class="w-[80%] mx-auto my-0 block text-body cta-btn py-sm px-md font-bold main-modal-btn modal-btn">Give
+        <span id="amount">$100</span> <span id="duration">once</span>
       </button>
 
 
     </div>
 
     <button
-      class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent">
-      <ion-icon name="close-outline" id="close-btn"></ion-icon>
+      class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent"
+      id="close-modal-btn">
+      <ion-icon name="close-outline" class="modal-icon"></ion-icon>
     </button>
   </div>
+
+
+  <!-- DONATION MODAL (STEP-2) -->
+  <div class="hidden donation-modal-2">
+    <div class="relative flex flex-col items-center justify-center ">
+      <h4 class="font-bold text-center text-h4 font-heading max-[550px]:text-h4 pb-md">Confirm Donation Details</h4>
+
+      <div class="flex flex-col shadow-custom-shadow gap-sm donation-details p-md mb-md">
+        <p>Type of donation: <span id="donation-type">One-time<span></p>
+        <p>Amount to donate: <span id="donation-amount">$2000</span> </p>
+        <p>Donation method: <span id="donation-method">Crypto</span> </p>
+      </div>
+
+      <button class="font-bold cta-btn py-sm px-md text-body modal-2-btn">Proceed To Donate</button>
+
+      <button
+        class="absolute flex items-center justify-center w-8 h-8 rounded-full p- modal-btn top-3 left-3 text-body bg-white-accent"
+        id="go-back-btn">
+        <ion-icon name="arrow-back-outline" class="modal-icon"></ion-icon>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- DONATION MODAL (STEP-3) -->
+  <div class="hidden donation-modal-3">
+    <div class="flex flex-col items-center justify-center gap-sm donation-modal-3">
+      <div role="status">
+        <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+          viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+            fill="currentColor" />
+          <path
+            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+            fill="currentFill" />
+        </svg>
+        <span class="sr-only">Processing your request. Pls wait</span>
+      </div>
+
+      <p class="font-semibold text-lead">Just a moment…</p>
+    </div>
+  </div>
+
+  <div class="hidden donation-modal-4">
+    <div class="flex flex-col items-center justify-center">
+      <h4 class="font-bold text-center text-h4 font-heading max-[550px]:text-h4 pb-md">Confirm Donation Details</h4>
+
+
+      <div class="flex flex-col shadow-custom-shadow gap-sm donation-details p-md mb-md">
+        <p>Crypto to send: <span>Bitcoin</span></p>
+        <p>Network: <span>BTC</span></p>
+        <p>Wallet Address: <span>bc1qua7wfskvt0fde3h434cv3gmnpq2pwcasc7tej0</span></p>
+      </div>
+
+
+    </div>
+  </div>
+
+
   <div class="hidden overlay"></div>
+
 
   <footer class="pt-section pb-md px-sm border-t border-[#eee] bg-white-accent">
     <div class="container mx-auto max-w-[1200px]">
