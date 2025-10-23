@@ -2095,7 +2095,8 @@
         <!-- CUSTOMIZE AMOUNT -->
 
         <div class="w-[50%] hidden donation-input-0">
-          <input type="number" placeholder="Enter custom amount" class="no-spinner " maxlength="5">
+          <input type="number" placeholder="Enter custom amount" class="no-spinner others-input border-border-b-color"
+            maxlength="5" id="">
           <span class="hidden text-xs text-red-500">Thank you for your generosity. To arrange a large donation, please
             contact
             us at
@@ -2171,7 +2172,8 @@
 
       <p class="font-semibold md:text-lead text-body">Just a moment…</p>
 
-      <p class="hidden text-xs waiting-details mt-lg text-header-color/70">Fetching wallet details.... Please wait</p>
+      <p class="hidden text-xs text-center waiting-details mt-lg text-header-color/70">Fetching wallet details....
+        Please wait</p>
     </div>
   </div>
 
@@ -2289,6 +2291,61 @@
     </button>
   </div>
 
+  <!-- DONATION MODAL (STEP-8) -->
+  <div class="relative hidden donation-modal-8">
+    <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center">
+        <ion-icon name="close-circle-outline" class="block text-red-500 text-h3"></ion-icon>
+        <p class="font-semibold md:text-lead text-body">Donation Failed</p>
+      </div>
+
+      <p class="leading-5 text-center pt-md text-small">
+        Dear donor,
+        A broker for your selected payment method isn’t available in your region. Please check below
+        for other available
+        payment
+        options in your region or contact us at <a
+          class="transition-all duration-300 text-brand-color hover:text-btn-hover"
+          href="mailto:justonelifeorg@gmail.com">justonelifeorg@gmail.com</a>
+      </p>
+
+      <p class="font-semibold text-body pt-md pb-xs">Available payment method in your region</p>
+
+      <!-- AVAILABLE DONATION METHOD -->
+      <div class="flex flex-wrap items-center justify-center gap-x-sm gap-y-xxs pb-md">
+        <div class="flex items-center gap-xxs">
+          <ion-icon name="close-circle-outline" class="text-red-600 text-small"></ion-icon>
+          <p class="text-xs">Bank Transfer</p>
+        </div>
+
+        <div class="flex items-center gap-xxs">
+          <ion-icon name="close-circle-outline" class="text-red-600 text-small"></ion-icon>
+          <p class="text-xs">Paypal/p>
+        </div>
+
+        <div class="flex items-center gap-xxs">
+          <ion-icon name="checkmark-circle-outline" class="text-green-500 text-small"></ion-icon>
+          <p class="text-xs">Crypto</p>
+        </div>
+
+        <div class="flex items-center gap-xxs">
+          <ion-icon name="close-circle-outline" class="text-red-600 text-small"></ion-icon>
+          <p class="text-xs">Credit Card</p>
+        </div>
+      </div>
+
+      <button class="font-bold cta-btn text-body py-xs md:py-[12px] px-md back-to-donation">Back to donation</button>
+
+    </div>
+
+    <button
+      class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent"
+      id="close-payment-err">
+      <ion-icon name="close-outline" class="modal-icon"></ion-icon>
+    </button>
+  </div>
+
+
 
   <div class="hidden overlay"></div>
 
@@ -2322,9 +2379,9 @@
 
       <div class="flex flex-col items-center justify-center gap-sm opacity-80">
         <ul class="flex items-center justify-between text-sm md:gap-xl gap-md md:text-body">
-          <li><a href="#" class="footer-link">About
+          <li><a href="/about" class="footer-link">About
               Us</a></li>
-          <li><a href="#" class="footer-link">Contact</a></li>
+          <li><a href="/contact" class="footer-link">Contact</a></li>
           <li><a href="#" class="footer-link">Privacy
               Policy</a></li>
           <li><a href="#" class="footer-link">Terms of

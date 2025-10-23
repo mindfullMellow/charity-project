@@ -249,6 +249,7 @@ function VolunteerCarouselInit() {
 
 function ModalInit() {
   //Variables
+  let isActive = false
   const donateBtns = document.querySelectorAll('.donate')
   const closeBtn = document.getElementById('close-modal-btn')
   const goBackBtn = document.getElementById('go-back-btn')
@@ -259,7 +260,10 @@ function ModalInit() {
   const modal__5 = document.querySelector('.donation-modal-5')
   const modal__6 = document.querySelector('.donation-modal-6')
   const modal__7 = document.querySelector('.donation-modal-7')
+  const modal__8 = document.querySelector('.donation-modal-8')
+  const loadingDetails = document.querySelector('.waiting-details')
   const allMainModalEl = Array.from(modal.querySelectorAll('*'))
+  const othersInput = document.querySelector('.others-input')
   const overlay = document.querySelector('.overlay')
   const headerEl = document.querySelector('.header')
   const btnContainer = document.querySelector('.btn-container')
@@ -279,6 +283,10 @@ function ModalInit() {
   const sumbitEmail_modal5 = document.querySelector('.modal-5-form-submission')
   const closeModal_5Btn = document.getElementById('close-modal-btn-2')
   const mdodal_7_btn = modal__7.querySelector('button')
+  const closePaymentErr = modal__8.querySelector('#close-payment-err')
+  const goBackToDonationModal = modal__8.querySelector('.back-to-donation')
+  console.log(closePaymentErr);
+
 
   //Reuseable Function blocks
   function openModal(element) {
@@ -341,6 +349,11 @@ function ModalInit() {
       methodTab.classList.add('active-tab')
       methodTab.dataset.tab = 'donation-method'
     })
+  }
+
+  const avoidLeavingThePageMistakenly = (e) => {
+    e.preventDefault()
+    e.returnValue = ''
   }
 
 
@@ -487,7 +500,7 @@ function ModalInit() {
 
   //BUTTON SUMBMISSION
   mainModalBtn.addEventListener('click', () => {
-    if (amountContext.textContent === '') return;
+
 
     const datasetDetailsArr = []
     const datasetEl__textcontentArr = []
@@ -526,8 +539,18 @@ function ModalInit() {
     }
 
     //close the modal and open step 2 modal
-    closeModal(modal)
-    openModal(modal__2)
+    if (amountContext.textContent === '') {
+      console.log('others is empty');
+      othersInput.classList.replace('border-border-b-color', 'border-red-500')
+      setTimeout(() => {
+        othersInput.classList.replace('border-red-500', 'border-border-b-color')
+      }, 2000)
+    };
+    if (amountContext.textContent !== '') {
+      closeModal(modal)
+      openModal(modal__2)
+    }
+
 
   })
 
@@ -541,31 +564,59 @@ function ModalInit() {
   })
 
   modal_2_btn.addEventListener('click', () => {
+    //incase the user tries to leave right after the payment details has been displayed
+    if (!isActive) {
+      window.addEventListener('beforeunload', avoidLeavingThePageMistakenly)
+      isActive = true
+    }
 
     const donationDetails = JSON.parse(sessionStorage.getItem('donationDetails'))
-    console.log(donationDetails);
+    const userPickedOneTimeDonation = donationDetails["donation-type"] === 'One-time Donation'
+    // console.log(donationDetails, userPickedOneTimeDonation);
 
 
-    if (donationDetails["donation-type"] !== "Monthly Donation") {
+    //Check the donation method
+    if (userPickedOneTimeDonation) {
       closeModal(modal__2)
       openModal(modal__3)
     } else {
       closeModal(modal__2)
-      openModal(modal__7)
+      openModal(modal__3)
+
+      setTimeout(() => {
+        closeModal(modal__3)
+        openModal(modal__7)
+      }, getRandomNumbers(3, 6) * 1000)
     }
 
 
-    if (donationDetails['donation-method'] === 'Crypto' && donationDetails["donation-type"] !== "Monthly Donation") {
+    if (donationDetails['donation-method'] === 'Crypto' && userPickedOneTimeDonation) {
       document.getElementById('amount-to-send').textContent = donationDetails['donation-amount']
       const getTime = getRandomNumbers(1, 8)
       console.log(getTime);
       if (getTime > 4) {
-        document.querySelector('.waiting-details').classList.remove('hidden')
+        loadingDetails.classList.remove('hidden')
       }
       setTimeout(() => {
         closeModal(modal__3)
         openModal(modal__4)
       }, getTime * 1000)
+    }
+
+    if (donationDetails['donation-method'] !== 'Crypto' && userPickedOneTimeDonation) {
+
+      loadingDetails.textContent = `Searching for an online ${donationDetails['donation-method']} broker available in your region. Please wait…`
+
+      setTimeout(() => {
+        loadingDetails.classList.remove('hidden')
+      }, getRandomNumbers(3, 5) * 1000)
+
+
+      setTimeout(() => {
+        closeModal(modal__3)
+        openModal(modal__8)
+      }, getRandomNumbers(11, 20) * 1000)
+
     }
   })
 
@@ -583,8 +634,15 @@ function ModalInit() {
   ////////////////////////////////////////
   //  DONATION MODAL (STEP 5) LOGIC
   ///////////////////////////////////////
-  sumbitEmail_modal5.addEventListener('click', () => {
+  sumbitEmail_modal5.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (isActive) {
+      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
+    }
+
     const formInput = document.querySelector('.submit-email-input')
+
     if (formInput.value !== '') {
       closeModal(modal__5)
       openModal(modal__6)
@@ -598,14 +656,46 @@ function ModalInit() {
 
   })
 
-  closeModal_5Btn.addEventListener('click', () => closeModal(modal__5))
+  closeModal_5Btn.addEventListener('click', () => {
+    closeModal(modal__5)
+    //Remove the listener
+    if (isActive) {
+      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
+    }
+  })
+
 
 
   ////////////////////////////////////////
   //  DONATION MODAL (STEP 7) LOGIC
   ///////////////////////////////////////
-  mdodal_7_btn.addEventListener('click', () => closeModal(modal__7))
+  mdodal_7_btn.addEventListener('click', () => {
+    closeModal(modal__7)
+    sessionStorage.removeItem('donationDetails')
+  })
 
+  ////////////////////////////////////////
+  //  DONATION MODAL (STEP 8) LOGIC
+  ///////////////////////////////////////
+  closePaymentErr.addEventListener('click', () => {
+
+    if (isActive) {
+      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
+    }
+    sessionStorage.removeItem('donationDetails')
+
+    closeModal(modal__8)
+  })
+
+  goBackToDonationModal.addEventListener('click', () => {
+    if (isActive) {
+      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
+    }
+    sessionStorage.removeItem('donationDetails')
+
+    closeModal(modal__8)
+    openModal(modal)
+  })
 }
 
 

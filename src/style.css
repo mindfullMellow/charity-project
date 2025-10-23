@@ -365,7 +365,7 @@ MODALS CSS COMPONENTS
 }
 
 .payment input {
-  @apply rounded-lg p-sm bg-white-accent h-14  w-full placeholder:text-body border border-border-b-color;
+  @apply rounded-lg p-sm bg-white-accent h-14  w-full placeholder:text-body border;
 }
 .payment input:focus {
   outline: none;
@@ -407,14 +407,15 @@ body.modal-open {
 .donation-modal-3,
 .donation-modal-5,
 .donation-modal-6,
-.donation-modal-7 {
-  max-width: 60vw;
+.donation-modal-7,
+.donation-modal-8 {
+  max-width: 90vw;
   max-height: 100vh;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @apply rounded-lg bg-white  w-[400px] py-md px-md  z-10;
+  @apply rounded-lg bg-white  w-[500px] py-md px-md  z-10;
 }
 /* 
 /////////////////////////////////////////////////
