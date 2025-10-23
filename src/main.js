@@ -356,6 +356,15 @@ function ModalInit() {
     e.returnValue = ''
   }
 
+  function clearHelpers(sessionStoragevar = false) {
+    if (isActive) {
+      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
+    }
+
+    if (sessionStoragevar)
+      sessionStorage.removeItem('donationDetails')
+  }
+
 
   (() => {
     tabsInit(0)
@@ -636,10 +645,7 @@ function ModalInit() {
   ///////////////////////////////////////
   sumbitEmail_modal5.addEventListener('click', (e) => {
     e.preventDefault();
-
-    if (isActive) {
-      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
-    }
+    clearHelpers(false)
 
     const formInput = document.querySelector('.submit-email-input')
 
@@ -659,9 +665,7 @@ function ModalInit() {
   closeModal_5Btn.addEventListener('click', () => {
     closeModal(modal__5)
     //Remove the listener
-    if (isActive) {
-      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
-    }
+    clearHelpers()
   })
 
 
@@ -671,27 +675,19 @@ function ModalInit() {
   ///////////////////////////////////////
   mdodal_7_btn.addEventListener('click', () => {
     closeModal(modal__7)
-    sessionStorage.removeItem('donationDetails')
+    clearHelpers(true)
   })
 
   ////////////////////////////////////////
   //  DONATION MODAL (STEP 8) LOGIC
   ///////////////////////////////////////
   closePaymentErr.addEventListener('click', () => {
-
-    if (isActive) {
-      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
-    }
-    sessionStorage.removeItem('donationDetails')
-
+    clearHelpers(true)
     closeModal(modal__8)
   })
 
   goBackToDonationModal.addEventListener('click', () => {
-    if (isActive) {
-      window.removeEventListener('beforeunload', avoidLeavingThePageMistakenly)
-    }
-    sessionStorage.removeItem('donationDetails')
+    clearHelpers(true)
 
     closeModal(modal__8)
     openModal(modal)
