@@ -2131,11 +2131,10 @@
     </button>
   </div>
 
-
   <!-- DONATION MODAL (STEP-2) -->
   <div class="hidden donation-modal-2">
     <div class="relative flex flex-col items-center justify-center ">
-      <h4 class="font-bold text-center text-h4 font-heading max-[550px]:text-h4 pb-md">Confirm Donation Details</h4>
+      <h4 class="font-bold text-center text-h4 font-heading max-[550px]:text-h5 pb-md">Confirm Donation Details</h4>
 
       <div class="flex flex-col shadow-custom-shadow gap-sm donation-details p-md mb-md">
         <p>Type of donation: <span id="donation-type">One-time<span></p>
@@ -2170,23 +2169,124 @@
         <span class="sr-only">Processing your request. Pls wait</span>
       </div>
 
-      <p class="font-semibold text-lead">Just a moment…</p>
+      <p class="font-semibold md:text-lead text-body">Just a moment…</p>
+
+      <p class="hidden text-xs waiting-details mt-lg text-header-color/70">Fetching wallet details.... Please wait</p>
     </div>
   </div>
 
+  <!-- DONATION MODAL (STEP-4) -->
   <div class="hidden donation-modal-4">
     <div class="flex flex-col items-center justify-center">
-      <h4 class="font-bold text-center text-h4 font-heading max-[550px]:text-h4 pb-md">Confirm Donation Details</h4>
+      <h4 class="font-bold text-center text-h4 font-heading max-[550px]:text-h5 pb-md">Deposit to this address</h4>
 
 
       <div class="flex flex-col shadow-custom-shadow gap-sm donation-details p-md mb-md">
-        <p>Crypto to send: <span>Bitcoin</span></p>
+        <p class="">Crypto to send:<span class="inline-block "><span class="flex items-center gap-xs"> <img
+                src="https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400" alt="BTC photo"
+                class="inline-block size-4">Bitcoin</span></span>
+        </p>
         <p>Network: <span>BTC</span></p>
-        <p>Wallet Address: <span>bc1qua7wfskvt0fde3h434cv3gmnpq2pwcasc7tej0</span></p>
+        <p>Amount to send: <span id="amount-to-send"></span></p>
+        <p>Wallet Address: <span class="inline-block">bc1qua7wfskvt0fde3h434cv3gmnpq2pwcasc7tej0</span></p>
       </div>
+
+      <div class="flex flex-col items-center gap-sm">
+        <button class="font-bold cta-btn md:py-sm md:px-md text-body py-xs px-sm">I have made the deposit</button>
+        <a href="#"
+          class="text-xs font-medium underline transition-all duration-300 text-header-color/70 decoration-dotted hover:text-header-color/90">Not
+          BTC? Send another
+          crypto</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DONATION MODAL (STEP-5) -->
+  <div class="relative hidden donation-modal-5">
+    <div class="flex flex-col items-center justify-center">
+
+      <div class="flex flex-col items-center gap-sm" role="status"> <ion-icon name="hourglass-outline"
+          class="block text-h3 text-brand-color animate-spin"></ion-icon>
+        <p class="font-semibold md:text-lead text-body">Confirming your deposit</p>
+      </div>
+
+      <p class="text-center pt-md text-small">Thank you for your donation! If you’d like a status update or receipt,
+        please enter
+        your email below.</p>
+
+      <form class="flex flex-col items-center py-sm">
+        <input type="email" placeholder="me@example.com"
+          class="w-full h-12 border rounded-lg submit-email-input p-sm bg-white-accent placeholder:text-body border-border-b-color">
+
+        <button class="font-bold cta-btn text-body py-xs px-md mt-xs modal-5-form-submission">Submit</button>
+      </form>
 
 
     </div>
+    <button
+      class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent"
+      id="close-modal-btn-2">
+      <ion-icon name="close-outline" class="modal-icon"></ion-icon>
+    </button>
+
+
+
+
+  </div>
+
+  <!-- DONATION MODAL (STEP-6) -->
+  <div class="relative hidden donation-modal-6">
+    <div class="flex flex-col items-center">
+
+
+      <div class="flex flex-col items-center">
+        <ion-icon name="checkmark-circle-outline" class="block text-h3 text-brand-color"></ion-icon>
+
+        <p class="font-semibold md:text-lead text-body">Thank You</p>
+      </div>
+
+      <p class="text-center pt-md text-small">Once again, thank you for your donation. Upon confrimation from the
+        network
+        you will get a receipt and status update to the specified email</p>
+
+      <div class="flex flex-col items-center gap-xs pt-md">
+        <a href="/" class="font-bold cta-btn text-body py-xs px-md mt-xs">Go back to homepage</a>
+        <a href="/sign-up"
+          class="text-xs font-medium underline transition-all duration-300 text-header-color/70 decoration-dotted hover:text-header-color/90">Sign
+          up as a member</a>
+
+      </div>
+    </div>
+    <!-- <button
+      class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent"
+      id="close-modal-btn-2">
+      <ion-icon name="close-outline" class="modal-icon"></ion-icon>
+    </button> -->
+  </div>
+
+  <!-- DONATION MODAL (STEP-7) -->
+  <div class="relative hidden donation-modal-7">
+    <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center">
+        <ion-icon name="information-circle-outline" class="block text-red-500 text-h3"></ion-icon>
+
+        <p class="text-center text-body pt-lg">Dear donor, due to regulations Policy, <a href="/sign-in"
+            class="pb-[2px] border-b border-b-brand-color text-brand-color hover:border-b-transparent duration-300 transition-all">signing
+            in</a>
+          is required to set up
+          a recurring (monthly) donation</p>
+
+        <a href="/sign-up"
+          class="text-xs font-medium underline transition-all duration-300 text-header-color/70 decoration-dotted hover:text-header-color/90 pt-sm">Not
+          a member? sign up</a>
+      </div>
+    </div>
+
+    <button
+      class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent"
+      id="close-monthly-err-modal">
+      <ion-icon name="close-outline" class="modal-icon"></ion-icon>
+    </button>
   </div>
 
 

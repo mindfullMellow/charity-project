@@ -311,6 +311,12 @@ SECTION-NEWSLETTER STLYES
   outline: none;
   box-shadow: 0 0 0 8px rgba(9, 46, 72, 0.35);
 }
+
+.submit-email-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(19, 164, 236, 0.5);
+}
+
 /* 
 /////////////////////////////////////////////////
 MODALS CSS COMPONENTS
@@ -391,15 +397,18 @@ body.modal-open {
 }
 
 .donation-details p {
-  @apply text-lead font-semibold;
+  @apply md:text-lead text-body font-semibold;
 }
 
 .donation-details span {
-  @apply text-body font-light font-heading ml-2;
+  @apply md:text-body text-small font-light font-heading ml-2;
 }
 
-.donation-modal-3 {
-  max-width: 50vw;
+.donation-modal-3,
+.donation-modal-5,
+.donation-modal-6,
+.donation-modal-7 {
+  max-width: 60vw;
   max-height: 100vh;
   position: fixed;
   top: 50%;
@@ -431,9 +440,9 @@ body.modal-open {
     @apply px-sm text-small;
   }
 
-  .modal-icon {
+  /* .modal-icon {
     @apply px-sm py-xs;
-  }
+  } */
 }
 
 @media (max-width: 26.25em) {

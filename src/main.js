@@ -255,6 +255,10 @@ function ModalInit() {
   const modal = document.querySelector('.donation-modal')
   const modal__2 = document.querySelector('.donation-modal-2')
   const modal__3 = document.querySelector('.donation-modal-3')
+  const modal__4 = document.querySelector('.donation-modal-4')
+  const modal__5 = document.querySelector('.donation-modal-5')
+  const modal__6 = document.querySelector('.donation-modal-6')
+  const modal__7 = document.querySelector('.donation-modal-7')
   const allMainModalEl = Array.from(modal.querySelectorAll('*'))
   const overlay = document.querySelector('.overlay')
   const headerEl = document.querySelector('.header')
@@ -271,6 +275,10 @@ function ModalInit() {
   const amountContext = document.getElementById('amount')
   const mainModalBtn = document.querySelector('.main-modal-btn')
   const modal_2_btn = document.querySelector('.modal-2-btn')
+  const modal_4_btn = modal__4.querySelector('button')
+  const sumbitEmail_modal5 = document.querySelector('.modal-5-form-submission')
+  const closeModal_5Btn = document.getElementById('close-modal-btn-2')
+  const mdodal_7_btn = modal__7.querySelector('button')
 
   //Reuseable Function blocks
   function openModal(element) {
@@ -536,15 +544,67 @@ function ModalInit() {
 
     const donationDetails = JSON.parse(sessionStorage.getItem('donationDetails'))
     console.log(donationDetails);
-    closeModal(modal__2)
-    openModal(modal__3)
+
+
+    if (donationDetails["donation-type"] !== "Monthly Donation") {
+      closeModal(modal__2)
+      openModal(modal__3)
+    } else {
+      closeModal(modal__2)
+      openModal(modal__7)
+    }
+
+
+    if (donationDetails['donation-method'] === 'Crypto' && donationDetails["donation-type"] !== "Monthly Donation") {
+      document.getElementById('amount-to-send').textContent = donationDetails['donation-amount']
+      const getTime = getRandomNumbers(1, 8)
+      console.log(getTime);
+      if (getTime > 4) {
+        document.querySelector('.waiting-details').classList.remove('hidden')
+      }
+      setTimeout(() => {
+        closeModal(modal__3)
+        openModal(modal__4)
+      }, getTime * 1000)
+    }
   })
 
 
   ////////////////////////////////////////
-  //  DONATION MODAL (STEP 3) LOGIC
+  //  DONATION MODAL (STEP 4) LOGIC
   ///////////////////////////////////////
+  modal_4_btn.addEventListener('click', () => {
+    sessionStorage.removeItem('donationDetails')
+    console.log(sessionStorage);
+    closeModal(modal__4)
+    openModal(modal__5)
+  })
 
+  ////////////////////////////////////////
+  //  DONATION MODAL (STEP 5) LOGIC
+  ///////////////////////////////////////
+  sumbitEmail_modal5.addEventListener('click', () => {
+    const formInput = document.querySelector('.submit-email-input')
+    if (formInput.value !== '') {
+      closeModal(modal__5)
+      openModal(modal__6)
+    } else {
+      formInput.classList.replace('border-border-b-color', 'border-red-500')
+      setTimeout(() => {
+        formInput.classList.replace('border-red-500', 'border-border-b-color')
+      }, 2000)
+    }
+
+
+  })
+
+  closeModal_5Btn.addEventListener('click', () => closeModal(modal__5))
+
+
+  ////////////////////////////////////////
+  //  DONATION MODAL (STEP 7) LOGIC
+  ///////////////////////////////////////
+  mdodal_7_btn.addEventListener('click', () => closeModal(modal__7))
 
 }
 
