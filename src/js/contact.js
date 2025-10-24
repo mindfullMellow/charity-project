@@ -6,14 +6,17 @@ fetch('../../index.html').then(res => res.text())
     //convert the fecthed html string into a DOM 
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, 'text/html');
+
+
     // get the <header> element from that HTML
     const header = doc.querySelector('header');
-    console.log(header);
-    //get the <footer></footer> element 
+    const modalComponents = doc.querySelector('.modal-components')
     const footer = doc.querySelector('footer')
+
     // add it to the current page
     if (header) document.body.prepend(header); // or appendChild
-    if (footer) document.body.append(footer)
+    if (modalComponents) document.querySelector('main').after(modalComponents)
+    if (footer) document.querySelector('.modal-components').after(footer)
   }).then(() => {
     //  EVERY ELEMENT THAT DEPENDS ON THIS HTML BEING FECTHED SHOULD BE HERE 
 
@@ -23,6 +26,7 @@ fetch('../../index.html').then(res => res.text())
     //Adding sticky nav
     utils.addStickyNav(document.querySelector('.get-in-touch-section'))
 
+    utils.ModalInit()
 
     // get full year from utils
     document.getElementById('year').textContent = utils.getFullYear()

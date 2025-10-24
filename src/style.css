@@ -345,14 +345,14 @@ MODALS CSS COMPONENTS
 }
 
 .donation-modal {
-  max-width: 90vw;
+  max-width: 95vw;
   max-height: 100vh;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999 !important;
-  @apply rounded-lg bg-white w-[700px] py-md px-md  z-10;
+  @apply rounded-lg bg-white w-[800px]  md:py-md pt-xl  pb-md px-md   z-10;
   overflow-y: scroll;
 }
 
@@ -393,14 +393,14 @@ body.modal-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @apply rounded-lg bg-white  w-[700px] py-md px-md  z-10;
+  @apply rounded-lg bg-white  w-[700px] md:py-md pt-xl  pb-md px-md  z-10;
 }
 
 .donation-details p {
   @apply md:text-lead text-body font-semibold;
 }
 
-.donation-details span {
+.donation-details .span-el {
   @apply md:text-body text-small font-light font-heading ml-2;
 }
 
