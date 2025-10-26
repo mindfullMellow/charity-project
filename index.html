@@ -2368,6 +2368,100 @@
   </div>
 
 
+  <div class="volunteer-modal-component">
+    <div class="relative hidden volunteer-modal-1">
+      <div class="flex flex-col items-center justify-center gap-md">
+        <div class="flex flex-col items-center">
+          <ion-icon name="information-circle-outline" class="block text-gray-500 text-h2"></ion-icon>
+
+          <p class="font-semibold text-center md:text-lead text-body">Volunteer Program Unavailable in Your Region</p>
+        </div>
+
+
+        <div class="flex flex-col text-center text-small gap-[12px]">
+          <p>
+            We're sorry, but our volunteer program is not currently available in your detected region. We are working to
+            expand our
+            reach and hope to offer opportunities in your
+            area soon.
+          </p>
+
+          <p>In the meantime, you can still support our mission by making a donation or signing up for updates to be
+            notified when
+            the program becomes available in your region.</p>
+        </div>
+
+
+        <div class="flex flex-col items-center justify-center w-full md:flex-row gap-md pt-sm">
+
+          <button
+            class="w-full font-medium transition-all duration-300 border rounded-lg py-sm px-md border-brand-color hover:bg-brand-color hover:text-white update-btn">Sign
+            Up for Updates</button>
+          <button class="w-full font-bold cta-btn py-sm px-md text-body donate-btn">Donate</button>
+        </div>
+
+        <button
+          class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent"
+          id="close-vol-err">
+          <ion-icon name="close-outline" class="modal-icon"></ion-icon>
+        </button>
+
+      </div>
+    </div>
+
+    <div class="hidden volunteer-modal-2">
+      <div class="flex flex-col items-center justify-center">
+
+
+        <div class="flex flex-col items-center">
+          <ion-icon name="sparkles-outline" class="block text-yellow-500 text-h2"></ion-icon>
+
+
+
+          <p class="font-semibold text-center md:text-lead text-body mt-xs">Thank You for
+            Signing Up to Volunteer!</p>
+        </div>
+
+        <p class="text-center text-small my-md">We've received your application and will be in touch shortly with more
+          details
+          about the next steps. We appreciate
+          your commitment to making a difference.</p>
+
+
+        <button class="font-bold cta-btn py-xs px-lg text-body">
+          Ok
+        </button>
+
+
+      </div>
+    </div>
+
+    <div class="hidden volunteer-modal-3">
+      <div>
+
+        <h2 class="font-semibold text-center md:text-lead text-body mt-xs">Apply to volunteer</h2>
+
+        <p class="text-center text-small my-xs">Please input your email and a representative from the organization will
+          contact you</p>
+
+
+        <form class="flex flex-col items-center pt-md">
+          <input type="email" placeholder="me@example.com"
+            class="w-[80%] max-[500px]:w-full h-12 border rounded-lg submit-email-input p-sm bg-white-accent placeholder:text-body border-border-b-color">
+
+          <button
+            class="font-bold cta-btn text-body py-xs px-md mt-sm modal-5-form-submission w-[50%] max-[500px]:w-[70%]">Submit</button>
+        </form>
+
+      </div>
+
+      <button
+        class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent"
+        id="close-vol-modal">
+        <ion-icon name="close-outline" class="modal-icon"></ion-icon>
+      </button>
+    </div>
+  </div>
 
 
 
@@ -2389,9 +2483,9 @@
             a
             Donation</button>
 
-          <a href="#"
-            class="font-medium transition-all duration-300 border rounded-lg py-sm px-md border-brand-color hover:bg-brand-color hover:text-white">Volunteer
-            Now</a>
+          <button
+            class="font-medium transition-all duration-300 border rounded-lg py-sm px-md border-brand-color hover:bg-brand-color hover:text-white volunteer">Volunteer
+            Now</button>
         </div>
 
         <div></div>
@@ -2399,7 +2493,7 @@
 
 
       <div class="flex flex-col items-center justify-center gap-sm opacity-80">
-        <ul class="flex items-center justify-between text-sm md:gap-xl gap-md md:text-body">
+        <ul class="flex items-center justify-center text-sm md:gap-xl gap-md md:text-body max-[380px]:text-xs">
           <li><a href="/about" class="footer-link">About
               Us</a></li>
           <li><a href="/contact" class="footer-link">Contact</a></li>

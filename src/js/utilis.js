@@ -599,6 +599,161 @@ export function ModalInit() {
   })
 }
 
+///////////////////////////////////////
+// VOLUNTEER MODAL LOGIC
+//////////////////////////////////////
+export function volunteerModalInit() {
+  const overlay = document.querySelector('.overlay')
+  const headerEl = document.querySelector('.header')
+  const signupSection = document.querySelector('.sign-up-section')
+  const volunteerBtns = Array.from(document.getElementsByClassName('volunteer'))
+  const loadingModal = document.querySelector('.donation-modal-3')
+  const loadingDetails = loadingModal.querySelector('.waiting-details')
+  const vol_modal_1 = document.querySelector('.volunteer-modal-1')
+  const vol_modal_1CloseBtn = vol_modal_1.querySelector('#close-vol-err')
+  const vol_modal_1DonateBtn = vol_modal_1.querySelector('.donate-btn')
+  const vol_modal_1UpdateBtn = vol_modal_1.querySelector('.update-btn')
+  const vol_modal_2 = document.querySelector('.volunteer-modal-2')
+  const vol_modal_2Btn = vol_modal_2.querySelector('button')
+  const vol_modal_3 = document.querySelector('.volunteer-modal-3')
+  const vol_modal_3Input = vol_modal_3.querySelector('form input')
+  const vol_modal_3Btn = vol_modal_3.querySelector('form button')
+  const closeVolModal = document.querySelector('#close-vol-modal')
+  const sliderContainer = document.querySelector('.slider-container')
+
+
+  function openModal(element) {
+    //Disable scrolling while the modal is active (body and html elemnt itslef)
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden';
+
+    element.classList.remove('hidden')
+    overlay.classList.remove('hidden')
+
+    //store a message to inform the page taht sticky is activated 
+    if (headerEl.classList.contains('sticky')) {
+      headerEl.classList.remove('sticky')
+      sessionStorage.setItem('sticky', "sticky is active")
+    }
+
+    if (!headerEl.classList.contains('sticky')) return
+  }
+
+  function closeModal(element) {
+    //activate  scrolling while the modal is inactive (body and html elemnt itslef)
+    document.body.style.overflow = ''
+    document.documentElement.style.overflow = ''
+
+    element.classList.add('hidden')
+    overlay.classList.add('hidden')
+
+    //check the stored message to know if sticky class isactivated 
+    if (sessionStorage.getItem('sticky')) {
+      headerEl.classList.add('sticky')
+      sessionStorage.removeItem('sticky')
+    }
+  }
+
+
+  function getRandomNumbers(lowerRange, higherRange) {
+    // return Math.floor((Math.random() * (higherRange - lowerRange) + 1) + lowerRange)
+    const min = lowerRange;
+    const max = higherRange;
+    const randomArray = new Uint32Array(1);
+    crypto.getRandomValues(randomArray);
+    const num = min + (randomArray[0] % (max - min + 1));
+    return num
+  }
+
+  function modalInit(e) {
+    e.preventDefault(e)
+    openModal(loadingModal)
+
+    //Get the user country 
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.country_name);
+        const UserCountry = data.country_name
+
+        if (UserCountry === 'United States') {
+          closeModal(loadingModal)
+          openModal(vol_modal_3)
+        } else {
+          setTimeout(() => {
+            closeModal(loadingModal)
+            openModal(vol_modal_1)
+          }, getRandomNumbers(3, 6) * 1000)
+
+        }
+
+      })
+  }
+
+
+  //Opening the modal
+  volunteerBtns.forEach(cur => cur.addEventListener('click', (e) => modalInit(e)))
+
+  vol_modal_1CloseBtn.addEventListener('click', () => closeModal(vol_modal_1))
+
+  vol_modal_1DonateBtn.addEventListener('click', () => {
+    closeModal(vol_modal_1)
+    openModal(document.querySelector('.donation-modal'))
+  })
+
+  vol_modal_1UpdateBtn.addEventListener('click', () => {
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+      closeModal(vol_modal_1)
+      signupSection.scrollIntoView({ behavior: "smooth" })
+    } else {
+      window.location.href = '/sign-up'
+    }
+  })
+
+  vol_modal_2Btn.addEventListener('click', () => closeModal(vol_modal_2))
+
+  vol_modal_3Btn.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    if (vol_modal_3Input.value === '') {
+      vol_modal_3Input.classList.replace('border-border-b-color', 'border-red-500')
+
+      setTimeout(() => {
+        vol_modal_3Input.classList.replace('border-red-500', 'border-border-b-color')
+      }, 2000)
+    } else {
+      closeModal(vol_modal_3)
+      openModal(loadingModal)
+
+      setTimeout(() => {
+        closeModal(loadingModal)
+        openModal(vol_modal_2)
+      }, getRandomNumbers(3, 5) * 1000)
+    }
+
+  })
+
+  closeVolModal.addEventListener('click', () => closeModal(vol_modal_3))
+
+
+  // use event delegation to add the modalto the volunteer in the home page slide btn 
+
+  if (sliderContainer) {
+    sliderContainer.addEventListener('click', (e) => {
+
+      const clickedCard = e.target
+
+      if (!clickedCard.classList.contains('volunteer-slide-btn')) return;
+
+      if (clickedCard.classList.contains('volunteer-slide-btn'))
+        modalInit(e)
+
+
+    })
+  }
+}
+
+
 
 //code to get full year
 export function getFullYear() {

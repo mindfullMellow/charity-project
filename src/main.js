@@ -138,9 +138,10 @@ function VolunteerCarouselInit() {
       if (cur.classList.contains('active-slide')) {
         const innerSlide = cur.querySelector('.slider-inner')
         if (!innerSlide.querySelector('.Vol-hover')) {
-          innerSlide.insertAdjacentHTML('beforeend', `<a href="#" class=" cta-btn Vol-hover transition-all duration-2000 ease-in-out">Volunteer
-              Now</a>`)
+          innerSlide.insertAdjacentHTML('beforeend', `<button class=" cta-btn Vol-hover transition-all vol-slide-btn  duration-2000 ease-in-out volunteer-slide-btn">Volunteer
+              Now</button>`)
         }
+
 
       } else {
         const volBtn = cur.querySelector('.Vol-hover')
@@ -192,6 +193,7 @@ function VolunteerCarouselInit() {
     document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
   }
 
+
   dotContainer__Index.addEventListener('click', (e) => {
     if (e.target.classList.contains('dots__dot')) {
       curSlide = Number(e.target.dataset.slide)
@@ -241,8 +243,9 @@ function VolunteerCarouselInit() {
   // EVENT LISTENERS
   btnRight.addEventListener('click', moveSlideRight)
   btnLeft.addEventListener('click', moveSlideLeft)
-}
 
+
+}
 
 
 
@@ -254,12 +257,10 @@ function VolunteerCarouselInit() {
   peopleReachedInit()
   mainJsInit()
   utils.ModalInit()
+  utils.volunteerModalInit()
 })();
 
 
 
 
-// setInterval(() => {
-//   console.log(getRandomNumbers(3, 8));
-// }, getRandomNumbers(3, 8) * 1000)
 

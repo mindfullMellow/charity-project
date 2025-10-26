@@ -386,7 +386,8 @@ body.modal-open {
 }
 
 .donation-modal-2,
-.donation-modal-4 {
+.donation-modal-4,
+.volunteer-modal-1 {
   max-width: 90vw;
   max-height: 100vh;
   position: fixed;
@@ -408,7 +409,9 @@ body.modal-open {
 .donation-modal-5,
 .donation-modal-6,
 .donation-modal-7,
-.donation-modal-8 {
+.donation-modal-8,
+.volunteer-modal-2,
+.volunteer-modal-3 {
   max-width: 90vw;
   max-height: 100vh;
   position: fixed;

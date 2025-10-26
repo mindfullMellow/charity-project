@@ -11,11 +11,13 @@ fetch('../../index.html').then(res => res.text())
     // get the <header> element from that HTML
     const header = doc.querySelector('header');
     const modalComponents = doc.querySelector('.modal-components')
+    const volunteerModal = doc.querySelector('.volunteer-modal-component')
     const footer = doc.querySelector('footer')
 
     // add it to the current page
     if (header) document.body.prepend(header); // or appendChild
     if (modalComponents) document.querySelector('main').after(modalComponents)
+    if (volunteerModal) document.querySelector('.modal-components').after(volunteerModal)
     if (footer) document.querySelector('.modal-components').after(footer)
   }).then(() => {
     //  EVERY ELEMENT THAT DEPENDS ON THIS HTML BEING FECTHED SHOULD BE HERE 
@@ -28,64 +30,79 @@ fetch('../../index.html').then(res => res.text())
     // utils.addStickyNav(document.querySelector('.campaign-hero-section'))
 
     utils.ModalInit()
+    utils.volunteerModalInit()
 
     // get full year from utils
     document.getElementById('year').textContent = utils.getFullYear()
 
-  })
+  });
+
 
 ///////////////////////////////////////
 //LOGIC TO SCROLL TO THE CLICKED CAMPAIGN CARD FROM THE INDEX.HTML
 ///////////////////////////////////////////
-document.addEventListener('DOMContentLoaded', () => {
-  //on page load:
-  //   get tabValue from sessionStorage
-  let btnClickedValue = sessionStorage.getItem('scrollTab')
+function scrollToClickedELInit() {
+  document.addEventListener('DOMContentLoaded', () => {
+    //on page load:
+    //   get tabValue from sessionStorage
+    let btnClickedValue = sessionStorage.getItem('scrollTab')
 
-  if (!btnClickedValue) return;
-  // if tabValue exists:
-  //         find element on page with [data - tab=tabValue]
-  if (btnClickedValue) {
+    if (!btnClickedValue) return;
+    // if tabValue exists:
+    //         find element on page with [data - tab=tabValue]
+    if (btnClickedValue) {
 
-    const clickedValueEL = document.querySelector(`[data-tab=${btnClickedValue}]`)
-    //if element found:
-    //    scroll element into view smoothly
-    clickedValueEL.scrollIntoView({ behavior: 'smooth' })
+      const clickedValueEL = document.querySelector(`[data-tab=${btnClickedValue}]`)
+      //if element found:
+      //    scroll element into view smoothly
+      clickedValueEL.scrollIntoView({ behavior: 'smooth' })
 
-    clickedValueEL.classList.add('bg-border-b-color', 'rounded-lg', 'p-2')
+      clickedValueEL.classList.add('bg-border-b-color', 'rounded-lg', 'p-2')
 
-    setTimeout(() => {
-      clickedValueEL.classList.remove('bg-border-b-color', 'rounded-lg', 'p-2')
-    }, 2000)
+      setTimeout(() => {
+        clickedValueEL.classList.remove('bg-border-b-color', 'rounded-lg', 'p-2')
+      }, 2000)
 
 
-    // remove tabValue from sessionStorage
-    sessionStorage.clear()
+      // remove tabValue from sessionStorage
+      sessionStorage.clear()
 
-  }
+    }
 
-})
-
-const tabContainer = document.getElementById('tab-container')
-const target = document.querySelector('.campaign-hero-section')
-
-const observer = new IntersectionObserver(entries => {
-  const entry = entries[0]
-  if (!entry.isIntersecting) {
-    tabContainer.classList.add('sticky', 'top-0', 'left-0', 'h-xxl')
-    tabContainer.classList.replace('justify-start', 'justify-center')
-  } else {
-    tabContainer.classList.remove('sticky', 'top-0', 'left-0', 'h-xxl')
-    tabContainer.classList.replace('justify-center', 'justify-start')
-  }
-}, {
-  root: null,
-  threshold: 0,
-  rootMargin: '-124px'
+  })
 }
-)
 
-observer.observe(target)
+
+
+
+
+//////////////////////////////////////////////
+//LOGIC TO MAKE THE TAB CONTAINER STICKY
+//////////////////////////////////////////////
+function makeTabstickyInit() {
+  const tabContainer = document.getElementById('tab-container')
+  const target = document.querySelector('.campaign-hero-section')
+
+  const observer = new IntersectionObserver(entries => {
+    const entry = entries[0]
+    if (!entry.isIntersecting) {
+      tabContainer.classList.add('sticky', 'top-0', 'left-0', 'h-xxl')
+      tabContainer.classList.replace('justify-start', 'justify-center')
+    } else {
+      tabContainer.classList.remove('sticky', 'top-0', 'left-0', 'h-xxl')
+      tabContainer.classList.replace('justify-center', 'justify-start')
+    }
+  }, {
+    root: null,
+    threshold: 0,
+    rootMargin: '-124px'
+  }
+  )
+
+  observer.observe(target)
+}
+
+
 
 
 //////////////////////////////////////////////
@@ -99,7 +116,7 @@ function switchTabInit() {
   const tabContent = document.querySelectorAll('.tab-content')
   function addOpacityToBtns() {
     tabBtns.forEach(cur => {
-      if (!cur.classList.contains('active-tab'))
+      if (!cur.classList.contains('active-tab=camp'))
         cur.classList.add('opacity-80')
 
     })
@@ -122,14 +139,14 @@ function switchTabInit() {
 
 
       //Check if target has the active class
-      if (target.classList.contains('active-tab')) return;
+      if (target.classList.contains('active-tab-camp')) return;
 
 
       //remove the opacity and active class from the btns
-      tabBtns.forEach(cur => cur.classList.remove('active-tab', 'opacity-80'))
+      tabBtns.forEach(cur => cur.classList.remove('active-tab-camp', 'opacity-80'))
 
       //add active class to the clicked btn
-      target.classList.add('active-tab')
+      target.classList.add('active-tab-camp')
 
       //add opacity to the non-active tab 
       addOpacityToBtns()
@@ -147,6 +164,26 @@ function switchTabInit() {
 
 
 }
-switchTabInit()
+
+
+//////////////////////////////////////////////
+//Adding the donate Keyword t each of the donate btn to enable the modal
+//ADDING THE "donate" KEYWORD TO EACH OF THE DONATE BTN TO ENABLE THE DONATE MODAL
+//////////////////////////////////////////////
+(() => {
+  document.querySelectorAll('.current-campaign-btn').forEach(cur => {
+    cur.classList.add('donate')
+    console.log(cur);
+  })
+
+})();
+
+
+//IIFE to invoke the init functions
+(() => {
+  scrollToClickedELInit()
+  makeTabstickyInit()
+  switchTabInit()
+})();
 
 

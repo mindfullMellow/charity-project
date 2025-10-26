@@ -12,11 +12,13 @@ fetch('../../index.html').then(res => res.text())
     // get the <header> element from that HTML
     const header = doc.querySelector('header');
     const modalComponents = doc.querySelector('.modal-components')
+    const volunteerModal = doc.querySelector('.volunteer-modal-component')
     const footer = doc.querySelector('footer')
 
     // add it to the current page
     if (header) document.body.prepend(header); // or appendChild
     if (modalComponents) document.querySelector('main').after(modalComponents)
+    if (volunteerModal) document.querySelector('.modal-components').after(volunteerModal)
     if (footer) document.querySelector('.modal-components').after(footer)
   }).then(() => {
     //  EVERY ELEMENT THAT DEPENDS ON THIS HTML BEING FECTHED SHOULD BE HERE 
@@ -25,6 +27,7 @@ fetch('../../index.html').then(res => res.text())
     utils.mobileNav()
 
     utils.ModalInit()
+    utils.volunteerModalInit()
 
     //Adding sticky nav
     utils.addStickyNav(document.querySelector('.news-hero-section'))

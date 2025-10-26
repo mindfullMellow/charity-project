@@ -1,8 +1,8 @@
 @import url("../style.css");
 @import url("./queries.css");
 
-.active-tab {
-  @apply opacity-100 border-b-2 border-brand-color;
+.active-tab-camp {
+  @apply opacity-100 border-b-2  border-brand-color;
 }
 
 .inactive-tab-content {
