@@ -1,2 +1,55 @@
 @import url("../style.css");
 @import url("./queries.css");
+.strong {
+  @apply text-body font-semibold;
+}
+
+.title-ul li {
+  @apply font-semibold text-body;
+}
+
+.title-ul li span {
+  @apply inline-block font-light ml-xxs text-black;
+}
+
+.title-ul li span:has(a),
+.website-link,
+.email-link {
+  @apply text-brand-color underline decoration-dotted hover:text-brand-dark-accent transition-all duration-300;
+}
+
+.page-discretion {
+  text-indent: 10em;
+  @apply pt-md text-h6 font-semibold text-header-color/70;
+}
+
+ol li::marker {
+  @apply text-header-color text-h5 mr-sm; /* change number color */
+  font-weight: bold;
+}
+
+ul li::marker {
+  @apply font-semibold;
+}
+
+.nested-ul {
+  @apply flex flex-col pl-5 list-disc gap-xxs pt-xs;
+}
+
+ol li {
+  @apply tracking-wide text-body;
+}
+
+ol strong {
+  @apply text-h5 mb-xs;
+}
+
+.dispute-list,
+.legal-matters {
+  @apply font-semibold;
+}
+
+.dispute-list li span,
+.legal-matters li span {
+  @apply font-normal;
+}

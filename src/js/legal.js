@@ -30,7 +30,7 @@ fetch('../../index.html').then(res => res.text())
     utils.volunteerModalInit()
 
     //Adding sticky nav
-    // utils.addStickyNav(document.querySelector('.news-hero-section'))
+    utils.addStickyNav(document.querySelector('.page-title'))
 
 
     // get full year from utils
