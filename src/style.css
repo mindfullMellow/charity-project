@@ -387,7 +387,8 @@ body.modal-open {
 
 .donation-modal-2,
 .donation-modal-4,
-.volunteer-modal-1 {
+.volunteer-modal-1,
+.consent-modal {
   max-width: 90vw;
   max-height: 100vh;
   position: fixed;
@@ -419,6 +420,10 @@ body.modal-open {
   left: 50%;
   transform: translate(-50%, -50%);
   @apply rounded-lg bg-white  w-[500px] py-md px-md  z-10;
+}
+
+.legal-links {
+  @apply text-brand-color underline decoration-dotted hover:text-brand-dark-accent transition-all duration-300;
 }
 /* 
 /////////////////////////////////////////////////

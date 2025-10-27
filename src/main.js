@@ -15,6 +15,67 @@ function mainJsInit() {
   document.getElementById('year').textContent = utils.getFullYear()
 }
 
+///////////////////////////////////////////
+//CONSENT MODAL
+///////////////////////////////////////////
+(() => {
+  const consentModal = document.querySelector('.consent-modal')
+  const agreeBtn = consentModal.querySelector('.agree-btn')
+  const disAgreeBtn = consentModal.querySelector('.disagree-btn')
+  const overlay = document.querySelector('.overlay')
+  const headerEl = document.querySelector('.header')
+  function openModal(element) {
+    //Disable scrolling while the modal is active (body and html elemnt itslef)
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden';
+
+    element.classList.remove('hidden')
+    overlay.classList.remove('hidden')
+
+    //store a message to inform the page taht sticky is activated 
+    if (headerEl.classList.contains('sticky')) {
+      headerEl.classList.remove('sticky')
+      sessionStorage.setItem('sticky', "sticky is active")
+    }
+
+    if (!headerEl.classList.contains('sticky')) return
+  }
+
+  function closeModal(element) {
+    //activate  scrolling while the modal is inactive (body and html elemnt itslef)
+    document.body.style.overflow = ''
+    document.documentElement.style.overflow = ''
+
+    element.classList.add('hidden')
+    overlay.classList.add('hidden')
+
+    //check the stored message to know if sticky class isactivated 
+    if (sessionStorage.getItem('sticky')) {
+      headerEl.classList.add('sticky')
+      sessionStorage.removeItem('sticky')
+    }
+  }
+
+  setTimeout(() => {
+    if ((!localStorage.getItem('One-Life-Org'))) {
+      openModal(consentModal)
+    }
+  }, 5000)
+
+  agreeBtn.addEventListener('click', () => {
+    localStorage.setItem('One-Life-Org', 'true')
+    closeModal(consentModal)
+  })
+
+  disAgreeBtn.addEventListener('click', () => {
+    console.log('this woks');
+    closeModal(consentModal)
+    window.location.href = '/Access-denied'
+  })
+})()
+
+
+
 /////////////////////////////////////////////////////
 //PEOPLE REACHED SECTION LOGIC
 ////////////////////////////////////////////////////
