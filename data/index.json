@@ -17,6 +17,30 @@
       "aria-label": "Two men smiling while doing a communit outreach",
       "card-title": "Community Outreach",
       "card-text": "Engage with local communities by leading and supporting workshops, organizing impactful events, and participating in direct support programs that are designed to uplift and improve the quality of life for those we serve."
+    },
+    {
+      "image": "/Assets/img/homePage/food-donation.webp",
+      "aria-label": "Donated food ready to be shared",
+      "card-title": "Food Security & Nutrition",
+      "card-text": "Stand with us to fight hunger by supporting food drives, assisting with community kitchens, and helping distribute meals that bring hope and nourishment to families who need it most."
+    },
+    {
+      "image": "/Assets/img/homePage/disater-relief.webp",
+      "aria-label": "Two men smiling while doing a communit outreach",
+      "card-title": "Disaster Relief & Emergency Response",
+      "card-text": "Take part in bringing comfort and stability to families affected by disasters by volunteering in emergency response efforts that deliver aid, rebuild homes, and restore dignity."
+    },
+    {
+      "image": "/Assets/img/homePage/elderly-care.webp",
+      "aria-label": "An elderly woman",
+      "card-title": "Elderly Care & Support",
+      "card-text": "Help brighten the lives of seniors by offering your time through companionship visits, recreational programs, and community events that remind them they’re valued and never forgotten."
+    },
+    {
+      "image": "/Assets/img/homePage/women-empowerment.webp",
+      "aria-label": "women empowerment",
+      "card-title": "Women Empowerment Programs",
+      "card-text": " Stand with women working toward independence and equality by supporting training sessions, educational programs, and awareness drives that help them build stronger futures."
     }
   ]
 }

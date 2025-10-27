@@ -3,6 +3,61 @@ import * as utils from "./js/utilis"
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'; // base styles
 
+
+///////////////////////////////////////////
+//JSON INIT
+///////////////////////////////////////////
+async function loadVolunteers() {
+  try {
+    const response = await fetch('../data/index.json');
+    const data = await response.json();
+
+    const volunteerDataArr = data["volunteer-data"];
+    const sliderContainer = document.querySelector('.slider-container')
+
+    //LOOP TO CREATE THE CARDS
+    volunteerDataArr.forEach(cur => {
+      const cardHtml = `
+    <div class="slider-content">
+      <div
+        class="relative flex flex-col text-white cursor-pointer group slider-inner img-default"
+        style="background-image: linear-gradient(to bottom, rgba(17,22,24,0.2), rgba(17,22,24,0.9)), url('${cur.image}')"
+        role="img"
+        aria-label="${cur['aria-label']}">
+        
+        <div class="vol-content-container">
+          <h6>${cur['card-title']}</h6>
+          <p>${cur['card-text']}</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+      sliderContainer.insertAdjacentHTML('beforeend', cardHtml);
+    });
+
+
+    //WAIT UNTIL THE CARD LOOP IS DONE THEN CALL ALL INIT FUNCTIONS
+    (() => {
+      mainJsInit()
+      consentModalInit()
+      peopleReachedInit()
+      getDataAttributes()
+      formLogicInit()
+      VolunteerCarouselInit()
+      utils.ModalInit()
+      utils.volunteerModalInit()
+    })();
+
+  } catch (err) {
+    console.error('Error loading volunteer data:', err)
+  }
+
+}
+loadVolunteers()
+
+
+
 ///////////////////////////////////////////
 //GLOBAL VARIABLES
 ///////////////////////////////////////////
@@ -15,10 +70,11 @@ function mainJsInit() {
   document.getElementById('year').textContent = utils.getFullYear()
 }
 
+
 ///////////////////////////////////////////
 //CONSENT MODAL
 ///////////////////////////////////////////
-(() => {
+function consentModalInit() {
   const consentModal = document.querySelector('.consent-modal')
   const agreeBtn = consentModal.querySelector('.agree-btn')
   const disAgreeBtn = consentModal.querySelector('.disagree-btn')
@@ -72,7 +128,7 @@ function mainJsInit() {
     closeModal(consentModal)
     window.location.href = '/Access-denied'
   })
-})()
+}
 
 
 
@@ -307,19 +363,6 @@ function VolunteerCarouselInit() {
 
 
 }
-
-
-
-//IIEF to invoke the initailization functions on page load
-(() => {
-  VolunteerCarouselInit()
-  formLogicInit()
-  getDataAttributes()
-  peopleReachedInit()
-  mainJsInit()
-  utils.ModalInit()
-  utils.volunteerModalInit()
-})();
 
 
 
