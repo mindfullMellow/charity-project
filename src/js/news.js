@@ -40,7 +40,7 @@ fetch('../../index.html').then(res => res.text())
 
 async function loadNewsData() {
   try {
-    const response = await fetch("../../data/news.json")
+    const response = await fetch("/data/news.json")
     const data = await response.json()
     const slide1 = document.querySelector('.slide-list-1')
     const slide2 = document.querySelector('.slide-list-2')

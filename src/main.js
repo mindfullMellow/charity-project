@@ -9,7 +9,7 @@ import 'tippy.js/dist/tippy.css'; // base styles
 ///////////////////////////////////////////
 async function loadVolunteers() {
   try {
-    const response = await fetch('../data/index.json');
+    const response = await fetch('/data/index.json');
     const data = await response.json();
 
     const volunteerDataArr = data["volunteer-data"];

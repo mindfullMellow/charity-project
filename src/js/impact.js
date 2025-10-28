@@ -56,7 +56,7 @@ fetch('../../index.html').then(res => res.text())
 
 async function impactJsonInit() {
   try {
-    const response = await fetch('../../data/impact.json')
+    const response = await fetch('/data/impact.json')
     const data = await response.json()
 
     const storyContainer = document.querySelector('.storyContainer')
