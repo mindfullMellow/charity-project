@@ -41,7 +41,7 @@ fetch('../../index.html').then(res => res.text())
 //////////////////////////////////////////////
 //LOGIC TO LOAD THE CAMPAIGN DATA FROM THE JSON
 //////////////////////////////////////////////
-export async function campaignJsonInit() {
+async function campaignJsonInit() {
   try {
     const response = await fetch('/data/campaign.json')
     const data = await response.json()
@@ -58,6 +58,7 @@ async function loadCampaignData() {
   try {
 
     const data = await campaignJsonInit()
+    console.log(data)
     const currentCampaignUL = document.querySelector('.current-campaign-ul')
     const PastCampaignUL = document.querySelector('.past-campaign-ul')
 
