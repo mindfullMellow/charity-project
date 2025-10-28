@@ -181,6 +181,9 @@ loadCampaignData()
 ///////////////////////////////////////
 //LOGIC TO SCROLL TO THE CLICKED CAMPAIGN CARD FROM THE INDEX.HTML
 ///////////////////////////////////////////
+
+
+
 function scrollToClickedELInit() {
 
   //on page load:

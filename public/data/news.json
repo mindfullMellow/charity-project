@@ -4,49 +4,49 @@
       "news-title": "Empowering communities through education",
       "news-content": "One-Life Org's latest initiative focuses on providing educational resources to  underserved communities, fostering growth and opportunity.",
       "published-date": "12/06/2025",
-      "news-img": "/public/Assets/img/News_img/edu-news.png",
+      "news-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/News_img/edu-news.png",
       "news-img-alt": "An illustration of kids learning"
     },
     {
       "news-title": "Clean Water Project Reaches Milestone",
       "news-content": "Our clean water project has successfully provided access to safe drinking water for over 10,000 people in rural areas, significantly improving health and quality of life.",
       "published-date": "17/04/2025",
-      "news-img": "/public/Assets/img/News_img/water-news.png",
+      "news-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/News_img/water-news.png",
       "news-img-alt": "A pool of clean water"
     },
     {
       "news-title": "From Struggle to Success: Sarah's Story",
       "news-content": "Sarah, a beneficiary of our vocational training program, has launched her own successful business, becoming a beacon of hope in her community.",
       "published-date": "02/09/2025",
-      "news-img": "/public/Assets/img/News_img/sarah-news.png",
+      "news-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/News_img/sarah-news.png",
       "news-img-alt": "Sarah smiling"
     },
     {
       "news-title": "Community Garden Flourishes",
       "news-content": "Our community garden project has not only provided fresh produce but also fostered a sense of unity and collaboration among residents",
       "published-date": "07/09/2025",
-      "news-img": "/public/Assets/img/News_img/community-news.png",
+      "news-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/News_img/community-news.png",
       "news-img-alt": "an image showing farmers in a farm"
     },
     {
       "news-title": "Sustainable Agriculture Initiatives Thrive",
       "news-content": "Our sustainable agriculture initiatives are thriving, empowering local farmers with the knowledge and resources to cultivate their land effectively.",
       "published-date": "12/06/2025",
-      "news-img": "/public/Assets/img/News_img/agriculture.png",
+      "news-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/News_img/agriculture.png",
       "news-img-alt": "An illustration of kids learning"
     },
     {
       "news-title": "Disaster Relief Efforts Aid Affected communities",
       "news-content": "One-Life Org's disaster relief efforts have provided crucial aid to communities affected by recent natural disasters, offering support and resources for recovery.",
       "published-date": "17/04/2025",
-      "news-img": "/public/Assets/img/News_img/disater.png",
+      "news-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/News_img/disater.png",
       "news-img-alt": "A photo"
     },
     {
       "news-title": "Ahmed's Educational Triumph",
       "news-content": "Ahmed, with support from our education fund, excelled in his studies and is now pursuing higher education.",
       "published-date": "02/09/2025",
-      "news-img": "/public/Assets/img/News_img/Ahmed.png",
+      "news-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/News_img/Ahmed.png",
       "news-img-alt": "Ahmed reciving st academical honour"
     }
   ]

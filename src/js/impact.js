@@ -98,7 +98,7 @@ async function impactJsonInit() {
 
               <div class="flex items-center justify-center h-xl w-xl ">
                 <div class="relative inline-block group">
-                  <img src="../public/Assets/img/impact/anon.svg" alt="Avatar"
+                  <img src="https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/impact/anon.svg" alt="Avatar"
                     class="p-2 rounded-full bg-border-b-color">
                   <span
                     class="absolute hidden mb-2 text-xs text-white rounded-lg bg-brand-color px-sm py-xs w-section bottom-full group-hover:block">
