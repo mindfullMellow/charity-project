@@ -89,9 +89,11 @@ async function loadTeamMembers() {
 
               <address class="flex items-center not-italic gap-sm">
                 <!-- IMG -->
-                <div class="img-container group img">
-                  <img src="../public/Assets/img/impact/anon.svg" alt="Avatar"
-                    class="p-2 rounded-full bg-border-b-color">
+                <div class="img-container group relative img">
+                            <div  class=" rounded-full bg-white-accent skeleton"></div>
+                  <img src="https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/impact/anon.svg" alt="Avatar"
+                    class="p-2 rounded-full bg-border-b-color"
+                    onload="this.previousElementSibling.remove()">
                   <span
                     class="absolute hidden mb-2 text-xs text-white rounded-lg bg-brand-color px-sm py-xs w-section bottom-full group-hover:block">
                     Photo Omitted for recepient safety
