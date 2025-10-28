@@ -1,5 +1,6 @@
 'use strict'
 import * as utils from "./js/utilis"
+import "./keep-assets.js"
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'; // base styles
 
