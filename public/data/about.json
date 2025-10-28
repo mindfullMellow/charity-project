@@ -40,5 +40,27 @@
       "figure-name": "Tom Beck",
       "figure-role": "Chief People and Culture Officer"
     }
+  ],
+  "testimonials": [
+    {
+      "testi-quote": "“I joined One-Life’s Green Earth campaign two years ago. Together, we planted thousands of trees along the outskirts of Seoul. The work was hard but deeply ful Now when I walk past the young forest, I see what teamwork can do. One-Life connects people through purpos more than charity; it’s community.”",
+      "name": "Ji-woo Kim",
+      "other-details": "Environmental Advocate, South Korea"
+    },
+    {
+      "testi-quote": "“When the floods hit our town, I lost my home and most of my savings. For months, I didn’t know how  over. Then One-Life arrived with a small team. They supplies, built temporary shelters, an until every family had what they needed. They reminded us that  can still show up, even in the darkest times.”",
+      "name": "Yuri Petrov",
+      "other-details": "Retiree, Russia"
+    },
+    {
+      "testi-quote": "“I joined One-Life’s outreach program last summer to help provide free health checks in low-income a treated dozens of families in just a few days how much difference simple care co changed the way I view service. One-Life doesn’t just talk about chang build it, person by person.”",
+      "name": "Sarah Miller",
+      "other-details": "Volunteer, USA"
+    },
+    {
+      "testi-quote": "“I used to dream of becoming an engineer, but when the war reached our city, our school closed and I lost a my studies. One-Life’s online learning sup donation of digital tools gave me a way to keep studying. Their team even organized mentorship sessi volunteers abroad. Now I’m back on  graduate — they helped me believe in my future again.”",
+      "name": "Dmytro Ivanenko",
+      "other-details": "Student, Ukraine"
+    }
   ]
 }

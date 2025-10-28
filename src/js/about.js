@@ -50,6 +50,7 @@ fetch('../../index.html').then(res => res.text())
 async function loadTeamMembers() {
   const imgContainer1 = document.querySelector('.img-container-1')
   const imgContainer2 = document.querySelector('.img-container-2')
+  const sliderContainer = document.querySelector('.slider')
 
   try {
     const response = await fetch('/data/about.json')
@@ -57,6 +58,8 @@ async function loadTeamMembers() {
     console.log(data);
 
     const teamMembersData = data["our-team"]
+    const testimonials = data["testimonials"]
+    console.log(testimonials);
 
     teamMembersData.forEach(cur => {
       const teamHTML = `<figure class="flex-1 min-w-[150px]">
@@ -71,8 +74,6 @@ async function loadTeamMembers() {
             </figcaption>
           </figure>`
 
-      console.log(imgContainer1.querySelectorAll('figure').length);
-
       if (imgContainer1.querySelectorAll('figure').length !== 4) {
         imgContainer1.insertAdjacentHTML('beforeend', teamHTML)
       } else {
@@ -80,7 +81,37 @@ async function loadTeamMembers() {
       }
     })
 
+    testimonials.forEach((cur, i) => {
+      const testiHTML = `  <div class="slide slide-${i + 1}">
+            <div class="text-white testimonials-content">
 
+              <blockquote class="font-light text-h6">${cur["testi-quote"]}</blockquote>
+
+              <address class="flex items-center not-italic gap-sm">
+                <!-- IMG -->
+                <div class="img-container group img">
+                  <img src="../public/Assets/img/impact/anon.svg" alt="Avatar"
+                    class="p-2 rounded-full bg-border-b-color">
+                  <span
+                    class="absolute hidden mb-2 text-xs text-white rounded-lg bg-brand-color px-sm py-xs w-section bottom-full group-hover:block">
+                    Photo Omitted for recepient safety
+                  </span>
+                </div>
+                <!-- ADDRESS -->
+
+                <cite class="flex flex-col justify-center gap-1 not-italic">
+                  <h6 class="font-semibold text-h6">${cur["name"]}</h6>
+                  <p class="font-light text-small">${cur["other-details"]}</p>
+                </cite>
+              </address>
+            </div>
+          </div>`
+
+      sliderContainer.insertAdjacentHTML('beforeend', testiHTML)
+
+    })
+
+    testimonialSlideInit()
   } catch (err) {
     console.error('Erroe:', err)
   }
@@ -226,7 +257,7 @@ function testimonialSlideInit() {
 
   })
 }
-testimonialSlideInit()
+
 
 
 
