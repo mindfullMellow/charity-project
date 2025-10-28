@@ -58,9 +58,13 @@ async function loadNewsData() {
 
                   <p class="text-small opacity-80 published">Published on <span>${cur["published-date"]}</span></p>
                 </div>
+                 
 
+              <div class="relative"> 
+                <div  class=" rounded-lg bg-white-accent skeleton"></div>
                 <img src="${cur["news-img"]}" alt="${cur["news-img-alt"]}"
-                  class="place-self-end">
+                  class="place-self-end" onload="this.previousElementSibling.remove()">
+              </div>
               </li>`
 
       if (slide1.querySelectorAll('li').length !== 4) {
