@@ -1,0 +1,45 @@
+{
+  "success-stories": [
+    {
+      "story-title": "Clean Water Project – Northern Somalia",
+      "story-content": "Delivered clean and safe drinking water to 15 remote villages by building boreholes and installing solar-powered pumps. The project improved health conditions and reduced waterborne diseases for over 5,000 residents.",
+      "story-img": "/public/Assets/img/impact/sudan.webp",
+      "story-img-alt": "People Fetching water from a well in Sudan"
+    },
+    {
+      "story-title": "Rebuilding Hope – Gaza Relief Initiative",
+      "story-content": "Supported displaced families in Gaza with emergency food supplies, clean water, and temporary shelter. The project also  helped restore damaged classrooms, allowing over 1,200 children to return to school.",
+      "story-img": "/public/Assets/img/impact/gaza.webp",
+      "story-img-alt": "Group of kids in gaza posing for a picture"
+    },
+    {
+      "story-title": "Green Earth Campaign – Environmental Conservation",
+      "story-content": "Launched large-scale tree planting and waste recycling programs across urban communities to combat pollution and deforestation. Over 10,000 trees were planted, reducing carbon emissions and promoting eco-awareness among local youth.",
+      "story-img": "/public/Assets/img/impact/enviro.webp",
+      "story-img-alt": "A man planting a tree"
+    }
+  ],
+  "testimonies": [
+    {
+      "UserName": "Lina Ahmed - Gaza",
+      "date": "2024-02-14",
+      "content": "When I escaped Gaza with my kids, I didn’t know what would happen to us. We crossed borders with only a few clothes and a lot of fear. Then One-Life found us. They gave us food place to rest, and helped my children return to school. They even taught us simple ways to care for our new surroundi my kids smile again, and for the first time in a long while, our home feels full of life.",
+      "like": "11",
+      "dislike": "1"
+    },
+    {
+      "UserName": "Andriy Kovalenko - Ukraine",
+      "date": "2025-04-01",
+      "content": "“When the war reached our town in Ukraine, I left with my mother and a single suitcase. We lost everything. One-Life offered us shelter and helped me continue my studies. They  us in local garden projects that bring people together, and for the first time since leaving home, I felt p wasn’t only about survival — it was about feeling human again.”",
+      "like": "28",
+      "dislike": "3"
+    },
+    {
+      "UserName": "Jason Miller - USA",
+      "date": "2025-04-07",
+      "content": "“After losing my job in the U.S., I fellbehind on rent and couldn’t keep up with bills. My kids were missing school, and I felt like I was failing them. One-Life reached out, helped with food, school supplies,  guidance on finding stable work. They treated us with respect, not pity. Thanks to them, I got back on my feet, and are smiling again.”",
+      "like": "54",
+      "dislike": "0"
+    }
+  ]
+}

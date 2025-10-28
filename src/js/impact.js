@@ -52,7 +52,104 @@ fetch('../../index.html').then(res => res.text())
     });
 
 
-  })
+  });
+
+async function impactJsonInit() {
+  try {
+    const response = await fetch('../../data/impact.json')
+    const data = await response.json()
+
+    const storyContainer = document.querySelector('.storyContainer')
+    const testimonialsContainer = document.querySelector('.testimonies-list')
+    const successStories = data['success-stories']
+    const testimonials = data["testimonies"]
+    console.log(testimonials);
+    console.log(successStories);
+
+    successStories.forEach(cur => {
+
+      const storyHTML = `  <li class="stories-grid ">
+            <div class="flex flex-col justify-between">
+
+              <div class="flex flex-col items-start gap-sm">
+                <h6 class="story-h6 font-heading">${cur["story-title"]}</h6>
+                <p class="text-body">${cur["story-content"]}</p>
+              </div>
+
+              <div>
+                <a href="#" class="">Read
+                  More &#x2192;</a>
+              </div>
+
+            </div>
+
+            <div class="feature-img">
+              <img src="${cur["story-img"]}" alt="${cur['story-img-alt']}">
+            </div>
+          </li>`
+
+      storyContainer.insertAdjacentHTML('beforeend', storyHTML)
+
+    })
+
+    testimonials.forEach(cur => {
+      const testimonialHTML = `   <li class="flex flex-col items-start gap-sm">
+            <div class="flex items-center gap-xs">
+
+              <div class="flex items-center justify-center h-xl w-xl ">
+                <div class="relative inline-block group">
+                  <img src="../public/Assets/img/impact/anon.svg" alt="Avatar"
+                    class="p-2 rounded-full bg-border-b-color">
+                  <span
+                    class="absolute hidden mb-2 text-xs text-white rounded-lg bg-brand-color px-sm py-xs w-section bottom-full group-hover:block">
+                    Photo Omitted for recepient safety
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-col text-body">
+                <p class="font-bold ">L${cur["UserName"]}</p>
+                <span class="text-small opacity-80">${cur["date"]}</span>
+              </div>
+            </div>
+
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div class="testimonie-text">
+              <p class="text-body">${cur["content"]}</p>
+            </div>
+
+            <div class="flex items-center reactions gap-lg">
+              <div class="space-x-xs">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <span>${cur["like"]}</span>
+              </div>
+              <div class="space-x-xs">
+                <i class="fa-regular fa-thumbs-down mt-xxs"></i>
+                <span>${cur["dislike"]}</span>
+              </div>
+            </div>
+
+
+
+          </li>`
+
+      testimonialsContainer.insertAdjacentHTML('beforeend', testimonialHTML)
+    })
+
+  } catch (err) {
+    console.error("Error:", err)
+  }
+
+}
+
+impactJsonInit()
 
 
 
