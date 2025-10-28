@@ -35,8 +35,6 @@ async function loadVolunteers() {
 
       sliderContainer.insertAdjacentHTML('beforeend', cardHtml);
     });
-
-
     //WAIT UNTIL THE CARD LOOP IS DONE THEN CALL ALL INIT FUNCTIONS
     (() => {
       mainJsInit()
@@ -55,7 +53,6 @@ async function loadVolunteers() {
 
 }
 loadVolunteers()
-
 
 
 ///////////////////////////////////////////
