@@ -41,5 +41,20 @@
       "like": "54",
       "dislike": "0"
     }
+  ],
+
+  "project-spotlight": [
+    {
+      "project-topic": "Providing education for all...",
+      "project-goal": "To improve literacy and learning opportunities for children in underserved communities across the U.S./Europe by providing free educational materials and creatin sustainable libraries.",
+      "project-goal-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/impact/goal.webp",
+      "Project-goal-img-alt": "An img of books",
+      "project-execution": "The project partnered with 10 local schools, worked closely with community organizations, and organized fundraising campaigns that raised $50,000. Volunteer teac weekend reading programs, mentoring sessions, and storytelling workshops. Mini-libraries were set up in sch community centers, stocked with books and digital learning resources to ensure long-term access.",
+      "project-execution-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/impact/school-libary.webp",
+      "project-execution-img-alt": "An img of books",
+      "project-outcome": " Over 2,000 children gained access to books and structured learning spaces. School attendance and engagement increased by 40%, literacy skills improved significantly, initiative motivated local communities to continue supporting educational programs. The project also receiv coverage, raising awareness for similar literacy campaigns across the region.",
+      "project-outcome-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/impact/classrooms.webp",
+      "project-outcome-alt": "An image of a classroom"
+    }
   ]
 }

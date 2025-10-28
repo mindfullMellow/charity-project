@@ -425,6 +425,25 @@ body.modal-open {
 .legal-links {
   @apply text-brand-color underline decoration-dotted hover:text-brand-dark-accent transition-all duration-300;
 }
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #eee 25%, #ddd 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 /* 
 /////////////////////////////////////////////////
  QUERIES SECIFIC TO THE INDEX PAGE  
