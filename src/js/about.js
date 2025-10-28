@@ -44,7 +44,51 @@ fetch('../../index.html').then(res => res.text())
     utils.volunteerModalInit()
 
 
-  })
+  });
+
+
+async function loadTeamMembers() {
+  const imgContainer1 = document.querySelector('.img-container-1')
+  const imgContainer2 = document.querySelector('.img-container-2')
+
+  try {
+    const response = await fetch('/data/about.json')
+    const data = await response.json()
+    console.log(data);
+
+    const teamMembersData = data["our-team"]
+
+    teamMembersData.forEach(cur => {
+      const teamHTML = `<figure class="flex-1 min-w-[150px]">
+          <div class="relative"> 
+ <div  class=" rounded-full bg-white-accent skeleton"></div>
+            <img src="${cur["figure-img"]}" alt="${cur["figure-name"]}"
+              class="w-full rounded-full aspect-square" onload="this.previousElementSibling.remove()">
+           </div>
+            <figcaption class="flex flex-col items-center text-center pt-sm">
+              <h4 class="font-semibold md:text-lead text-h6 ">${cur["figure-name"]}</h4>
+              <p class="md:text-body text-small text-header-color/80">${cur["figure-role"]}</p>
+            </figcaption>
+          </figure>`
+
+      console.log(imgContainer1.querySelectorAll('figure').length);
+
+      if (imgContainer1.querySelectorAll('figure').length !== 4) {
+        imgContainer1.insertAdjacentHTML('beforeend', teamHTML)
+      } else {
+        imgContainer2.insertAdjacentHTML('beforeend', teamHTML)
+      }
+    })
+
+
+  } catch (err) {
+    console.error('Erroe:', err)
+  }
+
+}
+
+loadTeamMembers()
+
 
 //////////////////////////////
 //

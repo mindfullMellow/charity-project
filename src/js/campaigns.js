@@ -70,8 +70,9 @@ async function loadCampaignData() {
       if (cur.status === "uncompleted") {
         const campaignCard = ` <li class="space-y-6" data-tab="${cur["data-tab"]}">
               <div class="li-grid">
-                <div class="flex-1 ">
-                  <img src="${cur["image"]}" alt="${cur["image-alt"]}"
+                <div class="flex-1 relative">
+                <div  class=" rounded-lg bg-white-accent skeleton"></div>
+                  <img src="${cur["image"]}" alt="${cur["image-alt"]}" onload="this.previousElementSibling.remove()"
                     class="campaign-img">
                 </div>
 
@@ -113,9 +114,10 @@ async function loadCampaignData() {
               <!-- IMG ND CONTENT -->
               <div class="li-grid">
                 <!-- IMG DIV -->
-                <div class="flex-1 ">
+                <div class="flex-1 relative">
+                            <div  class=" rounded-lg bg-white-accent skeleton"></div>
                   <img src="${cur["image"]}"
-                    alt="${cur["image-alt"]}" class="campaign-img">
+                    alt="${cur["image-alt"]}" class="campaign-img" onload="this.previousElementSibling.remove()">
                 </div>
 
                 <!-- CAMPIGN CONTENT -->

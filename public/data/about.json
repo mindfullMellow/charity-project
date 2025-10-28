@@ -1,0 +1,44 @@
+{
+  "our-team": [
+    {
+      "figure-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/about/mike-jeff.webp",
+      "figure-name": "Mike Jeff",
+      "figure-role": "Founder"
+    },
+    {
+      "figure-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/about/owen.webp",
+      "figure-name": "François Bussy",
+      "figure-role": "CEO"
+    },
+    {
+      "figure-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/about/katrina.webp",
+      "figure-name": "Linda Russo",
+      "figure-role": "Secretary"
+    },
+    {
+      "figure-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/about/pamela.webp",
+      "figure-name": "Pamela Parisian",
+      "figure-role": "Chief Information Manager"
+    },
+    {
+      "figure-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/about/joe.webp",
+      "figure-name": "Joe Wilkins",
+      "figure-role": "Chief Financial Officer"
+    },
+    {
+      "figure-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/about/sidney.webp",
+      "figure-name": "Sidney Muisyo",
+      "figure-role": "Chief Program Officer"
+    },
+    {
+      "figure-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/about/mart.webp",
+      "figure-name": "Martha Newsome",
+      "figure-role": "Chief Development Officer"
+    },
+    {
+      "figure-img": "https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/about/beck.webp",
+      "figure-name": "Tom Beck",
+      "figure-role": "Chief People and Culture Officer"
+    }
+  ]
+}
