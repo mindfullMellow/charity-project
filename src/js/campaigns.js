@@ -38,38 +38,163 @@ fetch('../../index.html').then(res => res.text())
   });
 
 
+//////////////////////////////////////////////
+//LOGIC TO LOAD THE CAMPAIGN DATA FROM THE JSON
+//////////////////////////////////////////////
+async function loadCampaignData() {
+  try {
+    const response = await fetch('../../data/campaign.json')
+    const data = await response.json()
+    const currentCampaignUL = document.querySelector('.current-campaign-ul')
+    const PastCampaignUL = document.querySelector('.past-campaign-ul')
+
+    const campaignData = data["campaign-data"].sort((a, b) => parseFloat(b.progress) - parseFloat(a.progress));
+
+
+    //LOOP TO CREATE THE CARDS
+    campaignData.forEach(cur => {
+      if (cur.status === "uncompleted") {
+        const campaignCard = ` <li class="space-y-6" data-tab="${cur["data-tab"]}">
+              <div class="li-grid">
+                <div class="flex-1 ">
+                  <img src="${cur["image"]}" alt="${cur["image-alt"]}"
+                    class="campaign-img">
+                </div>
+
+                <!-- CAMPIGN CONTENT -->
+                <div class="flex flex-col flex-1 gap-xs">
+                  <h6 class="font-bold text-h6 font-heading">${cur["campaign-title"]}</h6>
+                  <p class="text-body">${cur["campaign-text"]}</p>
+
+                  <div class="donate-flex space-y-xxs">
+                    <p class="font-semibold">Goal: ${cur["campaign-goal"]}</p>
+                    <button class="current-campaign-btn">Donate</button>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- PROGRESS STATUS -->
+              <div class="progress-status">
+
+                <!-- PROGRESS CONTENT -->
+                <div class="progress-content">
+                  <p>Progress</p>
+                  <p>${cur["progress"]}</p>
+                </div>
+
+                <!-- PROGRESS BAR -->
+                <div class="progress-bar">
+                  <div class="w-[45%] progress-uncompleted" style="width: ${cur["progress"]}"></div>
+                </div>
+              </div>
+
+            </li>`
+
+        currentCampaignUL.insertAdjacentHTML('beforeend', campaignCard)
+      } else {
+
+        const campaignCard2 = `<li class="space-y-6 data-tab="${cur["data-tab"]}">
+
+              <!-- IMG ND CONTENT -->
+              <div class="li-grid">
+                <!-- IMG DIV -->
+                <div class="flex-1 ">
+                  <img src="${cur["image"]}"
+                    alt="${cur["image-alt"]}" class="campaign-img">
+                </div>
+
+                <!-- CAMPIGN CONTENT -->
+                <div class="flex flex-col flex-1 gap-xs">
+                  <h6 class="font-bold text-h6 font-heading">${cur["campaign-title"]}</h6>
+                  <p class="text-body">${cur["campaign-text"]}</p>
+                  <div class="donate-flex">
+                    <p class="font-semibold">Goal: ${cur["campaign-goal"]}</p>
+                    <button class="past-campaign-btn">Donate</button>
+                  </div>
+
+                  <div class="completed-barge-flex">
+                    <p class="font-accent">Campaign Sucessfully completed</p>
+                    <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROGRESS STATUS -->
+              <div class="progress-status">
+
+                <!-- PROGRESS CONTENT -->
+                <div class="progress-content">
+                  <p>Progress</p>
+                  <p>${cur["progress"]}</p>
+                </div>
+
+                <!-- PROGRESS BAR -->
+                <div class="progress-bar">
+                  <div class="progress-completed"></div>
+                </div>
+              </div>
+
+            </li>
+`
+        PastCampaignUL.insertAdjacentHTML('beforeend', campaignCard2)
+      }
+    });
+
+
+
+
+
+    //IIFE to invoke the init functions
+
+    (() => {
+      scrollToClickedELInit()
+      makeTabstickyInit()
+      switchTabInit()
+    })();
+
+
+
+
+
+  } catch (err) {
+    console.error("Error loading the data:", err)
+  }
+
+}
+loadCampaignData()
+
+
 ///////////////////////////////////////
 //LOGIC TO SCROLL TO THE CLICKED CAMPAIGN CARD FROM THE INDEX.HTML
 ///////////////////////////////////////////
 function scrollToClickedELInit() {
-  document.addEventListener('DOMContentLoaded', () => {
-    //on page load:
-    //   get tabValue from sessionStorage
-    let btnClickedValue = sessionStorage.getItem('scrollTab')
 
-    if (!btnClickedValue) return;
-    // if tabValue exists:
-    //         find element on page with [data - tab=tabValue]
-    if (btnClickedValue) {
+  //on page load:
+  //   get tabValue from sessionStorage
+  let btnClickedValue = sessionStorage.getItem('scrollTab')
 
-      const clickedValueEL = document.querySelector(`[data-tab=${btnClickedValue}]`)
-      //if element found:
-      //    scroll element into view smoothly
-      clickedValueEL.scrollIntoView({ behavior: 'smooth' })
+  if (!btnClickedValue) return;
+  // if tabValue exists:
+  //         find element on page with [data - tab=tabValue]
+  if (btnClickedValue) {
 
-      clickedValueEL.classList.add('bg-border-b-color', 'rounded-lg', 'p-2')
+    const clickedValueEL = document.querySelector(`[data-tab=${btnClickedValue}]`)
+    //if element found:
+    //    scroll element into view smoothly
+    clickedValueEL.scrollIntoView({ behavior: 'smooth' })
 
-      setTimeout(() => {
-        clickedValueEL.classList.remove('bg-border-b-color', 'rounded-lg', 'p-2')
-      }, 2000)
+    clickedValueEL.classList.add('bg-border-b-color', 'rounded-lg', 'p-2')
+
+    setTimeout(() => {
+      clickedValueEL.classList.remove('bg-border-b-color', 'rounded-lg', 'p-2')
+    }, 2000)
 
 
-      // remove tabValue from sessionStorage
-      sessionStorage.clear()
+    // remove tabValue from sessionStorage
+    sessionStorage.removeItem('scrollTab')
 
-    }
-
-  })
+  }
 }
 
 
@@ -166,24 +291,14 @@ function switchTabInit() {
 }
 
 
+
+
 //////////////////////////////////////////////
-//Adding the donate Keyword t each of the donate btn to enable the modal
 //ADDING THE "donate" KEYWORD TO EACH OF THE DONATE BTN TO ENABLE THE DONATE MODAL
 //////////////////////////////////////////////
 (() => {
   document.querySelectorAll('.current-campaign-btn').forEach(cur => {
     cur.classList.add('donate')
-    console.log(cur);
   })
 
 })();
-
-
-//IIFE to invoke the init functions
-(() => {
-  scrollToClickedELInit()
-  makeTabstickyInit()
-  switchTabInit()
-})();
-
-

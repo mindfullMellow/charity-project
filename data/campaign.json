@@ -1,0 +1,84 @@
+{
+  "campaign-data": [
+    {
+      "data-tab": "enviromental-conservation",
+      "image": "../public/Assets/img/campaign/kurt.webp",
+      "image-alt": "Ahmet kurt holding a plant she cultivated",
+      "campaign-title": "Enviromental Conversation - (Phase-2)",
+      "campaign-text": "Help us protect and restore natural habitats by taking part in tree planting initiatives supporting wildlife conservation efforts, and promoting environmental education programs that inspire lasting change and a healthier planet.",
+      "campaign-goal": "$16,000",
+      "progress": "91%",
+      "status": "uncompleted"
+    },
+    {
+      "data-tab": "education-for-all",
+      "image": "../public/Assets/img/campaign/education.webp",
+      "image-alt": "kids in a classroom learning",
+      "campaign-title": "Education for All",
+      "campaign-text": "Supporting educational programs and providing learning resources for children in underserved areas to help them gain better access to quality education and opportunities for growth.",
+      "campaign-goal": "$75,000",
+      "progress": "49%",
+      "status": "uncompleted"
+    },
+    {
+      "data-tab": "health-care access",
+      "image": "../public/Assets/img/campaign/health-care.webp",
+      "image-alt": "A Nurse attending to a child",
+      "campaign-title": "Healthcare Access",
+      "campaign-text": "Improving access to essential healthcare services and medical supplies for vulnerable populations.",
+      "campaign-goal": "$80,0000",
+      "progress": "82%",
+      "status": "uncompleted"
+    },
+    {
+      "data-tab": "enviromental-conservation- (Phase-3)",
+      "image": "../public/Assets/img/campaign/enviromental-conservation.webp",
+      "image-alt": "A Group of volunters planting Trees",
+      "campaign-title": "Environmental Conservation - (Phase-3)",
+      "campaign-text": "Protecting forests, rivers, and wildlife through community clean-ups, tree planting, and awareness programs that keep our planet healthy and alive for generations to come.",
+      "campaign-goal": "$171,0000",
+      "progress": "45%",
+      "status": "uncompleted"
+    },
+    {
+      "data-tab": "ukraine-campaign",
+      "image": "../public/Assets/img/campaign/ukraine.webp",
+      "image-alt": "A hand holding an ukraine flag",
+      "campaign-title": "Save a refugee today",
+      "campaign-text": "Every refugee in Ukraine deserves safety, support, and hope—join us in providing aid and relief to those affected by the crisis.",
+      "campaign-goal": "$461,0000",
+      "progress": "37%",
+      "status": "uncompleted"
+    },
+    {
+      "data-tab": "warTornGaza",
+      "image": "../public/Assets/img/campaign/warTornGaza.webp",
+      "image-alt": "A kid on a queue to get water",
+      "campaign-title": "Help Gaza Children In Need",
+      "campaign-text": "Every child in Gaza deserves safety, care, and hope Together, we can provide the support, love, and resources they urgently need - Help save a child today!!!",
+      "campaign-goal": "$267,257",
+      "progress": "94%",
+      "status": "uncompleted"
+    },
+    {
+      "data-tab": "cleanWater",
+      "image": "../public/Assets/img/campaign/clean-water.webp",
+      "image-alt": "Kids posing for the camera infront of the new water establishment made for them by the organization",
+      "campaign-title": "Clean water initiative",
+      "campaign-text": "Providing access to clean and safe drinking water for communities in need (mostly West African countries).",
+      "campaign-goal": "$50,000",
+      "progress": "100%",
+      "status": "completed"
+    },
+    {
+      "data-tab": "enviromental-conservation-phase-1",
+      "image": "../public/Assets/img/campaign/conserva.webp",
+      "image-alt": "enviromental converstaion badge",
+      "campaign-title": "Environmental Conservation - (phase-1)",
+      "campaign-text": ">Protecting and preserving natural habitats while promoting sustainable practices that support wildlife, reduce environmental harm, and ensure a healthier planet for future generations.",
+      "campaign-goal": "$94,170",
+      "progress": "100%",
+      "status": "completed"
+    }
+  ]
+}
