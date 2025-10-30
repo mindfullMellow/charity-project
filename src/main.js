@@ -36,6 +36,7 @@ async function loadVolunteers() {
 
       sliderContainer.insertAdjacentHTML('beforeend', cardHtml);
     });
+
     //WAIT UNTIL THE CARD LOOP IS DONE THEN CALL ALL INIT FUNCTIONS
     (() => {
       mainJsInit()
@@ -46,6 +47,8 @@ async function loadVolunteers() {
       VolunteerCarouselInit()
       utils.ModalInit()
       utils.volunteerModalInit()
+      console.log("loaded every init fn ");
+      avoidFOUC()
     })();
 
   } catch (err) {
@@ -54,6 +57,15 @@ async function loadVolunteers() {
 
 }
 loadVolunteers()
+
+
+function avoidFOUC() {
+  const pageELs = document.querySelector('.avoid-FOUC-div')
+  const pageInitLoader = document.querySelector('.init-loader')
+
+  pageInitLoader?.remove()
+  pageELs.classList.remove('hidden')
+}
 
 
 ///////////////////////////////////////////

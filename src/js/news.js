@@ -38,17 +38,45 @@ fetch('../../index.html').then(res => res.text())
 
   })
 
+
 async function loadNewsData() {
   try {
     const response = await fetch("/data/news.json")
     const data = await response.json()
-    const slide1 = document.querySelector('.slide-list-1')
-    const slide2 = document.querySelector('.slide-list-2')
 
-    const newsData = data['news']
-    console.log(newsData);
 
-    newsData.forEach(cur => {
+    const newsData = data['news'];
+
+    (() => {
+      renderNews(newsData, false)
+      searchInputInit(newsData)
+      paginationInit()
+    })();
+
+    return newsData
+  } catch (err) {
+    console.error("Error:", err)
+  }
+
+}
+
+loadNewsData()
+
+
+function renderNews(arr, searchRender = false) {
+  const slide1 = document.querySelector('.slide-list-1')
+  const slide2 = document.querySelector('.slide-list-2')
+  const searchedNewsUL = document.querySelector(".search-ul-list")
+  const sliderComponents = document.querySelector('.slider-components')
+  const searchComponents = document.querySelector('.search-component')
+
+
+  if (!searchRender) {
+    sliderComponents.classList.remove('hidden')
+    searchComponents.classList.add('hidden')
+    slide1.innerHTML = ''
+    slide2.innerHTML = ''
+    arr.forEach(cur => {
       const newsHTML = `<li class="news-list-grid">
                 <div class="flex flex-col justify-between">
                   <div>
@@ -61,7 +89,7 @@ async function loadNewsData() {
                  
 
               <div class="relative"> 
-                <div  class=" rounded-lg bg-white-accent skeleton"></div>
+                <div  class=" rounded-lg bg-white-accent skeleton h-[100px]"></div>
                 <img src="${cur["news-img"]}" alt="${cur["news-img-alt"]}"
                   class="place-self-end" onload="this.previousElementSibling.remove()">
               </div>
@@ -74,45 +102,89 @@ async function loadNewsData() {
       }
     });
 
+  } else {
+    sliderComponents.classList.add('hidden')
+    searchComponents.classList.remove('hidden')
+    searchedNewsUL.innerHTML = ''
+    arr.forEach(cur => {
+      const newsHTML = `<li class="news-list-grid">
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <a href="#" class="news-h6 md:mb-xxs mb-xs hover:text-brand-color">${cur['news-title']}</a>
+                    <p class="text-body">${cur["news-content"]}</p>
+                  </div>
 
+                  <p class="text-small opacity-80 published">Published on <span>${cur["published-date"]}</span></p>
+                </div>
+                 
 
-    (() => {
-      searchInputInit()
-      paginationInit()
-    })()
+              <div class="relative"> 
+                <div  class=" rounded-lg bg-white-accent skeleton h-[100px]"></div>
+                <img src="${cur["news-img"]}" alt="${cur["news-img-alt"]}"
+                  class="place-self-end" onload="this.previousElementSibling.remove()">
+              </div>
+              </li>`;
 
+      searchedNewsUL.insertAdjacentHTML('beforeend', newsHTML)
+    })
 
-  } catch (err) {
-    console.error("Error:", err)
   }
 
-}
 
-loadNewsData()
+}
 
 
 
 //////////////////////////
 //working on the input(uponn creation f the json file or  this news elements make the serch button real to search for each content)
 //////////////////////////
-function searchInputInit() {
+async function searchInputInit(newsData) {
   const searchInput = document.getElementById('search')
   const clearBtn = document.querySelector('.clear-btn')
-  console.log(searchInput);
+  const searchedNewsUL = document.querySelector(".search-ul-list")
+  console.log("search scope", newsData);
 
   searchInput.addEventListener('input', () => {
     let text = searchInput.value
+    let filteredNews = []
+    let timer;
 
     if (text.length >= 1) {
       clearBtn.classList.replace('hidden', 'flex')
+      const cleanedText = text.toLowerCase().toString()
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+
+        newsData.forEach(cur => {
+          if (cur["news-title"].toLowerCase().includes(cleanedText) || cur["news-content"].toLowerCase().includes(cleanedText)) {
+
+            filteredNews.push(cur)
+
+          } else {
+            searchedNewsUL.innerHTML = ''
+            searchedNewsUL.insertAdjacentHTML('beforeend', `  <p class="flex items-center justify-center font-semibold text-h5 mt-md ">No results found. Try different
+              keywords.</p>`)
+          }
+        });
+
+
+        if (filteredNews.length !== 0)
+          renderNews(filteredNews, true)
+      }, 500)
+
+
+
     } else {
       clearBtn.classList.replace('flex', 'hidden')
+      renderNews(newsData, false)
     }
   })
 
   clearBtn.addEventListener('click', () => {
     searchInput.value = ''
     clearBtn.classList.replace('flex', 'hidden')
+    renderNews(newsData, false)
   })
 }
 
@@ -198,7 +270,6 @@ function paginationInit() {
 
   const resizeObserver = new ResizeObserver((entries) => {
     entries.forEach(cur => {
-      console.log('Height changed to:', cur.target.offsetHeight);
 
       newsSlider.style.height = cur.target.offsetHeight + "px"
     })
@@ -259,4 +330,3 @@ function paginationInit() {
   // })
 
 }
-

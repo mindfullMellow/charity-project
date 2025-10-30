@@ -62,12 +62,12 @@ async function loadCampaignData() {
     const currentCampaignUL = document.querySelector('.current-campaign-ul')
     const PastCampaignUL = document.querySelector('.past-campaign-ul')
 
-    const campaignData = data["campaign-data"].sort((a, b) => parseFloat(b.progress) - parseFloat(a.progress));
+    const campaignData = data["campaign-data"].sort((a, b) => parseFloat(a.progress) - parseFloat(b.progress));
 
 
     //LOOP TO CREATE THE CARDS
     campaignData.forEach(cur => {
-      if (cur.status === "uncompleted") {
+      if (parseFloat(cur.progress) !== 100) {
         const campaignCard = ` <li class="space-y-6" data-tab="${cur["data-tab"]}">
               <div class="li-grid">
                 <div class="flex-1 relative">

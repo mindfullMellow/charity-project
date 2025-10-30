@@ -9,7 +9,7 @@
   <title>News | One-Life Org</title>
 </head>
 
-<body>
+<body class="">
   <!-- THE HEADER IS BEEN FECTHED (FROM  INDEX.HTML) AND INSERTED DYNAMICALLY WITH JS (ABOUT.JS) -->
 
   <main>
@@ -53,41 +53,62 @@
     <!-- NEWS CONTENTS -->
     <section class="news-section md:pt-lg pb-section py-sm px-md">
       <div class="container-div">
-        <h3 class="font-semibold text-lead font-heading mb-md news-h3">Latest News</h3>
 
+        <!-- ELEMENTS TO SHOW ON SEARCH -->
+        <div class="search-component">
+          <h3 class="font-semibold text-lead font-heading mb-md news-h3">Results from "<em>search</em>"</h3>
 
-        <div class="news-slider">
-          <!-- NEWS LIST -->
-          <div class="news-slide slide-1">
-            <ul class="flex flex-col gap-lg slide-list-1">
+          <ul class="flex flex-col gap-lg search-ul-list">
+            <!-- oi -->
 
+            `
 
-
-            </ul>
-          </div>
-
-          <!-- NEWS LIST -->
-          <div class="news-slide slide-2">
-            <ul class="flex flex-col gap-lg slide-list-2">
-
-            </ul>
-          </div>
-
+          </ul>
 
         </div>
 
 
-        <div class="flex items-center justify-center mt-lg gap-sm pagin-content">
-          <button class="btn-pagin-left"><ion-icon name="chevron-back-outline"></ion-icon></button>
+        <!-- DEFAULT NEWS ELMENT -->
+        <div class="slider-components">
+          <h3 class="font-semibold text-lead font-heading mb-md news-h3">Latest News</h3>
 
-          <div class="flex items-center justify-center span-pagination gap-sm text-small ">
-            <!-- <span class="pagin-no active-no">1</span>
+
+
+
+          <div class="news-slider">
+            <!-- NEWS LIST -->
+            <div class="news-slide slide-1">
+              <ul class="flex flex-col gap-lg slide-list-1">
+                <!-- oi -->
+
+
+              </ul>
+            </div>
+
+            <!-- NEWS LIST -->
+            <div class="news-slide slide-2">
+              <ul class="flex flex-col gap-lg slide-list-2">
+
+              </ul>
+            </div>
+
+
+          </div>
+
+
+          <div class="flex items-center justify-center mt-lg gap-sm pagin-content">
+            <button class="btn-pagin-left"><ion-icon name="chevron-back-outline"></ion-icon></button>
+
+            <div class="flex items-center justify-center span-pagination gap-sm text-small ">
+              <!-- <span class="pagin-no active-no">1</span>
             <span class="pagin-no">2</span>
             <span class="pagin-no">3</span> -->
-          </div>
+            </div>
 
-          <button class="btn-pagin-right"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+            <button class="btn-pagin-right"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+          </div>
         </div>
+
       </div>
     </section>
   </main>

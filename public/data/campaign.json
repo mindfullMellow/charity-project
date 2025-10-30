@@ -7,8 +7,7 @@
       "campaign-title": "Enviromental Conversation - (Phase-2)",
       "campaign-text": "Help us protect and restore natural habitats by taking part in tree planting initiatives supporting wildlife conservation efforts, and promoting environmental education programs that inspire lasting change and a healthier planet.",
       "campaign-goal": "$16,000",
-      "progress": "91%",
-      "status": "uncompleted"
+      "progress": "15%"
     },
     {
       "data-tab": "education-for-all",
@@ -17,8 +16,7 @@
       "campaign-title": "Education for All",
       "campaign-text": "Supporting educational programs and providing learning resources for children in underserved areas to help them gain better access to quality education and opportunities for growth.",
       "campaign-goal": "$75,000",
-      "progress": "49%",
-      "status": "uncompleted"
+      "progress": "49%"
     },
     {
       "data-tab": "health-care access",
@@ -27,8 +25,7 @@
       "campaign-title": "Healthcare Access",
       "campaign-text": "Improving access to essential healthcare services and medical supplies for vulnerable populations.",
       "campaign-goal": "$80,0000",
-      "progress": "82%",
-      "status": "uncompleted"
+      "progress": "82%"
     },
     {
       "data-tab": "enviromental-conservation- (Phase-3)",
@@ -37,8 +34,7 @@
       "campaign-title": "Environmental Conservation - (Phase-3)",
       "campaign-text": "Protecting forests, rivers, and wildlife through community clean-ups, tree planting, and awareness programs that keep our planet healthy and alive for generations to come.",
       "campaign-goal": "$171,0000",
-      "progress": "45%",
-      "status": "uncompleted"
+      "progress": "45%"
     },
     {
       "data-tab": "ukraine-campaign",
@@ -47,8 +43,7 @@
       "campaign-title": "Save a refugee today",
       "campaign-text": "Every refugee in Ukraine deserves safety, support, and hope—join us in providing aid and relief to those affected by the crisis.",
       "campaign-goal": "$461,0000",
-      "progress": "37%",
-      "status": "uncompleted"
+      "progress": "21%"
     },
     {
       "data-tab": "warTornGaza",
@@ -57,8 +52,7 @@
       "campaign-title": "Help Gaza Children In Need",
       "campaign-text": "Every child in Gaza deserves safety, care, and hope Together, we can provide the support, love, and resources they urgently need - Help save a child today!!!",
       "campaign-goal": "$267,257",
-      "progress": "94%",
-      "status": "uncompleted"
+      "progress": "34%"
     },
     {
       "data-tab": "cleanWater",
@@ -67,8 +61,7 @@
       "campaign-title": "Clean water initiative",
       "campaign-text": "Providing access to clean and safe drinking water for communities in need (mostly West African countries).",
       "campaign-goal": "$50,000",
-      "progress": "100%",
-      "status": "completed"
+      "progress": "100%"
     },
     {
       "data-tab": "enviromental-conservation-phase-1",
@@ -77,8 +70,7 @@
       "campaign-title": "Environmental Conservation - (phase-1)",
       "campaign-text": ">Protecting and preserving natural habitats while promoting sustainable practices that support wildlife, reduce environmental harm, and ensure a healthier planet for future generations.",
       "campaign-goal": "$94,170",
-      "progress": "100%",
-      "status": "completed"
+      "progress": "100%"
     }
   ]
 }
