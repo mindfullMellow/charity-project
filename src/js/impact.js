@@ -43,10 +43,10 @@ fetch('../../index.html').then(res => res.text())
 
     //get the impact cards and add the stye callss to fit the about page
     document.querySelector('.impact-cards').classList.add('mt-sm', 'shadow-xl', 'bg-transparent')
-    const cardschildren = document.querySelector('.impact-cards').children
-    Array.from(cardschildren).forEach(cur => {
-      cur.classList.add('grid-el')
-    });
+
+
+    saySomethingModal()
+    impactJsonInit()
 
 
   });
@@ -58,11 +58,16 @@ async function impactJsonInit() {
 
   try {
     const response = await fetch('/data/impact.json')
+    const impactres = await fetch('/data/index.json')
     const data = await response.json()
+    const impactData = await impactres.json()
+
+    console.log(impactData);
 
     const successStories = data['success-stories']
     const testimonials = data["testimonies"]
     const projectSpotlight = data["project-spotlight"]
+    const impact = impactData["impact-data"]
 
     successStories.forEach(cur => {
 
@@ -107,7 +112,7 @@ async function impactJsonInit() {
               </div>
 
               <div class="flex flex-col text-body">
-                <p class="font-bold ">L${cur["UserName"]}</p>
+                <p class="font-bold ">${cur["UserName"]}</p>
                 <span class="text-small opacity-80">${cur["date"]}</span>
               </div>
             </div>
@@ -199,8 +204,22 @@ async function impactJsonInit() {
       featuredSection.insertAdjacentHTML('beforeend', projectHTML)
     });
 
+    impact.forEach(cur => {
+      const impactHTML = `   <div class="px-sm py-lg bg-white-accent flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
+              <p class="font-normal text-body">${cur.category}</p>
+              <span class="font-bold text-h4 ">${cur.value}</span>
+            </div>`
+
+      document.querySelector('.impact-cards').insertAdjacentHTML("beforeend", impactHTML)
+    });
+
 
     (() => {
+      const cardschildren = document.querySelector('.impact-cards').children
+      Array.from(cardschildren).forEach(cur => {
+        cur.classList.add('grid-el')
+      });
+
       chartInit()
     })()
 
@@ -210,7 +229,7 @@ async function impactJsonInit() {
 
 }
 
-impactJsonInit()
+
 
 
 
@@ -372,4 +391,71 @@ function chartInit() {
 
 
   })
+}
+
+function saySomethingModal() {
+  const loadingModal = document.querySelector('.donation-modal-3')
+  const saySomethingBTN = document.querySelector('.say-something')
+  const overlay = document.querySelector('.overlay')
+  const headerEl = document.querySelector('.header')
+  const failedMessage = document.querySelector('.failed-modal')
+  const closeModalBTN = failedMessage.querySelector('button')
+
+
+
+  function openModal(element) {
+    //Disable scrolling while the modal is active (body and html elemnt itslef)
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden';
+
+    element.classList.remove('hidden')
+    overlay.classList.remove('hidden')
+
+    //store a message to inform the page taht sticky is activated 
+    if (headerEl.classList.contains('sticky')) {
+      headerEl.classList.remove('sticky')
+      sessionStorage.setItem('sticky', "sticky is active")
+    }
+
+    if (!headerEl.classList.contains('sticky')) return
+  }
+
+  function closeModal(element) {
+    //activate  scrolling while the modal is inactive (body and html elemnt itslef)
+    document.body.style.overflow = ''
+    document.documentElement.style.overflow = ''
+
+    element.classList.add('hidden')
+    overlay.classList.add('hidden')
+
+    //check the stored message to know if sticky class isactivated 
+    if (sessionStorage.getItem('sticky')) {
+      headerEl.classList.add('sticky')
+      sessionStorage.removeItem('sticky')
+    }
+  }
+
+  function getRandomNumbers(lowerRange, higherRange) {
+    // return Math.floor((Math.random() * (higherRange - lowerRange) + 1) + lowerRange)
+    const min = lowerRange;
+    const max = higherRange;
+    const randomArray = new Uint32Array(1);
+    crypto.getRandomValues(randomArray);
+    const num = min + (randomArray[0] % (max - min + 1));
+    return num
+  }
+
+
+  saySomethingBTN.addEventListener("click", () => {
+    openModal(loadingModal)
+
+    setTimeout(() => {
+      closeModal(loadingModal)
+      openModal(failedMessage)
+
+    }, getRandomNumbers(2, 8) * 1000);
+  })
+
+
+  closeModalBTN.addEventListener("click", () => closeModal(failedMessage))
 }

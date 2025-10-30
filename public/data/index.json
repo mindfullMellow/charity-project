@@ -42,5 +42,19 @@
       "card-title": "Women Empowerment Programs",
       "card-text": " Stand with women working toward independence and equality by supporting training sessions, educational programs, and awareness drives that help them build stronger futures."
     }
+  ],
+  "impact-data": [
+    {
+      "category": "Lives Improved",
+      "value": "50,000+"
+    },
+    {
+      "category": "Trees Planted",
+      "value": "11,001+"
+    },
+    {
+      "category": "Communities Empowered",
+      "value": "56+"
+    }
   ]
 }

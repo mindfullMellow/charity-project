@@ -14,7 +14,9 @@ async function loadVolunteers() {
     const data = await response.json();
 
     const volunteerDataArr = data["volunteer-data"];
+    const impactDataArr = data["impact-data"]
     const sliderContainer = document.querySelector('.slider-container')
+    const impactContainer = document.querySelector('.impact-cards')
 
     //LOOP TO CREATE THE CARDS
     volunteerDataArr.forEach(cur => {
@@ -35,6 +37,15 @@ async function loadVolunteers() {
   `;
 
       sliderContainer.insertAdjacentHTML('beforeend', cardHtml);
+    });
+
+    impactDataArr.forEach(cur => {
+      const impactHTML = `   <div class="px-sm py-lg bg-white-accent flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
+              <p class="font-normal text-body">${cur.category}</p>
+              <span class="font-bold text-h4 ">${cur.value}</span>
+            </div>`
+
+      impactContainer.insertAdjacentHTML("beforeend", impactHTML)
     });
 
     //WAIT UNTIL THE CARD LOOP IS DONE THEN CALL ALL INIT FUNCTIONS

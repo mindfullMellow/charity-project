@@ -163,23 +163,6 @@
 
           <div class="flex flex-wrap gap-sm impact-cards">
 
-
-            <div class="px-sm py-lg bg-white-accent flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
-              <p class="font-normal text-body">Lives Improved</p>
-              <span class="font-bold text-h4 ">50,000+</span>
-            </div>
-
-            <div class="px-sm py-lg bg-white-accent flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
-              <p class="font-normal text-body">Trees Planted</p>
-              <span class="font-bold text-h4 ">100,000+</span>
-            </div>
-
-            <div class="px-sm py-lg bg-white-accent flex flex-col justify-around flex-1 rounded-lg min-w-[300px]">
-              <p class="font-normal text-body">Communities Empowered </p>
-              <span class="font-bold text-h4 ">120+</span>
-            </div>
-
-
           </div>
 
         </div>
@@ -2233,6 +2216,21 @@
           <ion-icon name="close-outline" class="modal-icon"></ion-icon>
         </button>
       </div>
+
+      <div class="relative hidden failed-modal">
+        <div class="flex flex-col items-center justify-center gap-sm p-md">
+          <ion-icon name="information-circle-outline" class="block text-yellow-500 text-h2"></ion-icon>
+          <p class="font-semibold">Something went wrong. Please try again</p>
+        </div>
+
+        <button
+          class="absolute flex items-center justify-center w-8 h-8 rounded-full p- top-3 right-3 text-body bg-white-accent"
+          id="close-payment-err">
+          <ion-icon name="close-outline" class="modal-icon"></ion-icon>
+        </button>
+
+      </div>
+
       <div class="hidden overlay"></div>
     </div>
 
