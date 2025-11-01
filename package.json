@@ -16,6 +16,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "chart.js": "^4.5.0",
+    "ionicons": "^8.0.13",
     "tailwindcss": "^3.4.17",
     "tippy.js": "^6.3.7"
   }

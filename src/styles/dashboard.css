@@ -1,0 +1,106 @@
+@import url("../style.css");
+@import url("./queries.css");
+h2 {
+  @apply font-heading;
+}
+
+.dashboard-subheading {
+  @apply font-semibold text-h5 mb-sm;
+}
+
+.menu-nav {
+  @apply flex items-center justify-start gap-sm p-2 cursor-pointer hover:text-header-color/70 duration-300 transition-all;
+}
+
+.menu-nav ion-icon {
+  @apply ml-2 text-h5;
+}
+
+.menu-nav p {
+  @apply font-semibold text-body font-heading;
+}
+
+.active-nav {
+  @apply bg-white-accent rounded-lg;
+}
+
+.group span {
+  width: 100px !important;
+}
+
+.member-duration {
+  @apply font-light inline-block text-header-color/80 text-small -mt-[4px] !important;
+}
+
+.card {
+  @apply p-md bg-white-accent flex flex-col  flex-1 gap-xs rounded-lg min-w-[350px];
+}
+
+.card__p {
+  @apply font-normal text-body;
+}
+
+.card__span {
+  @apply font-bold text-h4;
+}
+
+@layer components {
+  th {
+    @apply p-sm w-[300px] text-left;
+  }
+
+  tbody tr {
+    @apply border-t border-border-b-color;
+  }
+
+  .tbody-data {
+    @apply h-[72px] px-sm py-xs text-left;
+  }
+
+  .donation-status {
+    @apply flex items-center justify-center font-bold text-small gap-xxs;
+  }
+
+  .payment-completed {
+    @apply text-green-500;
+  }
+
+  .payment-pending {
+    @apply text-yellow-500;
+  }
+
+  .payment-cancelled {
+    @apply text-red-500;
+  }
+}
+
+.grid-card {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  @apply md:p-md p-sm rounded-lg bg-white-accent;
+}
+
+.stories-grid a {
+  @apply font-bold text-body pb-[2px] border-b-2 border-brand-color text-brand-color hover:border-transparent hover:text-brand-dark-accent duration-300 transition-all;
+}
+
+.story-h6 {
+  @apply font-bold text-h6 font-heading;
+}
+
+.feature-img {
+  @apply justify-self-end h-[80%] w-[80%];
+}
+
+.feature-img img {
+  @apply w-full rounded-lg;
+}

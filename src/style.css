@@ -85,6 +85,10 @@ body {
   @apply font-medium transition-all duration-300 hover:text-header-color;
 }
 
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
 /* 
 /////////////////////////////////////////////////
 TIPPY STLYES

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../src/styles/dashboard.css">
+
+  <title>Member dashboard | One-Life Org</title>
+</head>
+
+<body class="relative flex w-full">
+
+  <!-- i still have to make a max width incase it gets displayed on large screens  -->
+
+  <!-- SIDEMENU -->
+  <div
+    class="w-[25%] h-screen p-md flex flex-col shadow-lg  rounded-tr-3xl rounded-br-3xl border border-border-b-color fixed inset-0">
+    <div class="flex items-center justify-between">
+
+      <div class="menu-nav">
+
+        <div class="w-10 h-10 ">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNatooDiUj__XJCYr3i82_Zwr83VEnk17noU2IUepZ8Iik_ASL_AjT-ZlBhpFVXjRwgd2ixQqNgx-dJSxz2u5AM5VNT8uW0OUAI4ZWrUFc2gPL8H3gX9cUQFm02c6AR96_sdTysadLO73YPfKF2UOfLAbSGfyBYe4uHIJviobtymdlmbJCGzPnHMu4jTfhuMK-3WAN470UDdNcmp07ssoPU5Cl513_JWsrk8WFXaZYvkC84srKL_rjQUv7uSQPX9x2eEpsJMLXs4CJ"
+            alt="Avatar" class="w-full h-full rounded-full">
+        </div>
+
+        <div>
+          <p class="font-semibold text-body font-heading">Oliva Bernett</p>
+          <p><span class="font-light inline-block text-header-color/80 text-small -mt-[4px] font-body">Member since
+              2022</span>
+          </p>
+        </div>
+      </div>
+
+
+
+      <button
+        class="relative flex items-center justify-center transition-all duration-300 rounded-sm group cursor-ew-resize p-xs hover:bg-white-accent close-sideMenu">
+        <ion-icon name="journal-outline" class="text-h6 hover:opacity-70"></ion-icon>
+        <span
+          class="absolute hidden mb-2 text-xs font-medium text-white rounded-lg -bottom-10 -left-10 bg-header-color p-xxs group-hover:block">
+          close sidebar
+        </span>
+      </button>
+
+    </div>
+
+    <nav class="mt-md">
+      <ul class="flex flex-col gap-xs">
+
+        <li class="menu-nav active-nav">
+          <ion-icon name="home" class=""></ion-icon>
+          <p class="">Dashboard</p>
+        </li>
+
+        <li class="menu-nav">
+          <ion-icon name="receipt-outline"></ion-icon>
+          <p class="">Donation History</p>
+        </li>
+
+        <li class="menu-nav">
+          <ion-icon name="stats-chart-outline"></ion-icon>
+          <p class="">Impact Report</p>
+        </li>
+
+        <li class="menu-nav">
+          <ion-icon name="mail-open-outline"></ion-icon>
+          <p class="">Newsletters</p>
+        </li>
+
+        <li class="menu-nav">
+          <ion-icon name="people-outline"></ion-icon>
+          <p class="">Membership Details</p>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mt-auto">
+      <div class="border-t menu-nav border-border-b-color">
+        <ion-icon name="log-in-outline"></ion-icon>
+        <p class="">Log-Out</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN PAGE CONTAINER -->
+  <div class="w-full h-full px-lg py-md ml-[25%]">
+    <main>
+      <h2 class="h2-el">Welcome back, <span>Oliva</span></h2>
+
+      <!-- OVERVIEW SECTION -->
+      <section class="py-lg">
+        <h4 class="dashboard-subheading">Your Impact</h4>
+
+        <div class="flex flex-wrap gap-sm ">
+
+          <div class="card">
+            <p class="card__p">Total Donation</p>
+            <span class="card__span">$12,918</span>
+          </div>
+
+          <div class="card">
+            <p class="card__p">Life Impacted</p>
+            <span class="card__span">819+</span>
+          </div>
+          <div class="card">
+            <p class="card__p">Project Supported</p>
+            <span class="card__span">12</span>
+          </div>
+        </div>
+        <div></div>
+      </section>
+
+      <!-- RECENT DONATIONS -->
+      <section class="py-lg">
+        <h4 class="dashboard-subheading">Recent Donations</h4>
+
+        <div class="flex overflow-x-auto border rounded-lg border-border-b-color">
+          <table>
+            <thead class="font-bold text-body font-heading">
+              <tr>
+                <th class="">Date</th>
+                <th class="">Amount</th>
+                <th class="">Cause</th>
+                <th class="text-center">Status</th>
+              </tr>
+            </thead>
+
+            <tbody class="font-normal leading-normal tracking-wide text-small">
+              <tr class="">
+                <td class="tbody-data">2024-07-15</td>
+                <td class="tbody-data">$500</td>
+                <td class="tbody-data">Monthly charity donation</td>
+                <td class="tbody-data ">
+                  <div class="donation-status payment-pending">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                    <p>pending</p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="">
+                <td class="tbody-data">2024-06-20</td>
+                <td class="tbody-data">$700</td>
+                <td class="tbody-data">Orphan kids supports</td>
+                <td class="tbody-data ">
+                  <div class="donation-status payment-cancelled">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                    <p>cancelled</p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="">
+                <td class="tbody-data">2024-0-10</td>
+                <td class="tbody-data">$1000</td>
+                <td class="tbody-data">Health initiative</td>
+                <td class="tbody-data ">
+                  <div class="donation-status payment-completed">
+                    <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+                    <p>completed</p>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <div class="font-bold flex-center mt-md text-header-color/70">
+          <button
+            class="text-small p-[1px] border-b border-transparent hover:text-header-color hover:border-header-color duration-300 transition-all">View
+            all donations</button>
+        </div>
+
+      </section>
+
+
+      <!--  UPCOMING EVENTS -->
+      <section class="py-lg">
+        <h4 class="dashboard-subheading pb-sm">Upcoming Member-Exclusive Events</h4>
+
+
+        <div class="flex flex-col gap-md">
+
+          <div class="rounded-lg grid-card p-md shadow-custom-shadow ">
+            <div class="flex flex-col gap-xs shrink">
+              <h6 class="font-semibold text-h6">Webinar: Advancements in Global Health</h6>
+              <p class="text-body text-header-color/80">Join us for an exclusive webinar with Dr. Emily Harper, a
+                leading
+                expert in global health, as she
+                discusses the latest
+                advancements in healthcare initiatives and the impact of our collective efforts.</p>
+              <span class="font-light text-small text-header-color/70">October 15, 2024 | 6:00 PM - 7:30 PM</span>
+            </div>
+
+
+            <div class="flex items-center justify-center">
+              <button class="font-bold rounded-md text-body px-lg py-xs cta-btn">RSVP</button>
+            </div>
+          </div>
+
+
+          <div class="rounded-lg grid-card p-md shadow-custom-shadow ">
+            <div class="flex flex-col gap-xs shrink">
+              <h6 class="font-semibold text-h6">Annual Member Appreciation Gala</h6>
+              <p class="text-body text-header-color/80">An evening of celebration and recognition of our members'
+                contributions. Enjoy live music, guest speakers, and a chance
+                to connect with fellow supporters.</p>
+              <span class="font-light text-small text-header-color/70">November 20, 2024 | 7:00 PM - 9:00 PM</span>
+            </div>
+
+
+            <div class="flex items-center justify-center">
+              <button class="font-bold rounded-md text-body px-lg py-xs cta-btn">RSVP</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- LATEST NEWSLETTER -->
+      <section class="py-lg">
+        <h4 class="dashboard-subheading pb-sm">Latest Newsletter</h4>
+
+        <ul>
+          <li class="shadow-none stories-grid">
+            <div class="flex flex-col justify-between">
+
+              <div class="flex flex-col items-start gap-sm">
+                <h6 class="story-h6 font-heading">Clean Water Project – Northern Somalia</h6>
+                <p class="text-body">Delivered clean and safe drinking water to 15 remote villages by building boreholes
+                  and
+                  installing solar-powered pumps. The project improved health conditions and reduced waterborne diseases
+                  for over
+                  5,000 residents.</p>
+              </div>
+
+              <div>
+                <a href="#" class="">Read
+                  More →</a>
+              </div>
+
+            </div>
+
+            <div class="relative feature-img">
+              <img src="https://pub-ff760967c0f94a57ba864d84fa36603e.r2.dev/img/impact/sudan.webp"
+                alt="People Fetching water from a well in Sudan">
+            </div>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module" src="../src/js/dashboard.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
